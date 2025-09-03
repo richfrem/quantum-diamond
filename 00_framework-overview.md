@@ -98,7 +98,7 @@ graph TD
 
 The specific techniques, prompts, and agent interactions for this phase are detailed in its dedicated playbook.
 
-➡️ **For a detailed guide, see the [Playbook: The Genesis Cycle](./01_Playbook_GenesisCycle.md).**
+mew➡️ **For a detailed guide, see the [Playbook: The Genesis Cycle](./01_playbook-genesis-cycle.md).**
 
 ---
 ## Phase II: ⚙️ The Engineering Cycle (Build the Thing Right)
