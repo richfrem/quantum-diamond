@@ -39,9 +39,9 @@ graph TD
     subgraph "Phase I: 🌀 The Genesis Cycle (The Jam Session)"
         A[Human Intent]
         B{AI App<br/>Prototyper}
-        C[Tangible Prototype<br/>(UI & Logic)]
+        C["Tangible Prototype<br/>(UI & Logic)"]
         D{AI Product<br/>Strategist}
-        E[Strategic Insights<br/>(Personas, 'HMWs')]
+        E["Strategic Insights<br/>(Personas, 'HMWs')"]
 
         A -- "Make this idea real" --> B
         B -- Generates --> C
@@ -52,7 +52,7 @@ graph TD
     end
     
     subgraph " "
-        ValidatedVision([Validated Vision Prototype])
+        ValidatedVision(["Validated Vision Prototype"])
         A -- Validates & Finalizes --> ValidatedVision
     end
 
