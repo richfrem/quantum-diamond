@@ -1,10 +1,12 @@
 # Playbook: The Engineering Cycle
-**Version:** 3.0
+**Version:** 3.1
 **Part of:** The Quantum Diamond Framework
 
 ## The Core Principle: Engineer the Reality
 
-The Genesis Cycle explores the quantum realm of possibilities. It's creative, chaotic, and divergent. This Engineering Cycle is where we collapse that possibility into a single, classical, deterministic reality. **The fundamental goal of this playbook is to eliminate improvisation from the production path.** We are not exploring; we are building. This is the factory blueprint.
+The Genesis Cycle explores the quantum realm of possibilities. It's creative, chaotic, and divergent. This Engineering Cycle is where we collapse that possibility into a single, classical, deterministic reality. **The fundamental goal of this playbook is to eliminate improvisation from the production path.**
+
+Where the Genesis Cycle is a fluid jam session, this cycle is the sheet music. We are not exploring; we are building. This is the factory blueprint, designed for predictability, reliability, and rigor.
 
 ### The Engineering Cycle at a Glance
 
@@ -25,14 +27,14 @@ graph TD
     S3 -- Yes --> S4
     S3 -- No --> S2
 
-    S5 -.-> |Major Revision Needed| S0
+    S5 -.-> |Major Revision Needed| Genesis Cycle
     S5 -.-> |Minor Prompt/Logic Tweak| S2
 ```
 
 ---
 ## The Handoff
 
-The input to this cycle is the **Validated Vision Prototype** and **Initial AI Component Contract** from the Genesis Cycle.
+The input to this cycle is the **Validated Vision Prototype** and **Initial AI Component Contract** that emerged from the Genesis Cycle.
 
 ---
 ### Stage 0: Strategy & System Design (The Blueprint)
@@ -46,9 +48,9 @@ The input to this cycle is the **Validated Vision Prototype** and **Initial AI C
 
 ---
 ### Stage 2: Implementation (The AI Core)
-1.  **Rewrite Prototype Logic as Production Code.**
+1.  **Rewrite Prototype Logic as Production Code.** The prototype was for learning; this is for scale and reliability.
 2.  **Use Schema-Driven Libraries:** Use tools like `instructor` to bind the LLM call directly to your Pydantic schemas, enforcing your contract at runtime.
-3.  **Externalize Prompts:** Store prompts in a `prompts/` directory, treating them as versioned configuration.
+3.  **Externalize Prompts:** Store prompts in a `prompts/` directory, treating them as versioned configuration, not magic strings in code.
 
 ---
 ### Stage 3: Behavioral Validation (The Safety Net)
@@ -69,4 +71,4 @@ Build an automated "wall of tests" in CI. The change is not ready to merge until
 1.  **System Health:** Monitor standard app metrics (latency, errors, CPU).
 2.  **AI Component Health ("Golden Signals" of AIOps):** Monitor **cost**, **latency**, and **validation failure rate**.
 3.  **Output Drift:** Monitor the statistical properties of the AI's output.
-4.  **The Feedback Loop:** Insights from monitoring are the primary input for the next **Genesis Cycle**.
+4.  **The Feedback Loop:** Insights from monitoring are the primary input for the next **Genesis Cycle**, kicking off a new round of creative exploration.
