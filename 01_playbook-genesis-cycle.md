@@ -1,5 +1,5 @@
 # Playbook: The Genesis Cycle
-**Version:** 3.1
+**Version:** 3.2
 **Subtitle:** The Jam Session
 **Part of:** The Quantum Diamond Framework
 
