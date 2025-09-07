@@ -1,5 +1,5 @@
 # Playbook: The Genesis Cycle
-**Version:** 4.3
+**Version:** 4.4
 **Subtitle:** The Jam Session
 **Part of:** The Quantum Diamond Framework
 
@@ -23,25 +23,34 @@ This path is optimized for **maximum speed and instant visual feedback**. It's i
 *   **Strengths:** Unparalleled speed, zero setup, and a tight visual feedback loop.
 *   **Outcome:** A complete, runnable codebase that serves as the **Validated Vision Prototype**.
 
-### Path B: The Guided Prototyping Session (e.g., Gemini in VS Code, github copilot, claude, Kilo Code, etc.)
+### Path B: The Guided Prototyping Session (e.g., Gemini in VS Code)
 
 This path is optimized for **granularity, control, and integration into an existing workflow**. It's ideal when you need to be more deliberate, work within a local environment, or build a feature within a larger, pre-existing codebase.
 
 *   **Environment:** Your local IDE (e.g., VS Code) with a powerful AI chat assistant (like Gemini or Copilot Chat).
 *   **The "Agents":** You, the Human Lead, direct the general-purpose AI to adopt the specialist personas defined in the framework (Scaffolder, Specialist) using a foundational system prompt.
 *   **Process:**
-    1.  The Human Lead initializes the AI with the framework's system prompt.
+    1.  The Human Lead initializes the AI with the framework's system prompt (`prompts/04_AIA_SYSTEM_PROMPT_v4.md`).
     2.  The Human Lead directs the AI to perform specific tasks (e.g., "Act as a Scaffolder and create the local database schema").
     3.  The AI generates code blocks, which the Human Lead integrates into their local project. The live preview is managed via the local dev server.
 *   **Strengths:** Full control over every step, works offline with local-first tools, and integrates directly into a developer's existing environment.
 *   **Outcome:** A complete, runnable local codebase that serves as the **Validated Vision Prototype**.
 
 ---
+## Bridging the "Aesthetic Gap"
+
+A key challenge in any UI generation process is the **"Aesthetic Gap"**: the difference between a merely functional UI and a beautiful, modern one. General-purpose AIs are functional minimalists; they will produce the simplest possible UI to satisfy a request.
+
+The Quantum Diamond Framework bridges this gap by embedding a **Critical Design System Mandate** directly into the `AI UI/UX Specialist` persona in the `v4` system prompt. This mandate commands the AI to act as a world-class designer with a specific, modern taste.
+
+When you engage the `AI UI/UX Specialist`, you are not just asking for a UI; you are asking for a well-designed, aesthetically pleasing product built on a foundation of design tokens, modern components (`shadcn/ui`), and best practices in visual hierarchy and layout. This is how we ensure the prototype is not just a functional skeleton, but a true **Validated Vision Prototype**.
+
+---
 ## The Handoff: The Unifying Goal
 
 No matter which path you take, the Genesis Cycle is complete when it has produced the two critical artifacts needed to begin the **Engineering Cycle**:
 
-*   ✅ A **Validated Vision Prototype**: A working application (either cloud-based from Path A or local-first from Path B) that has received positive feedback and captures the core product vision.
-*   ✅ A set of **Initial Engineering Artifacts**: The source code, schema definitions (SQL migrations or Prisma schema), and nascent design system produced during the jam session.
+*   ✅ A **Validated Vision Prototype**: A working application that is both functional and aesthetically pleasing, capturing the core product vision.
+*   ✅ A set of **Initial Engineering Artifacts**: The source code, schema definitions (SQL migrations or Prisma schema), and the `index.css` and `tailwind.config.ts` files that define the nascent design system.
 
 These artifacts are the direct input for the **Engineering Cycle**, where the prototype will be hardened, tested, and prepared for production.
