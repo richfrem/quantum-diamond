@@ -14,7 +14,6 @@ The choice of path depends on the project's context. Both are valid applications
 
 ```mermaid
 graph TD
-    title Genesis Cycle Prototyping Paths
 
     A[Human Intent] --> B{Choose Prototyping Path};
     B --> C["Path A: Rapid Prototyping Canvas<br/>(e.g., bolt.new)<br/><em>Optimized for Speed</em>"];
