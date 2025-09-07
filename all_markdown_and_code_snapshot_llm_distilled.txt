@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-09-07T18:43:42.318Z
+Generated On: 2025-09-07T19:09:33.393Z
 
-# Mnemonic Weight (Token Count): ~14,843 tokens
+# Mnemonic Weight (Token Count): ~14,990 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -30,7 +30,7 @@ Generated On: 2025-09-07T18:43:42.318Z
 --- START OF FILE 01_playbook-genesis-cycle.md ---
 
 # Playbook: The Genesis Cycle
-**Version:** v16
+**Version:** v17
 **Subtitle:** The Jam Session
 **Part of:** The Quantum Diamond Framework
 
@@ -106,7 +106,7 @@ These artifacts are the direct input for the **Engineering Cycle**, where the pr
 --- START OF FILE 02_playbook-engineering-cycle.md ---
 
 # Playbook: The Engineering Cycle
-**Version:** v16
+**Version:** v17
 **Part of:** The Quantum Diamond Framework
 
 ## The Core Principle: Engineer the Reality
@@ -188,7 +188,7 @@ Build an automated "wall of tests" in CI: Correctness, Guardrail, Robustness, an
 --- START OF FILE 03_walkthrough-genesis-cycle-in-action.md ---
 
 # Walkthrough: The Genesis Cycle in Action
-**Version:** v16
+**Version:** v17
 **Project:** Exercise Tracking App
 
 This document provides a detailed, step-by-step walkthrough of **Path B: The Guided Prototyping Session**, using a local-first strategy. It demonstrates how to rapidly build a high-quality prototype using a general-purpose AI assistant in your local IDE.
@@ -304,7 +304,7 @@ This document provides a detailed, step-by-step walkthrough of **Path B: The Gui
 --- START OF FILE 04_AIA_SYSTEM_PROMPT.md ---
 
 # System Persona: The Quantum Diamond AI Architect
-**Version:** v16
+**Version:** v17
 
 You are no longer a general AI assistant. You are now the **Quantum Diamond AI Architect**, my expert partner for building high-quality, professional-grade, and testable full-stack applications. Your entire operational model is based on the **Quantum Diamond Framework**, which I will now define for you.
 
@@ -369,11 +369,12 @@ This persona is **always active in the background**. Your focus is on **architec
 *   **Architectural Decision Records (ADRs):** As we make key architectural choices (like using local-first prototyping), you are responsible for creating and maintaining documents in the `adrs/` directory to document the context, decision, and consequences.
 *   **User Requirements Documentation:** As my intent is clarified through our conversation, you MUST distill this into user requirements. You will create and maintain a `docs/UserRequirements.md` file, capturing the features and user stories as they emerge.
 *   **Data Contract Documentation:** Whenever we define or modify types in `src/types/index.ts`, you are responsible for updating the human-readable `docs/DataContracts.md` file to reflect the current state of our data model.
+*   **Database Setup Documentation:** After the initial database scaffolding is complete, you MUST create a `docs/DATABASE_SETUP.md` file. This file should explain how to connect to, view, and manage the local database, including commands like `npx prisma studio`.
 *   **"Graduation" Planning:** When we are ready to transition from the Genesis Cycle to the Engineering Cycle, you will create the high-level plan for "graduating" the prototype (database migration, security hardening, test creation).
 
 ### --- The Active Personas ---
 
-I will explicitly direct you to use one of the following two personas for implementation tasks.
+I will explicitly direct you to use one of the aactive personas for implementation tasks.
 
 ### 1. The AI Full-Stack Scaffolder (The "Bolt" Persona)
 Your focus is on **rapid, local-first, full-stack scaffolding**. Your job is to build a functional application skeleton with a professional architecture from day one.
@@ -381,7 +382,7 @@ Your focus is on **rapid, local-first, full-stack scaffolding**. Your job is to 
 **Your Responsibilities:**
 -   **Project Setup:** Initialize Vite + React + TypeScript via the `package.json`.
 -   **Local Server Backend:** Your default persistence is a local-first server. You MUST create a simple Node.js Express server that runs on a separate port from the Vite frontend.
--   **Local Database:** You MUST use Prisma and SQLite to create and manage a local database file. You will generate the initial `schema.prisma` file and then you **MUST provide the user with the clear, copy-pasteable shell command(s)** needed to create the first database migration (e.g., `npx prisma migrate dev --name init`). You should also briefly explain why this command is necessary.
+-   **Local Database Setup:** You MUST use Prisma and SQLite. After generating the `schema.prisma` file, you **MUST use the `run_shell_command` tool to execute the database setup and migration commands** that bring the database online.
 
 **--- CRITICAL LOCAL SERVER PERSISTENCE MANDATE ---**
 -   You are building a prototype with a **local-first server backend**. Data **MUST** be persisted in the local SQLite database.
@@ -389,6 +390,14 @@ Your focus is on **rapid, local-first, full-stack scaffolding**. Your job is to 
 -   The React frontend **MUST** call these API endpoints to interact with the data.
 -   You are **FORBIDDEN** from using temporary in-memory arrays or `useState` for storing application data. All data must be fetched from the local server.
 -   When you generate the application, you MUST confirm in your response that data is persisted via the local Node.js server and SQLite database.
+**--- END MANDATE ---**
+
+**--- CRITICAL SETUP EXECUTION MANDATE ---**
+-   After generating all the necessary code, schema, and configuration files, you **MUST** use the `run_shell_command` tool to perform the final setup steps in the correct order.
+    1.  **Install Dependencies:** Run `npm install`.
+    2.  **Generate Prisma Client:** Run `npx prisma generate`.
+    3.  **Run Database Migration:** Run `npx prisma migrate dev --name init`.
+-   You must verify the success of each command before proceeding to the next. Only after these commands have completed successfully is the scaffolding process complete.
 **--- END MANDATE ---**
 
 **--- CRUCIAL "FIRST-SHOT" APPLICATION ARCHITECTURE MANDATE ---**
@@ -434,7 +443,7 @@ You are now ready to begin your role as my AI Architect.
 --- START OF FILE 05_ENGINEERING_KICKOFF_PROMPT.md ---
 
 # Engineering Cycle Kick-Off
-**Version:** v16
+**Version:** v17
 
 **Human Lead Directive:** The Genesis Cycle is now complete. We have a validated vision prototype. We are now officially entering the **Engineering Cycle**. The "jam session" is over; it's time to build the factory.
 
@@ -490,7 +499,7 @@ From this point forward, every piece of code you generate must be of production 
 --- START OF FILE HowToUseToBuildAnApp.md ---
 
 # How to Use This Framework to Build Your App
-**Version:** v16
+**Version:** v17
 
 This tutorial walks you through the definitive Quantum Diamond workflow: **Path B, The Guided Prototyping Session**. It will show you how to use your AI Architect to build a complete, well-designed application from scratch in your local IDE.
 
@@ -539,7 +548,7 @@ The AI, following its new **Kick-Off and Clarification Protocols**, will NOT imm
 > *   *Intuitive navigation between your library, wishlist, and search.*
 >
 > ***Clarifying Questions:***
-> *1. For initial prototyping, should we use a simple local storage solution for data, or set up a cloud database from the start?*
+> *1. For this prototype, are there any specific fields you want to capture for each book beyond the basics (e.g., publisher, page count, original language)?*
 > *2. Should the app include a feature to scan a book's ISBN barcode to add it? (This would be a future consideration)*
 > *3. Is a social component, like sharing reviews with friends, important for this first version?*
 
@@ -550,26 +559,24 @@ This step is where you, the Human Lead, provide clarity and give the command to 
 **Your next prompt in the chat (customize your answers):**
 
 > That vision is perfect. Let's answer your questions:
-> 1.  Yes, let's use a **local-first** approach with local storage for now.
+> 1.  No, the basic fields are fine for now.
 > 2.  No, **barcode scanning is not needed** for the first version.
 > 3.  No, a **social component is not needed** for the first version.
 >
-> Please proceed. Adopt the **AI Full-Stack Scaffolder** persona and create the initial local-first foundation, following your **"First-Shot" Application Architecture Mandate**.
+> Please proceed. Adopt the **AI Full-Stack Scaffolder** persona and create the initial local-first foundation.
 
-### Step 4: Initialize Your Local Database
-After the AI provides the files, it will also give you a shell command. This command uses Prisma to create your local SQLite database.
+### Step 4: Automated Setup & Execution
+After the AI generates the code, it will then proceed to **execute the setup commands** for you. It will install all dependencies and initialize the local database. You will see the output from these commands in the chat.
 
-**Copy and paste the command from the AI into your terminal and run it.**
-
-**Result:** You now have a fully scaffolded application and a running local database, ready for use.
+**Result:** You will receive a fully configured and operational application, ready to be started.
 
 **Expected Result:**
-The AI will now respond with its tactical "Chain of Thought" plan. This will be followed by a single, holistic response containing all the files needed (`App.tsx`, `Header.tsx`, `Navigation.tsx`, etc.) to build the complete application skeleton.
+The AI will now respond with its tactical "Chain of Thought" plan. This will be followed by a single, holistic response containing all the files for the application skeleton, **followed by the output of the setup commands it runs for you.**
 
 Finally, at the end of its response, it will report on the work it just did, making the "emergent rigor" transparent:
 
 > **Active Persona:** `AI Full-Stack Scaffolder`
-> **Guardian Artifacts Produced:** `adrs/001-local-first-prototyping.md`, `docs/UserRequirements.md`, `docs/DataContracts.md`
+> **Guardian Artifacts Produced:** `adrs/001-local-first-prototyping.md`, `docs/UserRequirements.md`, `docs/DataContracts.md`, `docs/DATABASE_SETUP.md`
 
 You have now successfully navigated the most critical phase of the Genesis Cycle, moving from a vague idea to a clear, co-designed vision, and finally to a professional-grade scaffold, with its initial technical architecture and user requirements already documented for the future Engineering Cycle.
 --- END OF FILE HowToUseToBuildAnApp.md ---
@@ -864,7 +871,7 @@ I will provide the strategic domain we need to integrate. You will generate the 
 --- START OF FILE README.md ---
 
 # The Quantum Diamond AI Application Development Framework
-**Version:** v16
+**Version:** v17
 
 ## Overview
 Traditional development models are breaking under the creative and technical pressures of the AI age. Teams are caught in a false dichotomy: move fast with inspired "vibe coding" and risk building brittle, unmaintainable systems, or move slowly with rigorous "architecture-first" discipline and risk engineering the wrong solution perfectly.

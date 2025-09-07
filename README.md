@@ -1,5 +1,5 @@
 # The Quantum Diamond AI Application Development Framework
-**Version:** v16
+**Version:** v17
 
 ## Overview
 Traditional development models are breaking under the creative and technical pressures of the AI age. Teams are caught in a false dichotomy: move fast with inspired "vibe coding" and risk building brittle, unmaintainable systems, or move slowly with rigorous "architecture-first" discipline and risk engineering the wrong solution perfectly.

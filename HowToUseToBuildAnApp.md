@@ -1,5 +1,5 @@
 # How to Use This Framework to Build Your App
-**Version:** v16
+**Version:** v17
 
 This tutorial walks you through the definitive Quantum Diamond workflow: **Path B, The Guided Prototyping Session**. It will show you how to use your AI Architect to build a complete, well-designed application from scratch in your local IDE.
 
@@ -48,7 +48,7 @@ The AI, following its new **Kick-Off and Clarification Protocols**, will NOT imm
 > *   *Intuitive navigation between your library, wishlist, and search.*
 >
 > ***Clarifying Questions:***
-> *1. For initial prototyping, should we use a simple local storage solution for data, or set up a cloud database from the start?*
+> *1. For this prototype, are there any specific fields you want to capture for each book beyond the basics (e.g., publisher, page count, original language)?*
 > *2. Should the app include a feature to scan a book's ISBN barcode to add it? (This would be a future consideration)*
 > *3. Is a social component, like sharing reviews with friends, important for this first version?*
 
@@ -59,25 +59,23 @@ This step is where you, the Human Lead, provide clarity and give the command to 
 **Your next prompt in the chat (customize your answers):**
 
 > That vision is perfect. Let's answer your questions:
-> 1.  Yes, let's use a **local-first** approach with local storage for now.
+> 1.  No, the basic fields are fine for now.
 > 2.  No, **barcode scanning is not needed** for the first version.
 > 3.  No, a **social component is not needed** for the first version.
 >
-> Please proceed. Adopt the **AI Full-Stack Scaffolder** persona and create the initial local-first foundation, following your **"First-Shot" Application Architecture Mandate**.
+> Please proceed. Adopt the **AI Full-Stack Scaffolder** persona and create the initial local-first foundation.
 
-### Step 4: Initialize Your Local Database
-After the AI provides the files, it will also give you a shell command. This command uses Prisma to create your local SQLite database.
+### Step 4: Automated Setup & Execution
+After the AI generates the code, it will then proceed to **execute the setup commands** for you. It will install all dependencies and initialize the local database. You will see the output from these commands in the chat.
 
-**Copy and paste the command from the AI into your terminal and run it.**
-
-**Result:** You now have a fully scaffolded application and a running local database, ready for use.
+**Result:** You will receive a fully configured and operational application, ready to be started.
 
 **Expected Result:**
-The AI will now respond with its tactical "Chain of Thought" plan. This will be followed by a single, holistic response containing all the files needed (`App.tsx`, `Header.tsx`, `Navigation.tsx`, etc.) to build the complete application skeleton.
+The AI will now respond with its tactical "Chain of Thought" plan. This will be followed by a single, holistic response containing all the files for the application skeleton, **followed by the output of the setup commands it runs for you.**
 
 Finally, at the end of its response, it will report on the work it just did, making the "emergent rigor" transparent:
 
 > **Active Persona:** `AI Full-Stack Scaffolder`
-> **Guardian Artifacts Produced:** `adrs/001-local-first-prototyping.md`, `docs/UserRequirements.md`, `docs/DataContracts.md`
+> **Guardian Artifacts Produced:** `adrs/001-local-first-prototyping.md`, `docs/UserRequirements.md`, `docs/DataContracts.md`, `docs/DATABASE_SETUP.md`
 
 You have now successfully navigated the most critical phase of the Genesis Cycle, moving from a vague idea to a clear, co-designed vision, and finally to a professional-grade scaffold, with its initial technical architecture and user requirements already documented for the future Engineering Cycle.

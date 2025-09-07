@@ -1,5 +1,5 @@
 # Walkthrough: The Genesis Cycle in Action
-**Version:** v16
+**Version:** v17
 **Project:** Exercise Tracking App
 
 This document provides a detailed, step-by-step walkthrough of **Path B: The Guided Prototyping Session**, using a local-first strategy. It demonstrates how to rapidly build a high-quality prototype using a general-purpose AI assistant in your local IDE.
