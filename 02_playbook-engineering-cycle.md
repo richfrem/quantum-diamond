@@ -12,6 +12,8 @@ Where the Genesis Cycle is a fluid jam session, this cycle is the sheet music. W
 
 ```mermaid
 graph TD
+    GC[<b>🌀 Genesis Cycle</b><br/><i>Creative Phase</i>] --> S0
+
     subgraph Pre-Production
         S0[<b>Stage 0: Strategy</b><br/><i>Artifact: ADRs, Formal Contract</i>] --> S1
         S1[<b>Stage 1: Scaffolding & Types</b><br/><i>Artifact: Project Structure, Schemas</i>] --> S2
@@ -27,7 +29,7 @@ graph TD
     S3 -- Yes --> S4
     S3 -- No --> S2
 
-    S5 -.-> |Major Revision Needed| Genesis Cycle
+    S5 -.-> |Major Revision Needed| GC
     S5 -.-> |Minor Prompt/Logic Tweak| S2
 ```
 
