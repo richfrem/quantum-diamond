@@ -7,24 +7,6 @@ Traditional development models are breaking under the creative and technical pre
 **The Quantum Diamond Framework is the synthesis that resolves this conflict.** It is a next-generation workflow designed for a world of collaborative AI that combines the speed of **AI-Powered Prototyping** with the empathy of **Service Design** and the rigor of **Architecture-First Engineering**.
 
 ## The Framework at a Glance
-
-![The Quantum Diamond Framework Diagram](./images/quantum-diamond-framework.png)
-_Note: A text-based version of this diagram is included below._
-
-## Core Principles: Human Intent, AI Velocity, Engineering Rigor
-
-1.  **Human-Led Vision:** The human is the strategist, the empath, the curator, and the final decision-maker.
-2.  **AI-Powered Velocity:** We treat AI not as a tool, but as a team of specialist agents to accelerate discovery and prototyping.
-3.  **Disciplined Engineering:** Creativity is channeled into structure. A validated vision is translated into a reliable, secure, and maintainable system.
-
-## The Two Cycles of the Quantum Diamond Framework
-
-The workflow consists of two distinct cycles. The first is a fluid, creative loop for envisioning the right solution. The second is a structured, predictable path to build that solution right. The transition between them is a deliberate, human-led decision, orchestrated via specific prompts.
-
-`[ 🌀 The Genesis Cycle: Envision the Right Thing ] -> [ ⚙️ The Engineering Cycle: Build the Thing Right ]`
-
-### The Quantum Diamond Workflow Diagram (Mermaid)
-
 ```mermaid
 graph TD
     subgraph "Phase I: 🌀 The Genesis Cycle (The Jam Session)"
@@ -65,6 +47,19 @@ graph TD
     style B fill:#d4e4ff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
     style D fill:#d4e4ff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
 ```
+
+
+## Core Principles: Human Intent, AI Velocity, Engineering Rigor
+
+1.  **Human-Led Vision:** The human is the strategist, the empath, the curator, and the final decision-maker.
+2.  **AI-Powered Velocity:** We treat AI not as a tool, but as a team of specialist agents to accelerate discovery and prototyping.
+3.  **Disciplined Engineering:** Creativity is channeled into structure. A validated vision is translated into a reliable, secure, and maintainable system.
+
+## The Two Cycles of the Quantum Diamond Framework
+
+The workflow consists of two distinct cycles. The first is a fluid, creative loop for envisioning the right solution. The second is a structured, predictable path to build that solution right. The transition between them is a deliberate, human-led decision, orchestrated via specific prompts.
+
+`[ 🌀 The Genesis Cycle: Envision the Right Thing ] -> [ ⚙️ The Engineering Cycle: Build the Thing Right ]`
 
 ---
 ### Phase I: 🌀 The Genesis Cycle (The Jam Session)
