@@ -51,7 +51,7 @@ graph TD
     subgraph "Phase II: ⚙️ The Engineering Cycle (The Factory Blueprint)"
         S0[<b>Stage 0: Graduate & Formalize</b>]
         S1[<b>Stage 1: Implementation</b>]
-        S2[<b>Stage 2: Validation (Testing)</b>]
+        S2["<b>Stage 2: Validation (Testing)</b>"]
         S3[<b>Stage 3: Deployment</b>]
         S4[<b>Stage 4: Monitoring</b>]
         
