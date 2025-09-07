@@ -1,4 +1,5 @@
 # How to Use This Framework to Build Your App
+**Version:** v16
 
 This tutorial walks you through the definitive Quantum Diamond workflow: **Path B, The Guided Prototyping Session**. It will show you how to use your AI Architect to build a complete, well-designed application from scratch in your local IDE.
 
@@ -65,6 +66,11 @@ This step is where you, the Human Lead, provide clarity and give the command to 
 > Please proceed. Adopt the **AI Full-Stack Scaffolder** persona and create the initial local-first foundation, following your **"First-Shot" Application Architecture Mandate**.
 
 **Expected Result:**
-The AI will now respond with a tactical "Chain of Thought" plan, followed by a single, holistic code block containing all the files needed (`App.tsx`, `Header.tsx`, `Navigation.tsx`, etc.) to build the complete, well-designed application skeleton that you've just co-designed.
+The AI will now respond with its tactical "Chain of Thought" plan. This will be followed by a single, holistic response containing all the files needed (`App.tsx`, `Header.tsx`, `Navigation.tsx`, etc.) to build the complete application skeleton.
 
-You have now successfully navigated the most critical phase of the Genesis Cycle, moving from a vague idea to a clear, co-designed vision, and finally to a professional-grade scaffold, all while avoiding the pitfalls of both rigid planning and chaotic coding.
+Finally, at the end of its response, it will report on the work it just did, making the "emergent rigor" transparent:
+
+> **Active Persona:** `AI Full-Stack Scaffolder`
+> **Guardian Artifacts Produced:** `adrs/001-local-first-prototyping.md`, `docs/DataContracts.md`
+
+You have now successfully navigated the most critical phase of the Genesis Cycle, moving from a vague idea to a clear, co-designed vision, and finally to a professional-grade scaffold that is already documented for the future Engineering Cycle.

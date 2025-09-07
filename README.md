@@ -1,5 +1,5 @@
 # The Quantum Diamond AI Application Development Framework
-**Version:** 4.5
+**Version:** v16
 
 ## Overview
 Traditional development models are breaking under the creative and technical pressures of the AI age. Teams are caught in a false dichotomy: move fast with inspired "vibe coding" and risk building brittle, unmaintainable systems, or move slowly with rigorous "architecture-first" discipline and risk engineering the wrong solution perfectly.
@@ -32,10 +32,10 @@ graph TD
         B{AI Full-Stack<br/>Scaffolder}
         C["Tangible Prototype<br/>(Local-First)"]
         D{AI UI/UX<br/>Specialist}
-        E{AI Product<br/>Strategist}
+        E[Vision & Strategy]
 
         A -- "1. Vision Kick-Off" --> E
-        E -- "Generates Insights" --> A
+        E -- "Clarifies Intent" --> A
         A -- "2. Scaffold Locally" --> B
         B -- "Generates" --> C
         C -- "3. Refine UI/UX" --> D
@@ -64,7 +64,6 @@ graph TD
     %% Styling
     style B fill:#d4e4ff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
     style D fill:#d4e4ff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
-    style E fill:#d4e4ff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
 ```
 
 ---
