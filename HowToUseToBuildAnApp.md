@@ -71,6 +71,6 @@ The AI will now respond with its tactical "Chain of Thought" plan. This will be 
 Finally, at the end of its response, it will report on the work it just did, making the "emergent rigor" transparent:
 
 > **Active Persona:** `AI Full-Stack Scaffolder`
-> **Guardian Artifacts Produced:** `adrs/001-local-first-prototyping.md`, `docs/DataContracts.md`
+> **Guardian Artifacts Produced:** `adrs/001-local-first-prototyping.md`, `docs/UserRequirements.md`, `docs/DataContracts.md`
 
-You have now successfully navigated the most critical phase of the Genesis Cycle, moving from a vague idea to a clear, co-designed vision, and finally to a professional-grade scaffold that is already documented for the future Engineering Cycle.
+You have now successfully navigated the most critical phase of the Genesis Cycle, moving from a vague idea to a clear, co-designed vision, and finally to a professional-grade scaffold, with its initial technical architecture and user requirements already documented for the future Engineering Cycle.
