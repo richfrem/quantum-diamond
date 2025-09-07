@@ -10,6 +10,22 @@ Crucially, both paths lead to the same outcome: the artifacts required to begin 
 ---
 ## Two Paths for the Jam Session
 
+The choice of path depends on the project's context. Both are valid applications of the Genesis Cycle, as they both produce the necessary artifacts for the handoff to the Engineering Cycle.
+
+```mermaid
+graph TD
+    title Genesis Cycle Prototyping Paths
+
+    A[Human Intent] --> B{Choose Prototyping Path};
+    B --> C["Path A: Rapid Prototyping Canvas<br/>(e.g., bolt.new)<br/><em>Optimized for Speed</em>"];
+    B --> D["Path B: Guided IDE Session<br/>(e.g., Gemini in VS Code)<br/><em>Optimized for Control</em>"];
+    C --> E((Validated Vision Prototype));
+    D --> E;
+
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#ccf,stroke:#333,stroke-width:2px
+```
+
 ### Path A: The Rapid Prototyping Canvas (e.g., `bolt.new`)
 
 This path is optimized for **maximum speed and instant visual feedback**. It's ideal for greenfield projects or when the primary goal is to quickly validate the "vibe" and core user flow of an idea.
