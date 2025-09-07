@@ -1,5 +1,5 @@
 # Playbook: The Engineering Cycle
-**Version:** 3.2
+**Version:** 4.2
 **Part of:** The Quantum Diamond Framework
 
 ## The Core Principle: Engineer the Reality
@@ -36,12 +36,19 @@ graph TD
 ---
 ## The Handoff
 
-The input to this cycle is the **Validated Vision Prototype** and **Initial AI Component Contract** that emerged from the Genesis Cycle.
+The input to this cycle is the **Validated Vision Prototype**, which was built using a local-first strategy (e.g., SQLite, local server), and its associated **Initial Engineering Artifacts** (e.g., Prisma schema, component files).
 
 ---
 ### Stage 0: Strategy & System Design (The Blueprint)
-1.  **Formalize the AI Component Contract:** Convert the initial contract into a version-controlled Pydantic/Zod schema and a detailed markdown document with inputs, outputs, and all constraints (Performance, Cost, Safety, Business Logic).
-2.  **Author Architecture Decision Records (ADRs):** Document the *why* behind key technical choices.
+
+**1. Graduate the Prototype to Production Infrastructure:** The very first step is to migrate the prototype from its local-first setup to a production-ready stack.
+    *   **Database Migration:** Convert the Prisma schema and SQLite migration files to their production equivalent (e.g., PostgreSQL for Supabase). This is a task the AI Architect excels at.
+    *   **Security Hardening:** Implement robust Row Level Security (RLS) policies on the production database.
+    *   **Backend Refactoring:** Replace the simple local Express server with scalable infrastructure (e.g., serverless functions, a dedicated backend service).
+
+**2. Formalize the AI Component Contract:** Convert the initial contract into a version-controlled Pydantic/Zod schema and a detailed markdown document with inputs, outputs, and all constraints (Performance, Cost, Safety, Business Logic).
+
+**3. Author Architecture Decision Records (ADRs):** Document the *why* behind key technical choices.
 
 ---
 ### Stage 1: Scaffolding & Contracts (The Connective Tissue)
