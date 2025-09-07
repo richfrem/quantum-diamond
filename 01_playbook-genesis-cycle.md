@@ -1,45 +1,47 @@
 # Playbook: The Genesis Cycle
-**Version:** 4.2
-**Subtitle:** The Local-First Jam Session
+**Version:** 4.3
+**Subtitle:** The Jam Session
 **Part of:** The Quantum Diamond Framework
 
-This playbook guides the first phase of the **Quantum Diamond Framework**. Its central philosophy is **local-first prototyping**: using lightweight, zero-cost local tools to rapidly iterate in a "jam session" where tangible artifacts drive strategic discovery.
+This playbook guides the first phase of the **Quantum Diamond Framework**. Its goal is to rapidly explore, define, and validate a product vision. The "jam session" is a flexible process that can be executed via two primary paths, depending on the user's needs for speed versus control.
 
-## The Local-First Principle
+Crucially, both paths lead to the same outcome: the artifacts required to begin the rigorous **Engineering Cycle**.
 
-The Genesis Cycle is for exploration and validation. We must eliminate all friction—including cloud setup, account creation, and cost. By default, we use a file-based **SQLite** database managed by **Prisma** and a simple **Express** server. This allows for instant startup and iteration while still producing professional, versioned schema migrations—the core of "emergent rigor." The prototype is "graduated" to a production database like Supabase/PostgreSQL only when we enter the formal Engineering Cycle.
+---
+## Two Paths for the Jam Session
 
-## The Actors: A Specialist Team
+### Path A: The Rapid Prototyping Canvas (e.g., `bolt.new`)
 
-*   **Human Lead (The Director):** The product visionary.
-*   **AI Full-Stack Scaffolder:** Your infrastructure expert. In this cycle, it specializes in setting up local Vite, Express, Prisma, and SQLite stacks.
-*   **AI UI/UX Specialist:** Your frontend expert, focused on creating beautiful, component-driven UIs and design systems.
-*   **AI Product Strategist:** Your Socratic partner for asking "why" and ensuring the prototype aligns with user needs.
+This path is optimized for **maximum speed and instant visual feedback**. It's ideal for greenfield projects or when the primary goal is to quickly validate the "vibe" and core user flow of an idea.
 
-## The Process: The Prototyping Loop
+*   **Environment:** A dedicated, web-based conversational IDE (like `bolt.new`, `v0.dev`) with a side-by-side chat, code view, and live preview.
+*   **The "Agents":** The tool itself embodies the specialist AI agent personas. It acts as both a Full-Stack Scaffolder and a UI/UX Specialist in a single, seamless experience.
+*   **Process:**
+    1.  The Human Lead provides a high-level prompt describing the desired application.
+    2.  The tool generates the full-stack application, including database migrations (if applicable), backend code, and a complete frontend.
+    3.  The Human Lead iterates conversationally, refining the UI and functionality while watching the live preview update in real-time.
+*   **Strengths:** Unparalleled speed, zero setup, and a tight visual feedback loop.
+*   **Outcome:** A complete, runnable codebase that serves as the **Validated Vision Prototype**.
 
-```mermaid
-graph TD
-    A(1. Spark<br/><i>Raw Idea</i>) --> B(2. Scaffold Locally<br/><i>Make it tangible NOW</i>);
-    B --> C(3. Refine<br/><i>Polish the UI/UX</i>);
-    C --> D(4. Deepen<br/><i>Ask the Strategist 'Why?'</i>);
-    D --> B;
-```
+### Path B: The Guided Prototyping Session (e.g., Gemini in VS Code, github copilot, claude, Kilo Code, etc.)
 
-### The Loop in Action: An Example Flow
+This path is optimized for **granularity, control, and integration into an existing workflow**. It's ideal when you need to be more deliberate, work within a local environment, or build a feature within a larger, pre-existing codebase.
 
-**1. Spark:** "I want to build an exercise tracking app."
+*   **Environment:** Your local IDE (e.g., VS Code) with a powerful AI chat assistant (like Gemini or Copilot Chat).
+*   **The "Agents":** You, the Human Lead, direct the general-purpose AI to adopt the specialist personas defined in the framework (Scaffolder, Specialist) using a foundational system prompt.
+*   **Process:**
+    1.  The Human Lead initializes the AI with the framework's system prompt.
+    2.  The Human Lead directs the AI to perform specific tasks (e.g., "Act as a Scaffolder and create the local database schema").
+    3.  The AI generates code blocks, which the Human Lead integrates into their local project. The live preview is managed via the local dev server.
+*   **Strengths:** Full control over every step, works offline with local-first tools, and integrates directly into a developer's existing environment.
+*   **Outcome:** A complete, runnable local codebase that serves as the **Validated Vision Prototype**.
 
-**2. Scaffold Locally:** The Human Lead engages the **AI Full-Stack Scaffolder**.
-*   **Human Prompt to Scaffolder:** "Let's start a local-first exercise tracking app. Scaffold a Vite+React project. Set up a simple Express server and use Prisma to manage a local SQLite database. Create the initial Prisma schema for `workouts` and `exercises`, then generate the first migration."
+---
+## The Handoff: The Unifying Goal
 
-**What Emerges: A Professional Local Foundation**
-The scaffolder produces a complete, runnable local project. The "emergent rigor" artifacts are now local-first.
+No matter which path you take, the Genesis Cycle is complete when it has produced the two critical artifacts needed to begin the **Engineering Cycle**:
 
-*   **Artifact Example (`/prisma/schema.prisma`):** A clean, declarative schema.
-*   **Artifact Example (`/prisma/migrations/..._init.sql`):** A versioned SQL file generated by Prisma.
-*   **Artifact Example (`/server/index.js`):** A simple Express server with a mock API endpoint.
-*   **Artifact Example (`/src/pages/Index.tsx`):** A React UI that fetches from the local API.
+*   ✅ A **Validated Vision Prototype**: A working application (either cloud-based from Path A or local-first from Path B) that has received positive feedback and captures the core product vision.
+*   ✅ A set of **Initial Engineering Artifacts**: The source code, schema definitions (SQL migrations or Prisma schema), and nascent design system produced during the jam session.
 
-The Human Lead can `npm install`, run the server, run the client, and see a working prototype in minutes with zero external dependencies.
-
+These artifacts are the direct input for the **Engineering Cycle**, where the prototype will be hardened, tested, and prepared for production.

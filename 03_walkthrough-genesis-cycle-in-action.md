@@ -1,8 +1,8 @@
-# Walkthrough: The Genesis Cycle in Action (Local-First)
-**Version:** 4.2
+# Walkthrough: The Genesis Cycle in Action
+**Version:** 4.3
 **Project:** Exercise Tracking App
 
-This document provides a detailed, step-by-step walkthrough of the **local-first Genesis Cycle**. It demonstrates how to rapidly build a high-quality prototype using local tools, ensuring speed and zero cost while maintaining professional discipline.
+This document provides a detailed, step-by-step walkthrough of **Path B: The Guided Prototyping Session**, using a local-first strategy. It demonstrates how to rapidly build a high-quality prototype using a general-purpose AI assistant in your local IDE.
 
 ### **Iteration 1: The Spark & The Local Scaffold**
 
@@ -110,4 +110,3 @@ This document provides a detailed, step-by-step walkthrough of the **local-first
 
     export default App;
     ```
-
