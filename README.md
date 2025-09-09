@@ -50,7 +50,6 @@ graph TD
     style D fill:#d4e4ff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
 ```
 
-
 ## Core Principles: Human Intent, AI Velocity, Engineering Rigor
 
 1.  **Human-Led Vision:** The human is the strategist, the empath, the curator, and the final decision-maker.
@@ -80,6 +79,26 @@ Both paths prioritize making ideas tangible instantly, allowing professional eng
 **Goal:** To take the validated vision—the prototype and code artifacts produced by *either* path in the Genesis Cycle—and build it with discipline. This phase is about deterministic execution where architectural rigor, tests, and production-grade infrastructure are paramount.
 
 ➡️ **For a detailed, step-by-step guide, see the [Playbook: The Engineering Cycle](./02_playbook-engineering-cycle.md).**
+
+---
+
+## See it in Action: The Demonstrator Project
+
+![screenshot of application](./images/music-collection-app.png)
+
+
+To see a tangible example of an application built using the Quantum Diamond Framework, check out our official demonstrator project: the **Music Collection Manager**.
+
+This complete, full-stack application was bootstrapped and developed by an AI assistant following the exact "Guided Prototyping Session" path described in the playbooks. It serves as a real-world example of the framework's output.
+
+> **➡️ View the Demonstrator Project Repository:**
+> **[https://github.com/richfrem/music-collection](https://github.com/richfrem/music-collection)**
+
+The demonstrator project showcases:
+- **AI-Powered Scaffolding**: How a simple prompt generates a complete project structure.
+- **Local-First Architecture**: A robust Node.js server with a SQLite database, built for persistent, offline-first use.
+- **"Disciplined Vibe Coding"**: A clean, modern UI built through iterative, conversational prompts.
+- **Emergent Rigor**: The automatic generation of documentation (ADRs, requirements) by the AI's "Guardian Persona".
 
 ---
 
