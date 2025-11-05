@@ -76,3 +76,10 @@ Build an automated "wall of tests" in CI: Correctness, Guardrail, Robustness, an
 1.  **System Health:** Monitor standard app metrics (latency, errors, CPU).
 2.  **AI Component Health:** Monitor **cost**, **latency**, and **validation failure rate**.
 3.  **The Feedback Loop:** Insights from monitoring are the primary input for the next **Genesis Cycle**.
+
+---
+## The Workflow in Practice
+
+This playbook describes the high-level stages of the Engineering Cycle. For a detailed, step-by-step guide on how to implement this with traceable requirements, tasks, and ADRs, see the new, more tactical playbook:
+
+➡️ **[Playbook: The Workflow in Practice](./06_playbook-workflow-in-practice.md)**

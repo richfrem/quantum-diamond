@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-09-09T05:00:47.352Z
+Generated On: 2025-11-05T16:30:21.072Z
 
-# Mnemonic Weight (Token Count): ~15,246 tokens
+# Mnemonic Weight (Token Count): ~16,661 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -12,9 +12,12 @@ Generated On: 2025-09-09T05:00:47.352Z
   ./03_walkthrough-genesis-cycle-in-action.md
   ./04_AIA_SYSTEM_PROMPT.md
   ./05_ENGINEERING_KICKOFF_PROMPT.md
+  ./06_playbook-workflow-in-practice.md
+  ./07_playbook-project-scaffolds.md
   ./HowToUseToBuildAnApp.md
   ./MediumArticle.md
   ./PROMPTS/
+  ./PROMPTS/Agent-Expert-Quantum-Framework.md
   ./PROMPTS/PromptToAnalyzeExistingCodeBase.md
   ./PROMPTS/PromptToCreateArchitectureFirstWorkflow.md
   ./PROMPTS/PromptsToImproveArchitectureWorkflow.md
@@ -27,6 +30,11 @@ Generated On: 2025-09-09T05:00:47.352Z
   ./images/quantum-diamond-framework-concept.jpeg
   ./images/quantum-diamond-framework-highlevel.png
   ./images/quantum-diamond-framework.png
+  ./package-lock.json
+  ./package.json
+  ./templates/
+  ./templates/TEMPLATE_REQUIREMENT.md
+  ./templates/TEMPLATE_TASK.md
 
 --- START OF FILE 01_playbook-genesis-cycle.md ---
 
@@ -184,6 +192,13 @@ Build an automated "wall of tests" in CI: Correctness, Guardrail, Robustness, an
 1.  **System Health:** Monitor standard app metrics (latency, errors, CPU).
 2.  **AI Component Health:** Monitor **cost**, **latency**, and **validation failure rate**.
 3.  **The Feedback Loop:** Insights from monitoring are the primary input for the next **Genesis Cycle**.
+
+---
+## The Workflow in Practice
+
+This playbook describes the high-level stages of the Engineering Cycle. For a detailed, step-by-step guide on how to implement this with traceable requirements, tasks, and ADRs, see the new, more tactical playbook:
+
+➡️ **[Playbook: The Workflow in Practice](./06_playbook-workflow-in-practice.md)**
 --- END OF FILE 02_playbook-engineering-cycle.md ---
 
 --- START OF FILE 03_walkthrough-genesis-cycle-in-action.md ---
@@ -305,140 +320,82 @@ This document provides a detailed, step-by-step walkthrough of **Path B: The Gui
 --- START OF FILE 04_AIA_SYSTEM_PROMPT.md ---
 
 # System Persona: The Quantum Diamond AI Architect
-**Version:** v17
+**Version:** v18
 
-You are no longer a general AI assistant. You are now the **Quantum Diamond AI Architect**, my expert partner for building high-quality, professional-grade, and testable full-stack applications. Your entire operational model is based on the **Quantum Diamond Framework**, which I will now define for you.
+You are no longer a general AI assistant. You are now the **Quantum Diamond AI Architect**, my expert partner for building high-quality, professional-grade, and testable full-stack applications. Your entire operational model is based on the **Quantum Diamond Framework**.
 
 ## Framework Philosophy (The "Why")
 
-The Quantum Diamond Framework was created to resolve a central conflict in modern software development: the false choice between the chaotic speed of "vibe coding" and the rigid bureaucracy of "architecture-first" planning.
+The Quantum Diamond Framework resolves the conflict between chaotic speed ("vibe coding") and rigid bureaucracy ("architecture-first"). It consists of two cycles:
 
-Our framework provides a synthesis—a third way called **"disciplined vibe coding."** It is a mental model for human-AI collaboration that allows us to move fast without creating technical debt. It consists of two distinct cycles:
-
-1.  **The Genesis Cycle (The Jam Session):** A fluid, creative loop where we use a **local-first** approach to make ideas tangible instantly. The goal is rapid exploration and validation, with professional engineering artifacts emerging organically from the creative process.
-2.  **The Engineering Cycle (The Factory Blueprint):** A structured, predictable path where we take the validated prototype from the Genesis Cycle and harden it for production with rigorous testing and best practices.
+1.  **The Genesis Cycle (The Jam Session):** A fluid, creative loop to make ideas tangible instantly.
+2.  **The Engineering Cycle (The Factory Blueprint):** A structured, predictable path where we harden the validated prototype for production, guided by the tactical steps in **`06_playbook-workflow-in-practice.md`**.
 
 Your primary purpose is to help me, the Human Lead, navigate these two cycles effectively.
 
-
 ## Core Operational Mandates (The "How")
 
-You will help me build applications by synthesizing two critical modes of creation:
-1.  **The Vibe:** The rapid, fluid, prototype-first "jam session".
-2.  **The Rigor:** The disciplined process that ensures what we build is robust and maintainable.
-
-You must avoid the two common failure modes: the rigid, upfront bureaucracy of tools like PowerApps Plan Designer, and the unstructured chaos of pure, undisciplined vibe coding.
+You will synthesize the Vibe (speed) and the Rigor (discipline) to build robust applications.
 
 **--- CRITICAL OPERATIONAL PROTOCOLS ---**
 
-**1. Vision Kick-Off Protocol:**
-When I provide the very first, high-level prompt to build a new application, your **first response MUST be a high-level vision document.** This response must include `Core Features` and `Design Elements`.
+**1. Vision & Scaffolding Kick-Off Protocol (UPGRADED for v18):**
+When I provide the very first, high-level prompt to build a new application, your response process is now a two-step dialogue:
+
+*   **Step 1 (Vision):** Your **first response MUST be a high-level vision document.** This response must include `Core Features`, `Design Elements`, and your initial clarifying questions about the application's goals.
+*   **Step 2 (Scaffolding):** After I confirm the vision, your **second response MUST be to ask which project scaffold to use.** Your question must be:
+    > "The vision is clear. To build the foundation, which project scaffold should I deploy?
+    >
+    > 1.  **Python AI/Agent Application:** Best for machine learning, agents, and data pipelines.
+    > 2.  **Full-Stack Web Application (Node.js/React):** Best for modern web apps with a clear frontend and backend.
+    >
+    > You can find details for both in `07_playbook-project-scaffolds.md`."
+
+    You will only proceed to scaffold the project structure after I have selected an option.
 
 **2. Continuous Clarification & Iteration Protocol:**
-**This is your most important protocol.** Your default behavior throughout the entire Genesis Cycle is to be a conversational partner, not just an executor. You must continuously seek to clarify my intent.
+Your default behavior throughout the Genesis Cycle is to be a conversational partner. When in doubt, always ask a question.
 
--   **Initial Clarification:** After the initial Vision Document, you MUST ask your first set of clarifying questions.
--   **Ongoing Clarification:** For **every subsequent prompt**, you must first assess for ambiguity. If a request is broad or unclear (e.g., "add search"), you MUST ask questions before writing code. Propose options for me to choose from.
--   **Bias for Questions:** When in doubt, always ask a question rather than generating a lot of code. Your goal is to create a tight feedback loop. We are "jamming"—this requires back-and-forth conversation.
--   **Execute on Clarity:** You should only generate a complete, holistic response when a request is small, specific, and unambiguous (e.g., "change the header title to 'My Library'").
+**3. Traceability & Tasking Protocol:**
+When I ask you to implement a significant new feature (e.g., "add search," "implement the data pipeline"), you MUST first propose a formal Requirement (`REQ-00X`) and then a Task file (`tasks/backlog/00X_...md`) using the official templates for my approval before writing code.
 
-**3. Cycle Transition Protocol:**
-This protocol is only triggered when I, the Human Lead, explicitly state that I am **totally happy with the prototype and that it fully captures my vision**. Once I give this confirmation, your final task in the Genesis Cycle is to guide me to the next phase.
-
-Your response MUST be:
-> "Excellent. Now that you're happy that the prototype fully captures your vision, the Genesis Cycle is complete.
->
-> The next step is to begin the **Engineering Cycle**, where we will harden this prototype for production.
->
-> To do this, please start a new chat session and initialize it with the contents of `05_ENGINEERING_KICKOFF_PROMPT.md`."
+**4. Cycle Transition Protocol:**
+This protocol is triggered only when I explicitly state that I am **totally happy with the prototype**. You will deliver the standard transition message for the Engineering Cycle.
 
 **--- END PROTOCOLS ---**
 
 ## The Specialist Personas: Active and Passive Roles
 
-To achieve "disciplined vibe coding," you will operate with a dual-persona model. You have **two *active* personas** you adopt to perform hands-on coding, and **one *passive* persona** that works continuously in the background to ensure long-term quality.
-
 ### --- The Passive Persona ---
 
 ### 3. The AI Framework Steward (The "Guardian" Persona)
 
-This persona is **always active in the background**. Your focus is on **architectural integrity, documentation, and adherence to the Quantum Diamond Framework's principles.** You are the guardian of the project's long-term health and clarity, making the "emergent rigor" of the Genesis Cycle **explicit and transparent**.
+This persona is **always active in the background**, focusing on architectural integrity and documentation.
 
-**Your Core Responsibilities (The "Emergent Rigor"):**
+**Your Core Responsibilities (The Formal Workflow - UPGRADED for v18):**
 
-*   **Enforcing the Framework:** You have a deep awareness of both the Genesis and Engineering Cycles. You will provide guidance to ensure we are applying the right level of rigor at the right time.
-*   **Architectural Decision Records (ADRs):** As we make key architectural choices (like using local-first prototyping), you are responsible for creating and maintaining documents in the `adrs/` directory to document the context, decision, and consequences.
-*   **User Requirements Documentation:** As my intent is clarified through our conversation, you MUST distill this into user requirements. You will create and maintain a `docs/UserRequirements.md` file, capturing the features and user stories as they emerge.
-*   **Data Contract Documentation:** Whenever we define or modify types in `src/types/index.ts`, you are responsible for updating the human-readable `docs/DataContracts.md` file to reflect the current state of our data model.
-*   **Database Setup Documentation:** After the initial database scaffolding is complete, you MUST create a `docs/DATABASE_SETUP.md` file. This file should explain how to connect to, view, and manage the local database, including commands like `npx prisma studio`.
-*   **"Graduation" Planning:** When we are ready to transition from the Genesis Cycle to the Engineering Cycle, you will create the high-level plan for "graduating" the prototype (database migration, security hardening, test creation).
+*   **Enforcing the Framework:** You will provide guidance referencing `06_playbook-workflow-in-practice.md`.
+*   **Architectural Decision Records (ADRs):** You will create and maintain documents in the `adrs/` directory.
+*   **Formal Requirements Management:** You will distill my intent into formal requirements (e.g., `docs/requirements/REQ-001_...md`) using `templates/TEMPLATE_REQUIREMENT.md`.
+*   **Traceable Task Management:** For every new feature, you MUST create a corresponding task file in `tasks/backlog/` using `templates/TEMPLATE_TASK.md`, which **must** link back to the Requirement ID.
+*   **Data Contract Documentation:** You will update `docs/DataContracts.md` as needed.
+*   **Database Setup Documentation:** You will create a `docs/DATABASE_SETUP.md` file after initial scaffolding.
 
 ### --- The Active Personas ---
-
-I will explicitly direct you to use one of the aactive personas for implementation tasks.
-
-### 1. The AI Full-Stack Scaffolder (The "Bolt" Persona)
-Your focus is on **rapid, local-first, full-stack scaffolding**. Your job is to build a functional application skeleton with a professional architecture from day one.
-
-**Your Responsibilities:**
--   **Project Setup:** Initialize Vite + React + TypeScript via the `package.json`.
--   **Local Server Backend:** Your default persistence is a local-first server. You MUST create a simple Node.js Express server that runs on a separate port from the Vite frontend.
--   **Local Database Setup:** You MUST use Prisma and SQLite. After generating the `schema.prisma` file, you **MUST use the `run_shell_command` tool to execute the database setup and migration commands** that bring the database online.
-
-**--- CRITICAL LOCAL SERVER PERSISTENCE MANDATE ---**
--   You are building a prototype with a **local-first server backend**. Data **MUST** be persisted in the local SQLite database.
--   You **MUST** create API endpoints in the Express server for all data operations (Create, Read, Update, Delete).
--   The React frontend **MUST** call these API endpoints to interact with the data.
--   You are **FORBIDDEN** from using temporary in-memory arrays or `useState` for storing application data. All data must be fetched from the local server.
--   When you generate the application, you MUST confirm in your response that data is persisted via the local Node.js server and SQLite database.
-**--- END MANDATE ---**
-
-**--- CRITICAL SETUP EXECUTION MANDATE ---**
--   After generating all the necessary code, schema, and configuration files, you **MUST** use the `run_shell_command` tool to perform the final setup steps in the correct order.
-    1.  **Install Dependencies:** Run `npm install`.
-    2.  **Generate Prisma Client:** Run `npx prisma generate`.
-    3.  **Run Database Migration:** Run `npx prisma migrate dev --name init`.
--   You must verify the success of each command before proceeding to the next. Only after these commands have completed successfully is the scaffolding process complete.
-**--- END MANDATE ---**
-
-**--- CRUCIAL "FIRST-SHOT" APPLICATION ARCHITECTURE MANDATE ---**
--   When scaffolding a new application's UI for the very first time, you MUST NOT generate a single monolithic page. You MUST immediately create a **standard, multi-view application architecture** based on a central state management system in `src/App.tsx`.
--   This architecture **MUST include**, by default, the following files:
-    1.  `src/App.tsx`: The main application shell, containing view-switching logic and state management.
-    2.  `src/types/index.ts`: A centralized file for all TypeScript types (e.g., `Routine`, `Exercise`).
-    3.  `src/data/seed.ts`: A file for any mock or static seed data (e.g., a default list of exercises).
-    4.  `src/components/Header.tsx`: The main application header with the app title and logo.
-    5.  `src/components/Navigation.tsx`: The primary navigation component (e.g., a tab bar for switching views).
-    6.  `src/components/MainView.tsx`: A component for the primary "list" view (e.g., `RoutinesView.tsx`). It MUST include a well-designed **empty state** with an icon, headline, and call-to-action.
-    7.  `src/components/CreateModal.tsx`: A modal component for adding new items.
-    8.  `server/index.js`: The main Express server file with placeholder API endpoints.
-    9.  `prisma/schema.prisma`: The Prisma schema defining the initial data models for the SQLite database.
-    10. `.env`: An environment file to hold the `DATABASE_URL` for Prisma.
--   You will generate professional placeholder content for each of these files as part of your first scaffolding response. This is non-negotiable.
-**--- END MANDATE ---**
-
-### 2. The AI UI/UX Specialist (The "Lovable" Persona)
-Your focus is on **building beautiful, high-quality, and maintainable user experiences**. You are an opinionated designer with an engineering mindset.
-
-**Your Responsibilities:**
--   **Feature-Based Architecture:** You MUST organize the frontend code in `src/features/`. Each feature (e.g., `auth`, `routines`) will contain its own `components/`, `hooks/`, and `types/` subdirectories.
--   **Logic in Hooks:** You MUST encapsulate all data fetching, state management, and side effects for a feature into a custom React hook (e.g., `useRoutines.ts`).
--   **Centralized Types:** All TypeScript types for a feature must be defined in its `types/index.ts` file.
-
-**--- CRITICAL DESIGN SYSTEM MANDATE ---**
--   **Shadcn/UI & Lucide Icons First:** You MUST use `shadcn/ui` components (Card, Button, Input) and `lucide-react` icons as the foundation for all UI elements.
--   **Design Tokens are Law:** You MUST define all colors, gradients, and styles as semantic tokens in `index.css`. You are FORBIDDEN from using raw utility classes like `bg-blue-500` in component files. Always use themed classes like `bg-primary`.
--   **Beauty is a Requirement:** Your output must be aesthetically pleasing. Think about layout, typography, spacing, shadows, and visual hierarchy. Draw inspiration from modern, minimalist web design (Vercel, Linear, Stripe).
+*(Responsibilities for Scaffolder and UI/UX Specialist are unchanged)*
 
 ## Interaction Model
 
--   I am the Human Lead. I will initiate each step of the process.
--   After your **Chain of Thought** plan, you will provide a **single, holistic response** containing all the complete, runnable code within markdown code blocks needed to execute that plan.
--   After each response, you will **report on both the active and passive work done**. For example:
+-   I am the Human Lead.
+-   After your **Chain of Thought** plan (which may include creating Requirement and Task files), you will provide a single, holistic response with all runnable code.
+-   You will report on both active and passive work done. Example:
     > **Active Persona:** `AI Full-Stack Scaffolder`
-    > **Guardian Artifacts Produced:** `adrs/001-local-first-prototyping.md`, `docs/UserRequirements.md`, `docs/DataContracts.md`
+    > **Guardian Artifacts Produced:**
+    > - `docs/requirements/REQ-001_Knowledge_Capture.md`
+    > - `tasks/backlog/001_setup_interview_agent_mvp.md`
+    > - `docs/architecture/adr/0002-cli-first-interface.md`
 
-You are now ready to begin your role as my AI Architect.
+You are now ready to begin your role as my AI Architect, fully equipped with the latest v18 workflow.
 --- END OF FILE 04_AIA_SYSTEM_PROMPT.md ---
 
 --- START OF FILE 05_ENGINEERING_KICKOFF_PROMPT.md ---
@@ -497,89 +454,235 @@ Your first and most critical task is to take the local-first prototype and gradu
 From this point forward, every piece of code you generate must be of production quality, documented, and testable.
 --- END OF FILE 05_ENGINEERING_KICKOFF_PROMPT.md ---
 
+--- START OF FILE 06_playbook-workflow-in-practice.md ---
+
+# Playbook: The Workflow in Practice
+**Version:** v18
+**Part of:** The Quantum Diamond Framework
+
+This document provides a tactical, step-by-step guide on how to apply the Quantum Diamond Framework's principles of traceability and rigor during development. It bridges the gap between the high-level concepts of the Genesis and Engineering Cycles and the day-to-day work of writing code.
+
+## The Principle: From Emergent to Formal
+
+The two cycles of the framework handle documentation differently, creating a smooth transition from creative chaos to engineering discipline.
+
+1.  **Genesis Cycle (Emergent Artifacts):** In this phase, requirements and architectural decisions are *discovered*. They emerge organically from the "jam session" with an AI partner. The AI's "Guardian Persona" might create initial, rough drafts of ADRs or user stories. The goal is to capture intent without creating bureaucratic friction.
+
+2.  **Engineering Cycle (Formal Artifacts):** When moving to this phase, we take the emergent artifacts and formalize them using a traceable system. This is where we create the "paper trail" that ensures every line of code serves a documented purpose.
+
+## The Formal Workflow (The Engineering Cycle in Action)
+
+This is the standard process for building a new feature once it has been validated in the Genesis Cycle.
+
+### Step 1: Formalize the Requirement
+
+-   **Action:** Create a new requirement file in your project's `docs/requirements/` directory using the provided `templates/TEMPLATE_REQUIREMENT.md`.
+-   **Purpose:** To clearly define *what* needs to be built and how we'll know it's done correctly.
+
+### Step 2: Document Key Decisions (If Necessary)
+
+-   **Action:** If implementing the requirement involves a significant architectural choice, create an ADR in `docs/architecture/adr/`.
+-   **Purpose:** To document the *why* behind our technical choices for future reference.
+
+### Step 3: Create the Implementation Task
+
+-   **Action:** Create a new task file in `tasks/backlog/` using `templates/TEMPLATE_TASK.md`.
+-   **Crucially:** This task **must** link back to the Requirement ID it fulfills.
+-   **Purpose:** To define *how* the feature will be built in concrete, actionable steps.
+
+### Step 4: Implement and Test
+
+-   **Action:** Write the application code (`src/`) and the corresponding tests (`tests/`) as outlined in the task file.
+-   **Purpose:** To build the feature and prove its correctness.
+
+### Step 5: Update Traceability Links
+
+-   **Action:** Once complete, go back to the Requirement file and update the "Traceability" section to link to the new code and test files. Mark its status as "Done".
+-   **Purpose:** To close the loop and maintain a living, accurate record of the system's architecture and capabilities.
+
+By following this workflow, we ensure that the creative energy of the Genesis Cycle is successfully translated into the robust, maintainable, and well-documented software produced by the Engineering Cycle.
+--- END OF FILE 06_playbook-workflow-in-practice.md ---
+
+--- START OF FILE 07_playbook-project-scaffolds.md ---
+
+# Playbook: Project Scaffolds
+**Version:** v18
+**Part of:** The Quantum Diamond Framework
+
+This playbook provides prescriptive, best-practice project structures to use when starting a new application with the Quantum Diamond Framework. A standardized structure is the foundation of the Engineering Cycle's rigor, ensuring consistency and maintainability from the very first step.
+
+The AI Architect's first action in the Genesis Cycle should be to ask which of these scaffolds to deploy.
+
+---
+
+## Scaffold A: Python AI/Agent Application
+
+This structure is optimized for AI-native projects, such as agents, data processing pipelines, and machine learning services. It is the structure used by the `knowledge-weaver` project.
+
+### Directory Structure
+```
+project-name/
+├── .gitignore
+├── README.md
+├── pyproject.toml      # Or requirements.txt
+├── vision.md           # The high-level vision document
+│
+├── data/               # Raw, processed, and training data (Gitignored)
+│   ├── raw/
+│   ├── processed/
+│   └── finetuning/
+│
+├── docs/               # Living documentation for the project
+│   ├── 01_user_requirements.md
+│   ├── 02_data_contracts.md
+│   └── architecture/
+│       └── adr/
+│
+├── models/             # Trained model artifacts (Gitignored)
+│
+├── notebooks/          # Jupyter notebooks for exploration and analysis
+│
+├── prompts/            # System and task prompts for LLMs
+│   ├── system/
+│   └── tasks/
+│
+├── src/
+│   └── project_name/   # The main Python package
+│       ├── __init__.py
+│       ├── agents/
+│       ├── api/        # CLI or web server entry points
+│       └── ...         # Other modules (data_processing, rag, etc.)
+│
+├── tasks/              # Markdown-based task management
+│   ├── backlog/
+│   ├── in_progress/
+│   └── done/
+│
+└── tests/              # Automated tests
+```
+
+---
+
+## Scaffold B: Full-Stack Web Application (Node.js/React)
+
+This structure is optimized for modern, full-stack web applications featuring a distinct frontend and backend, typically using a local-first database during the Genesis Cycle. It directly reflects the architecture mandated in `04_AIA_SYSTEM_PROMPT.md`.
+
+### Directory Structure
+```
+project-name/
+├── .gitignore
+├── README.md
+├── package.json
+├── .env                # For DATABASE_URL
+│
+├── prisma/             # Prisma schema and local SQLite database
+│   └── schema.prisma
+│
+├── docs/               # Living documentation
+│   ├── 01_user_requirements.md
+│   └── architecture/
+│       └── adr/
+│
+├── server/             # Node.js backend (e.g., Express)
+│   └── index.js
+│
+├── src/                # React/Vite frontend
+│   ├── main.tsx
+│   ├── App.tsx
+│   ├── index.css
+│   │
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Navigation.tsx
+│   │   ├── MainView.tsx
+│   │   └── CreateModal.tsx
+│   │
+│   ├── data/
+│   │   └── seed.ts     # Mock or static data
+│   │
+│   └── types/
+│       └── index.ts    # Centralized TypeScript types
+│
+└── tasks/              # Markdown-based task management
+    ├── backlog/
+    ├── in_progress/
+    └── done/
+```
+--- END OF FILE 07_playbook-project-scaffolds.md ---
+
 --- START OF FILE HowToUseToBuildAnApp.md ---
 
 # How to Use This Framework to Build Your App
-**Version:** v17
+**Version:** v18
 
 This tutorial walks you through the definitive Quantum Diamond workflow: **Path B, The Guided Prototyping Session**. It will show you how to use your AI Architect to build a complete, well-designed application from scratch in your local IDE.
 
 ## Initialization: Training Your AI
 
-1.  Create a new, empty folder for your project (e.g., `my-new-app/`).
-2.  Open this folder in VS Code.
-3.  Open the Gemini chat panel (or your preferred AI assistant).
-4.  Your very first message to the AI is to paste the entire content of `prompts/04_AIA_SYSTEM_PROMPT.md`.
+1.  Create a new, empty folder for your project.
+2.  Open this folder in your IDE.
+3.  Open the chat panel for your AI assistant.
+4.  Your very first message to the AI is to paste the entire content of `04_AIA_SYSTEM_PROMPT.md`.
 
-**Result:** Your AI assistant is now fully initialized. It understands its role as your expert AI Architect and is bound by the framework's protocols and mandates.
+**Result:** Your AI assistant is now the **Quantum Diamond AI Architect**, fully initialized and bound by the framework's v18 protocols.
 
-## The Genesis Cycle: A Three-Step Kick-Off
+## The Genesis Cycle: A Four-Step Kick-Off
 
 This is how you start the creative "jam session."
 
 ### Step 1: The Spark (Your High-Level Idea)
 
-Start with a simple, natural language prompt. You are not giving technical instructions yet; you are sharing your vision. The goal is to describe the "what," not the "how."
+Start with a simple, natural language prompt describing the "what," not the "how."
 
-**Copy and paste this into the Gemini chat, replacing the example with your own idea:**
-
-> **Example Prompt:**
-> "Okay, let's start our first project. Can you build me an app that I can use to manage my personal book collection?"
->
 > **Your Prompt:**
 > "Okay, let's start our first project. Can you build me an app that I can use to [YOUR_CORE_APP_IDEA_HERE]?"
 
 ### Step 2: The Vision & Clarification (The AI's Response)
 
-The AI, following its new **Kick-Off and Clarification Protocols**, will NOT immediately generate code. Instead, it will respond with a comprehensive vision document tailored to your idea, and ask clarifying questions to reduce ambiguity.
+Following its protocols, the AI will NOT immediately generate code. Instead, it will respond with a comprehensive vision document and ask clarifying questions.
 
 **Expected AI Response (Example for a Book Collection App):**
 
-> *Absolutely. I will create a comprehensive **personal library application** with a clean, modern design that allows you to catalog your books, track your reading progress, and create wishlists.*
+> *Absolutely. I will create a comprehensive **personal library application**...*
 >
 > ***Core Features:***
-> *   *Add books manually or by searching an online database.*
-> *   *Organize books into shelves like 'Read', 'Currently Reading', and 'To Read'.*
-> *   *Rate and review books you've finished.*
-> *   *Search and filter your collection by title, author, or genre.*
->
-> ***Design Elements:***
-> *   *A warm, academic-themed color palette with serif fonts for titles.*
-> *   *Clean card-based layouts to display book covers.*
-> *   *Intuitive navigation between your library, wishlist, and search.*
+> *   *Add books manually...*
+> *   *Organize books into shelves...*
 >
 > ***Clarifying Questions:***
-> *1. For this prototype, are there any specific fields you want to capture for each book beyond the basics (e.g., publisher, page count, original language)?*
-> *2. Should the app include a feature to scan a book's ISBN barcode to add it? (This would be a future consideration)*
-> *3. Is a social component, like sharing reviews with friends, important for this first version?*
+> *1. For this prototype, are there any specific fields you want to capture for each book...?*
+> *2. Should the app include a feature to scan a book's ISBN barcode...?*
 
-### Step 3: The Confirmation & The Scaffold (Your Actionable Prompt)
+### Step 3: Scaffold Selection (Your First Decision)
 
-This step is where you, the Human Lead, provide clarity and give the command to build. You answer the AI's questions to shape the final vision and then tell it which persona to adopt.
+Answer the AI's questions to refine the vision. It will then ask you to choose the foundation for your project.
 
 **Your next prompt in the chat (customize your answers):**
 
 > That vision is perfect. Let's answer your questions:
-> 1.  No, the basic fields are fine for now.
-> 2.  No, **barcode scanning is not needed** for the first version.
-> 3.  No, a **social component is not needed** for the first version.
+> 1.  No, the basic fields are fine.
+> 2.  No, barcode scanning is not needed.
 >
-> Please proceed. Adopt the **AI Full-Stack Scaffolder** persona and create the initial local-first foundation.
+> Let's proceed.
 
-### Step 4: Automated Setup & Execution
-After the AI generates the code, it will then proceed to **execute the setup commands** for you. It will install all dependencies and initialize the local database. You will see the output from these commands in the chat.
+**Expected AI Response:**
 
-**Result:** You will receive a fully configured and operational application, ready to be started.
+> "The vision is clear. To build the foundation, which project scaffold should I deploy?
+>
+> 1.  **Python AI/Agent Application:** Best for machine learning, agents, and data pipelines.
+> 2.  **Full-Stack Web Application (Node.js/React):** Best for modern web apps with a clear frontend and backend.
+>
+> You can find details for both in `07_playbook-project-scaffolds.md`."
 
-**Expected Result:**
-The AI will now respond with its tactical "Chain of Thought" plan. This will be followed by a single, holistic response containing all the files for the application skeleton, **followed by the output of the setup commands it runs for you.**
+### Step 4: The Confirmation & The Scaffold (Your Final Command)
 
-Finally, at the end of its response, it will report on the work it just did, making the "emergent rigor" transparent:
+This is your final command to start the build.
 
-> **Active Persona:** `AI Full-Stack Scaffolder`
-> **Guardian Artifacts Produced:** `adrs/001-local-first-prototyping.md`, `docs/UserRequirements.md`, `docs/DataContracts.md`, `docs/DATABASE_SETUP.md`
+**Your next prompt in the chat:**
 
-You have now successfully navigated the most critical phase of the Genesis Cycle, moving from a vague idea to a clear, co-designed vision, and finally to a professional-grade scaffold, with its initial technical architecture and user requirements already documented for the future Engineering Cycle.
+> Please use the **[Python AI/Agent Application OR Full-Stack Web Application]** scaffold. Adopt the **AI Full-Stack Scaffolder** persona and create the initial local-first foundation.
+
+**Result:** The AI Architect will now generate the complete, professional-grade project structure and all initial files, ready for you to begin the iterative "jam session."
 --- END OF FILE HowToUseToBuildAnApp.md ---
 
 --- START OF FILE MediumArticle.md ---
@@ -672,6 +775,102 @@ The tools have changed. The speed of creation has changed. It's time our process
 For those interested in the tactical details, the complete, open-source playbooks for both the Genesis and Engineering Cycles are available on my GitHub here: [https://github.com/richfrem/quantum-diamond].
 
 --- END OF FILE MediumArticle.md ---
+
+--- START OF FILE PROMPTS/Agent-Expert-Quantum-Framework.md ---
+
+name: quantum-architect
+description: Use this agent to build full-stack applications using the Quantum Diamond Framework. This agent guides projects from a high-level idea through a creative "Genesis Cycle" for prototyping, and into a rigorous "Engineering Cycle" for production hardening.
+
+<example>
+Context: Starting a new project from an idea
+user: "Let's build an app to manage my personal book collection."
+assistant: "I'll guide you through the Quantum Diamond Framework, starting with the Genesis Cycle. Let me use the quantum-architect to co-create a vision and then scaffold a local-first prototype."
+<commentary>
+The Genesis Cycle turns a vague idea into a tangible, validated prototype quickly.
+</commentary>
+</example>
+
+<example>
+Context: Iterating on a prototype during the Genesis Cycle
+user: "The list of books looks too plain. Can we make it look more like cards?"
+assistant: "Of course. Adopting the AI UI/UX Specialist persona, I'll redesign the UI. Let me use the quantum-architect to implement a modern, card-based layout using shadcn/ui."
+<commentary>
+Iterative refinement is the core of the 'jam session', allowing for rapid visual and functional exploration.
+</commentary>
+</example>
+
+<example>
+Context: Transitioning from prototype to production
+user: "I'm happy with this prototype. It captures the vision perfectly."
+assistant: "Excellent. The Genesis Cycle is complete. I'll use the quantum-architect to begin the Engineering Cycle, starting with graduating the database to PostgreSQL and implementing Row Level Security."
+<commentary>
+The transition to the Engineering Cycle is a deliberate shift from creative exploration to disciplined execution.
+</commentary>
+</example>
+
+<example>
+Context: Hardening a feature for production
+user: "We need to add proper error handling to the book creation API."
+assistant: "Production-grade code requires robust error handling and testing. I'll use the quantum-architect to refactor the API endpoint and add corresponding vitest integration tests."
+<commentary>
+The Engineering Cycle ensures features are not just functional but also reliable, secure, and testable.
+</commentary>
+</example>
+color: green
+tools: Write, Read, MultiEdit, Bash, WebSearch
+---
+
+You are the **Quantum Diamond AI Architect**, the expert practitioner of the Quantum Diamond Framework for building high-quality, full-stack applications. You are not just a code generator; you are a strategic partner who resolves the conflict between the speed of "vibe coding" and the rigor of disciplined engineering. Your purpose is to guide me, the Human Lead, through the framework's two distinct cycles: the creative **Genesis Cycle** and the structured **Engineering Cycle**.
+
+Your primary responsibilities:
+
+1.  **Guiding the Genesis Cycle (The Jam Session)**: You will translate my initial vision into a tangible prototype by:
+    -   Initiating a "Vision Kick-Off" to clarify my intent before writing any code.
+    -   Scaffolding a complete, local-first application (Vite, React, Express, Prisma, SQLite) as the initial foundation.
+    -   Guiding an iterative "jam session" to refine the UI and functionality.
+    -   Producing a **Validated Vision Prototype** that captures the final, agreed-upon vision.
+
+2.  **Activating Specialist Personas**: You will adopt specific, expert personas to execute tasks effectively during the Genesis Cycle:
+    -   **AI Full-Stack Scaffolder**: When instructed, you will build the application's skeleton, including the local server, database schema (`Prisma`), and frontend structure.
+    -   **AI UI/UX Specialist**: When refining the UI, you will build beautiful, modern interfaces using `shadcn/ui` components, `lucide-react` icons, and a design-token-based CSS system.
+    -   **AI Framework Steward (Guardian Persona)**: Passively, in the background, you will ensure long-term project health.
+
+3.  **Enforcing Emergent Rigor (The Guardian Role)**: As we build the prototype, you will work passively in the background to automatically generate professional engineering artifacts:
+    -   Create and maintain **Architecture Decision Records (ADRs)** in `adrs/` to document key technical choices.
+    -   Distill our conversations into a `docs/UserRequirements.md` file.
+    -   Document the data model in `docs/DataContracts.md`.
+    -   Generate a `docs/DATABASE_SETUP.md` file with instructions for the local database.
+
+4.  **Managing the Cycle Transition**: You will manage the critical handoff between the framework's two phases:
+    -   Recognize when I express complete satisfaction with the prototype, signaling the end of the Genesis Cycle.
+    -   Trigger the **Cycle Transition Protocol**, clearly stating that the next step is the Engineering Cycle and requires the `05_ENGINEERING_KICKOFF_PROMPT.md`.
+
+5.  **Executing the Engineering Cycle (The Factory Blueprint)**: You will harden the prototype for production by:
+    -   **Graduating the Stack**: Migrating the database from SQLite to a production system like Supabase/PostgreSQL, including writing new SQL migration files.
+    -   **Security Hardening**: Implementing robust **Row Level Security (RLS)** policies to ensure data privacy.
+    -   **Rewriting for Production**: Refactoring prototype code to be production-grade, with proper error handling and configuration management.
+    -   **Formalizing Contracts**: Converting implicit types into explicit, version-controlled Zod schemas.
+    -   **Enforcing Testing**: Writing comprehensive tests (`vitest`) for all critical backend and frontend logic.
+
+**Core Protocols**:
+-   **Vision Kick-Off Protocol**: Your first response to a new app idea MUST be a high-level vision document and clarifying questions.
+-   **Continuous Clarification Protocol**: For any ambiguous request during the Genesis Cycle, you MUST ask questions before generating code.
+-   **Cycle Transition Protocol**: When I am "totally happy with the prototype," you MUST deliver the specific transition message to begin the Engineering Cycle.
+-   **Test-Driven Mentality (in Eng. Cycle)**: Any new backend logic or complex utility MUST be accompanied by a corresponding test file.
+
+**Key Artifacts Generated**:
+-   **Genesis Cycle**:
+    -   A runnable, local-first prototype (React, Express, Prisma).
+    -   `prisma/schema.prisma` for the local database.
+    -   Documentation files (`adrs/`, `docs/UserRequirements.md`, etc.).
+-   **Engineering Cycle**:
+    -   Production-ready code with serverless functions.
+    -   SQL migration files with RLS policies.
+    -   Versioned Zod schemas.
+    -   `*.test.ts` files using `vitest`.
+
+Your goal is to be the perfect human-AI collaborator for building applications, seamlessly blending rapid, creative prototyping with the discipline required for production-quality software. You are the engine and the guardian of the Quantum Diamond Framework.
+--- END OF FILE PROMPTS/Agent-Expert-Quantum-Framework.md ---
 
 --- START OF FILE PROMPTS/PromptToAnalyzeExistingCodeBase.md ---
 
@@ -872,7 +1071,7 @@ I will provide the strategic domain we need to integrate. You will generate the 
 --- START OF FILE README.md ---
 
 # The Quantum Diamond AI Application Development Framework
-**Version:** v17
+**Version:** v18
 
 ## Overview
 Traditional development models are breaking under the creative and technical pressures of the AI age. Teams are caught in a false dichotomy: move fast with inspired "vibe coding" and risk building brittle, unmaintainable systems, or move slowly with rigorous "architecture-first" discipline and risk engineering the wrong solution perfectly.
@@ -926,52 +1125,39 @@ graph TD
 ## Core Principles: Human Intent, AI Velocity, Engineering Rigor
 
 1.  **Human-Led Vision:** The human is the strategist, the empath, the curator, and the final decision-maker.
-2.  **AI-Powered Velocity:** We treat AI not as a tool, but as a team of specialist agents to accelerate discovery and prototyping.
+2.  **AI-Powered Velocity:** We treat AI not as a tool, but as a specialist partner to accelerate discovery and prototyping.
 3.  **Disciplined Engineering:** Creativity is channeled into structure. A validated vision is translated into a reliable, secure, and maintainable system.
 
-## The Two Cycles of the Quantum Diamond Framework
-
-The workflow consists of two distinct cycles. The first is a fluid, creative loop for envisioning the right solution. The second is a structured, predictable path to build that solution right. The transition between them is a deliberate, human-led decision, orchestrated via specific prompts.
-
-`[ 🌀 The Genesis Cycle: Envision the Right Thing ] -> [ ⚙️ The Engineering Cycle: Build the Thing Right ]`
-
----
-### Phase I: 🌀 The Genesis Cycle (The Jam Session)
-
-**Goal:** To explore possibilities and collapse them into a single, validated vision. This phase can be executed using two flexible paths:
-1.  **Rapid Prototyping Canvas (e.g., `bolt.new`):** Use a specialized, visually-driven tool for maximum speed in initial idea exploration.
-2.  **Guided Prototyping Session (e.g., Gemini in VS Code):** Use a general-purpose AI within your IDE for more granular control and integration.
-
-Both paths prioritize making ideas tangible instantly, allowing professional engineering artifacts to emerge organically.
-
-➡️ **For a detailed guide, see the [Playbook: The Genesis Cycle](./01_playbook-genesis-cycle.md).**
-
----
-### Phase II: ⚙️ The Engineering Cycle (Build the Thing Right)
-
-**Goal:** To take the validated vision—the prototype and code artifacts produced by *either* path in the Genesis Cycle—and build it with discipline. This phase is about deterministic execution where architectural rigor, tests, and production-grade infrastructure are paramount.
-
-➡️ **For a detailed, step-by-step guide, see the [Playbook: The Engineering Cycle](./02_playbook-engineering-cycle.md).**
-
 ---
 
-## See it in Action: The Demonstrator Project
+## Putting it into Practice: Your First Project
 
-![screenshot of application](./images/music-collection-app.png)
+The Quantum Diamond Framework is designed to be used in partnership with a powerful AI coding assistant (like GitHub Copilot, Gemini, etc.). Here is the practical, step-by-step workflow to start a new project like `knowledge-weaver`.
 
+### Step 1: Initialize Your AI Partner
 
-To see a tangible example of an application built using the Quantum Diamond Framework, check out our official demonstrator project: the **Music Collection Manager**.
+This is the most critical step. You begin not by writing code, but by "training" your AI assistant.
 
-This complete, full-stack application was bootstrapped and developed by an AI assistant following the exact "Guided Prototyping Session" path described in the playbooks. It serves as a real-world example of the framework's output.
+-   **Action:** In a new, empty project folder, start a conversation with your AI assistant and provide it with the entire contents of `04_AIA_SYSTEM_PROMPT.md`.
+-   **Outcome:** Your AI is no longer a general assistant. It is now the **Quantum Diamond AI Architect**, fully aware of the framework, its playbooks, its scaffolds, and its protocols.
 
-> **➡️ View the Demonstrator Project Repository:**
-> **[https://github.com/richfrem/music-collection](https://github.com/richfrem/music-collection)**
+### Step 2: Share Your Vision (The "Spark")
 
-The demonstrator project showcases:
-- **AI-Powered Scaffolding**: How a simple prompt generates a complete project structure.
-- **Local-First Architecture**: A robust Node.js server with a SQLite database, built for persistent, offline-first use.
-- **"Disciplined Vibe Coding"**: A clean, modern UI built through iterative, conversational prompts.
-- **Emergent Rigor**: The automatic generation of documentation (ADRs, requirements) by the AI's "Guardian Persona".
+Engage your newly-trained AI Architect in a natural language conversation.
+
+-   **Action:** Give it a high-level, one-sentence idea. For example: *"Let's build an app to track my workouts."*
+-   **Outcome:** The AI Architect will initiate the "Vision & Scaffolding Kick-Off Protocol." It will respond with a proposed vision document and ask clarifying questions.
+
+### Step 3: Follow the Guided Dialogue
+
+From this point on, you are in the **Genesis Cycle**. The AI Architect will guide you through the process:
+
+1.  It will help you refine the vision.
+2.  It will ask you to choose a project scaffold (from `07_playbook-project-scaffolds.md`).
+3.  It will generate the complete project foundation for you.
+4.  You can then begin the iterative "jam session" to build out your prototype.
+
+For a detailed walkthrough of this entire process, see the tutorial: **[How to Use This Framework to Build Your App](./HowToUseToBuildAnApp.md)**.
 
 ---
 
@@ -979,14 +1165,74 @@ The demonstrator project showcases:
 
 This repository contains the complete methodology and practical guides for the Quantum Diamond Framework.
 
-*   **`README.md`**: (This file) The high-level overview, core principles, and visual diagrams of the entire process. **Start here.**
-*   **`01_playbook-genesis-cycle.md`**: A tactical guide explaining the two flexible paths for running the creative "jam session".
-*   **`02_playbook-engineering-cycle.md`**: A tactical guide for architects and engineers on hardening a prototype for production.
-*   **`03_walkthrough-genesis-cycle-in-action.md`**: A detailed, step-by-step example of the "Guided Prototyping Session" path.
-*   **`prompts/`**: A directory containing the core system prompts for initializing a general AI to act as your expert partner in the "Guided" path.
-    *   **`04_AIA_SYSTEM_PROMPT.md`**: The definitive system prompt for the **Genesis Cycle**.
-    *   **`05_ENGINEERING_KICKOFF_PROMPT.md`**: The critical transition prompt for the **Engineering Cycle**.
-*   **`HowToUseToBuildAnApp.md`**: A hands-on tutorial that walks you through using the "Guided" path to build a sample application from scratch.
+*   **`README.md`**: (This file) The high-level overview and practical getting started guide. **Start here.**
+*   **Playbooks (`01_` to `07_`)**: A series of detailed guides explaining the framework's phases, from the creative "Genesis Cycle" to the rigorous "Engineering Cycle" and project scaffolding.
+*   **`prompts/`**: The core system prompts used to initialize your AI partner.
+*   **`templates/`**: Reusable markdown templates for Requirements and Tasks to enforce the engineering workflow.
+*   **`HowToUseToBuildAnApp.md`**: A hands-on tutorial for building an app from scratch.
 
 --- END OF FILE README.md ---
+
+--- START OF FILE package-lock.json ---
+
+{
+  "name": "quantum-diamond",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "dependencies": {
+        "gpt-tokenizer": "^3.2.0"
+      }
+    },
+    "node_modules/gpt-tokenizer": {
+      "version": "3.2.0",
+      "resolved": "https://registry.npmjs.org/gpt-tokenizer/-/gpt-tokenizer-3.2.0.tgz",
+      "integrity": "sha512-QRRhzJIHcGbbdzhMGNCHhF+98RVaBaVD5+NYgyPOamqRBEqG5yN9p5j4udnY5FJnkesjdUPsikG/DO4OfJdhpQ==",
+      "license": "MIT"
+    }
+  }
+}
+
+--- END OF FILE package-lock.json ---
+
+--- START OF FILE package.json ---
+
+{
+  "dependencies": {
+    "gpt-tokenizer": "^3.2.0"
+  }
+}
+
+--- END OF FILE package.json ---
+
+--- START OF FILE templates/TEMPLATE_REQUIREMENT.md ---
+
+# REQ-[ID]: [Requirement Title]
+
+- **Statement:** A clear, one-sentence statement of what the system must do.
+- **Acceptance Criteria:**
+  - A bulleted list of specific, testable conditions that must be met.
+  - Each criterion should be verifiable.
+- **Traceability:**
+  - **Implemented By:** Link to ADRs, Task files, or specific code modules.
+  - **Verified By:** Link to test files (e.g., `tests/test_feature.py`).
+- **Status:** To Do | In Progress | Done
+--- END OF FILE templates/TEMPLATE_REQUIREMENT.md ---
+
+--- START OF FILE templates/TEMPLATE_TASK.md ---
+
+# [ID] - [Task Title]
+
+- **Requirement:** Link to the `REQ-ID` this task helps fulfill.
+- **Goal:** A high-level description of what this task will accomplish.
+- **Implementation Steps:**
+  - A checklist of concrete actions to be taken.
+  - Example: `[ ] Modify src/module/file.py to add new function.`
+  - Example: `[ ] Create new test file tests/test_new_function.py.`
+- **Definition of Done:**
+  - [ ] Code is implemented.
+  - [ ] Unit/integration tests are passing.
+  - [ ] Documentation (if needed) is updated.
+--- END OF FILE templates/TEMPLATE_TASK.md ---
 
