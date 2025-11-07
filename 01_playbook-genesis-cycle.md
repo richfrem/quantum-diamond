@@ -69,3 +69,7 @@ No matter which path you take, the Genesis Cycle is complete when it has produce
 *   ✅ A set of **Initial Engineering Artifacts**: The source code, schema definitions (SQL migrations or Prisma schema), and the `index.css` and `tailwind.config.ts` files that define the nascent design system.
 
 These artifacts are the direct input for the **Engineering Cycle**, where the prototype will be hardened, tested, and prepared for production.
+
+> **Note:** Before entering the Engineering Cycle, audit your prototype against 
+> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent 
+> context bloat, insecure flows, and runaway costs.

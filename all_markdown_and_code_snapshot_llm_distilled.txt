@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-11-07T19:47:42.228Z
+Generated On: 2025-11-07T20:07:06.499Z
 
-# Mnemonic Weight (Token Count): ~21,305 tokens
+# Mnemonic Weight (Token Count): ~22,247 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -35,6 +35,10 @@ Generated On: 2025-11-07T19:47:42.228Z
   ./RelatedMediumArticles.md
   ./all_markdown_and_code_snapshot_llm_distilled.txt
   ./capture_code_snapshot.js
+  ./docs/
+  ./docs/agent-anti-patterns.md
+  ./docs/checklists/
+  ./docs/checklists/agent_handoff_checklist.md
   ./images/
   ./images/music-collection-app.png
   ./images/quantum-diamond-framework-concept.jpeg
@@ -120,6 +124,10 @@ No matter which path you take, the Genesis Cycle is complete when it has produce
 
 These artifacts are the direct input for the **Engineering Cycle**, where the prototype will be hardened, tested, and prepared for production.
 
+> **Note:** Before entering the Engineering Cycle, audit your prototype against 
+> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent 
+> context bloat, insecure flows, and runaway costs.
+
 --- END OF FILE 01_playbook-genesis-cycle.md ---
 
 --- START OF FILE 02_playbook-engineering-cycle.md ---
@@ -163,6 +171,10 @@ graph TD
 ## The Handoff
 
 The input to this cycle is the **Validated Vision Prototype** and its associated **Initial Engineering Artifacts**, which can come from either a rapid prototyping canvas or a guided IDE session.
+
+> **Note:** This marks the "citizen-dev → engineering takeover" transition. Before proceeding, audit your prototype against 
+> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent 
+> context bloat, insecure flows, and runaway costs.
 
 ---
 ### Stage 0: Strategy & System Design (The Blueprint)
@@ -627,7 +639,7 @@ graph LR
 
     %% --- Connections Between Phases ---
     Setup -- "Creates Guarded Sandbox" --> Loop;
-    Loop -- "The <strong>Pre-Vetted</strong> Handoff" --> E;
+    Loop -- "Pre-vetted handoff to pro engineers" --> E;
 
     %% --- Node Styles ---
     style Setup fill:#e5e7eb,stroke:#374151
@@ -1336,6 +1348,23 @@ Traditional development models are breaking under the creative and technical pre
 
 For a detailed introduction to the philosophy behind this framework, see the [announcement article on Medium](https://medium.com/@rfremmer_30873/beyond-the-double-diamond-design-process-a-new-framework-for-the-ai-age-the-quantum-diamond-980fe3f89319).
 
+## Why this repo exists
+This repository captures a practical pathway from fast agent/app prototyping to production-grade engineering. It complements the article:
+
+- *[The MCP Agent Revolution Has a Dirty Secret: Most Agents Are Built by People Who Don't Understand Software Engineering* (Medium)](https://medium.com/@rfremmer_30873/the-mcp-agent-revolution-has-a-dirty-secret-most-agents-are-built-by-people-who-dont-understand-940276372db2)
+
+### From prototype to production (plain-language diagram)
+```mermaid
+flowchart TD
+    A[Explore ideas] --> B[Try lots of possibilities]
+    B --> C[Figure out what actually matters]
+    C --> D[Focus and narrow things down]
+    D -->|Quick feedback loop| A
+
+    D -->|Handoff to professional engineers| F[Engineering takeover<br/>• Apply standards<br/>• Architect the system<br/>• Add guardrails & testing]
+    F -->|Build it for real| E[Production-grade agent<br/>• Secure<br/>• Scalable<br/>• Efficient]
+```
+
 ## The Framework at a Glance
 ```mermaid
 graph TD
@@ -1516,6 +1545,13 @@ This repository contains the complete methodology and practical guides for the Q
 *   **`HowToStartYourProject.md`**: Your first step. A guide to initializing your AI partner and creating your first prototype for either a web app or an agent.
 *   **`HowToIterateAndImprove.md`**: The "inner loop" guide. How to use specialist agents and your codebase snapshot to continuously refactor and improve your project.
 
+### Start here
+- [Genesis Cycle](./01_playbook-genesis-cycle.md)
+- [Engineering Cycle](./02_playbook-engineering-cycle.md)
+- [Agent Authoring Workflow](./08_playbook-agent-authoring-workflow.md)
+- [Agent Anti-Patterns](./docs/agent-anti-patterns.md)
+- [Handoff Checklist](./docs/checklists/agent_handoff_checklist.md)
+
 ---
 
 ## License
@@ -1551,6 +1587,52 @@ The following articles provide the philosophical background, practical applicati
 *   A deep dive into the specific challenges of building robust AI agents. This article exposes the common "Token Gobbler" anti-patterns and details how the framework's specialized, secure-by-design approach provides a necessary solution for professional agent authoring.
 
 --- END OF FILE RelatedMediumArticles.md ---
+
+--- START OF FILE docs/agent-anti-patterns.md ---
+
+# Agent Anti-Patterns (and the right fix)
+
+1) Pre-loading every tool schema → **Bloat**
+   - **Fix:** JIT tool registry / MCP server, load on demand.
+2) Duplicating tool schemas across agents
+   - **Fix:** Central shared registry / package.
+3) Shipping giant tool results through the model
+   - **Fix:** Pass file handles/IDs; store artifacts in files/object storage; feed summaries.
+4) No on-demand discovery
+   - **Fix:** `search_tools`/filesystem discovery; progressive disclosure.
+5) Raw data back to LLM
+   - **Fix:** Filter/aggregate in code; give curated slices only.
+6) Control flow via "model → tool → model ..."
+   - **Fix:** Put loops/polling in code; LLM orchestrates at a conceptual level only.
+7) PII through the model
+   - **Fix:** Redact/tokenize; least-privilege execution layer; privacy guardrails first.
+8) No state or reusable skills
+   - **Fix:** Persist state (DB/files); cache; RAG/CAG; shared utilities.
+--- END OF FILE docs/agent-anti-patterns.md ---
+
+--- START OF FILE docs/checklists/agent_handoff_checklist.md ---
+
+# Agent Handoff Checklist (Prototype → Engineering)
+
+## Governance & Safety
+- [ ] PII/secret handling: redaction/tokenization hooks enabled
+- [ ] Tool permissions: least-privilege, audited
+
+## Efficiency
+- [ ] Tool schemas loaded JIT (no prompt stuffing)
+- [ ] Large artifacts referenced by handle (no raw blobs to LLM)
+- [ ] Data filtered/aggregated in code
+
+## Architecture
+- [ ] Shared tool registry/pkg in place (no duplication)
+- [ ] Control flow in code (polling/loops); LLM for high-level intent
+- [ ] State persisted (DB/files); caches; RAG/CAG if applicable
+
+## Testing & Ops
+- [ ] Contract tests for tool I/O (schemas)
+- [ ] Guardrail tests (PII, length, cost, latency)
+- [ ] CI wired; basic monitoring (cost/latency/validation failures)
+--- END OF FILE docs/checklists/agent_handoff_checklist.md ---
 
 --- START OF FILE package-lock.json ---
 

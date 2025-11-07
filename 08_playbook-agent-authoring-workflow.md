@@ -43,7 +43,7 @@ graph LR
 
     %% --- Connections Between Phases ---
     Setup -- "Creates Guarded Sandbox" --> Loop;
-    Loop -- "The <strong>Pre-Vetted</strong> Handoff" --> E;
+    Loop -- "Pre-vetted handoff to pro engineers" --> E;
 
     %% --- Node Styles ---
     style Setup fill:#e5e7eb,stroke:#374151
