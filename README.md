@@ -8,6 +8,23 @@ Traditional development models are breaking under the creative and technical pre
 
 For a detailed introduction to the philosophy behind this framework, see the [announcement article on Medium](https://medium.com/@rfremmer_30873/beyond-the-double-diamond-design-process-a-new-framework-for-the-ai-age-the-quantum-diamond-980fe3f89319).
 
+## Why this repo exists
+This repository captures a practical pathway from fast agent/app prototyping to production-grade engineering. It complements the article:
+
+- *[The MCP Agent Revolution Has a Dirty Secret: Most Agents Are Built by People Who Don't Understand Software Engineering* (Medium)](https://medium.com/@rfremmer_30873/the-mcp-agent-revolution-has-a-dirty-secret-most-agents-are-built-by-people-who-dont-understand-940276372db2)
+
+### From prototype to production (plain-language diagram)
+```mermaid
+flowchart TD
+    A[Explore ideas] --> B[Try lots of possibilities]
+    B --> C[Figure out what actually matters]
+    C --> D[Focus and narrow things down]
+    D -->|Quick feedback loop| A
+
+    D -->|Handoff to professional engineers| F[Engineering takeover<br/>• Apply standards<br/>• Architect the system<br/>• Add guardrails & testing]
+    F -->|Build it for real| E[Production-grade agent<br/>• Secure<br/>• Scalable<br/>• Efficient]
+```
+
 ## The Framework at a Glance
 ```mermaid
 graph TD
@@ -187,6 +204,13 @@ This repository contains the complete methodology and practical guides for the Q
 *   **`templates/`**: Reusable markdown templates for Requirements and Tasks to enforce the engineering workflow.
 *   **`HowToStartYourProject.md`**: Your first step. A guide to initializing your AI partner and creating your first prototype for either a web app or an agent.
 *   **`HowToIterateAndImprove.md`**: The "inner loop" guide. How to use specialist agents and your codebase snapshot to continuously refactor and improve your project.
+
+### Start here
+- [Genesis Cycle](./01_playbook-genesis-cycle.md)
+- [Engineering Cycle](./02_playbook-engineering-cycle.md)
+- [Agent Authoring Workflow](./08_playbook-agent-authoring-workflow.md)
+- [Agent Anti-Patterns](./docs/agent-anti-patterns.md)
+- [Handoff Checklist](./docs/checklists/agent_handoff_checklist.md)
 
 ---
 

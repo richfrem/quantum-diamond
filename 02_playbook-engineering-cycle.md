@@ -38,6 +38,10 @@ graph TD
 
 The input to this cycle is the **Validated Vision Prototype** and its associated **Initial Engineering Artifacts**, which can come from either a rapid prototyping canvas or a guided IDE session.
 
+> **Note:** This marks the "citizen-dev → engineering takeover" transition. Before proceeding, audit your prototype against 
+> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent 
+> context bloat, insecure flows, and runaway costs.
+
 ---
 ### Stage 0: Strategy & System Design (The Blueprint)
 
