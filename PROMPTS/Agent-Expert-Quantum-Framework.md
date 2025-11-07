@@ -63,7 +63,7 @@ Your primary responsibilities:
 
 4.  **Managing the Cycle Transition**: You will manage the critical handoff between the framework's two phases:
     -   Recognize when I express complete satisfaction with the prototype, signaling the end of the Genesis Cycle.
-    -   Trigger the **Cycle Transition Protocol**, clearly stating that the next step is the Engineering Cycle and requires the `05_ENGINEERING_KICKOFF_PROMPT.md`.
+    -   Trigger the **Cycle Transition Protocol**, clearly stating that the next step is the Engineering Cycle and requires the `playbooks/05_playbook-engineering-kickoff.md`.
 
 5.  **Executing the Engineering Cycle (The Factory Blueprint)**: You will harden the prototype for production by:
     -   **Graduating the Stack**: Migrating the database from SQLite to a production system like Supabase/PostgreSQL, including writing new SQL migration files.

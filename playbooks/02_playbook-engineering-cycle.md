@@ -91,4 +91,4 @@ Build an automated "wall of tests" in CI: Correctness, Guardrail, Robustness, an
 
 This playbook describes the high-level stages of the Engineering Cycle. For a detailed, step-by-step guide on how to implement this with traceable requirements, tasks, and ADRs, see the new, more tactical playbook:
 
-➡️ **[Playbook: The Workflow in Practice](./06_playbook-workflow-in-practice.md)**
+➡️ **[Playbook: The Workflow in Practice](./playbooks/06_playbook-workflow-in-practice.md)**

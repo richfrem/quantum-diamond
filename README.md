@@ -11,7 +11,7 @@ A practical framework to go from **idea → prototype → production engineering
 
 ## Hygiene & Anti-Patterns
 - Run locally: `npm run hygiene:full`
-- Latest CI report: see **Actions → Agent Hygiene** artifacts.
+- Latest CI reports: see **Actions → Agent Hygiene** and **Actions → App Hygiene** artifacts.
 Traditional development models are breaking under the creative and technical pressures of the AI age. Teams are caught in a false dichotomy: move fast with inspired "vibe coding" and risk building brittle, unmaintainable systems, or move slowly with rigorous "architecture-first" discipline and risk engineering the wrong solution perfectly.
 
 **The Quantum Diamond Framework is the synthesis that resolves this conflict.** It is a next-generation workflow designed for a world of collaborative AI that combines the speed of **AI-Powered Prototyping** with the empathy of **Service Design** and the rigor of **Architecture-First Engineering**.
@@ -44,10 +44,10 @@ Recent updates focus on **agent hygiene and engineering rigor** to prevent commo
 - **Enhanced Diagrams**: Visual workflows for both app and agent development with explicit handoff points
 
 ## Start here
-- [How to Start Your Project](./HowToStartYourProject.md) - Initialize AI partners for apps or agents
-- [Genesis Cycle](./01_playbook-genesis-cycle.md) - Creative prototyping phase
-- [Engineering Cycle](./02_playbook-engineering-cycle.md) - Production hardening phase
-- [Agent Authoring Workflow](./08_playbook-agent-authoring-workflow.md) - Secure agent development
+- [How to Start Your Project](./how-tos/HowToStartYourProject.md) - Initialize AI partners for apps or agents
+- [Genesis Cycle](./playbooks/01_playbook-genesis-cycle.md) - Creative prototyping phase
+- [Engineering Cycle](./playbooks/02_playbook-engineering-cycle.md) - Production hardening phase
+- [Agent Authoring Workflow](./playbooks/08_playbook-agent-authoring-workflow.md) - Secure agent development
 - [Agent Anti-Patterns](./docs/agent-anti-patterns.md) - Common pitfalls and fixes
 - [Agent Handoff Checklist](./docs/checklists/agent_handoff_checklist.md) - Prototype to production transition
 - [Agent Hygiene Inspector](./PROMPTS/Agent-Hygiene-Inspector.md) - Anti-pattern audit specialist
@@ -89,7 +89,7 @@ flowchart LR
 
   E --> F[Engineer for Production]
   F --> G[(Production-Grade Agent)]
-  click E href "02_playbook-engineering-cycle.md" "Engineering Cycle"
+  click E href "playbooks/02_playbook-engineering-cycle.md" "Engineering Cycle"
 ```
 
 ## Quantum Diamond Specialist Roles
@@ -189,6 +189,65 @@ Generated: 2025-11-07T10:30:00.000Z
 - [WARN] Context-stuffing tendency detected
 ```
 
+## Agent Hygiene Overview
+
+Agent hygiene is the practice of maintaining clean, efficient, and secure AI agent code through automated inspection and enforcement of best practices. The Quantum Diamond Framework includes a comprehensive hygiene system that prevents common pitfalls in agent development.
+
+### Core Hygiene Principles
+
+1. **Context Efficiency**: Keep context windows lean and focused
+2. **Data Minimization**: Only pass necessary data through the model
+3. **Privacy Protection**: Never expose sensitive information
+4. **Tool Governance**: Use registries, not direct embedding
+5. **State Management**: External state, not mental model mutation
+6. **Control Flow**: Code handles loops, not the LLM
+7. **Structured Returns**: Objects over narrative prose
+8. **Schema References**: Reference schemas, don't embed them
+
+### Hygiene Discipline Rules
+
+**🚫 NEVER:**
+- Embed entire schemas in prompts (reference them instead)
+- Pass large datasets through the model (filter and summarize)
+- Store sensitive data in conversation history
+- Load tools directly into prompts (use tool registry)
+- Return narrative prose from agents (use structured objects)
+- Mutate LLM "mental models" (use external state)
+- Create infinite loops in prompts (handle in code)
+- Stuff unlimited context (implement pruning)
+
+**✅ ALWAYS:**
+- Use structured JSON/Zod schemas for agent returns
+- Implement context pruning and selective inclusion
+- Externalize state management from the LLM
+- Register tools through dedicated registries
+- Filter and minimize data before model processing
+- Handle control flow logic in application code
+- Reference schemas by ID/name, not embed them
+- Run hygiene inspections before production deployment
+
+### Hygiene Enforcement
+
+The framework enforces hygiene through:
+- **Automated CI checks** on every PR
+- **Pre-commit hooks** for local development
+- **Specialist inspectors** for each hygiene category
+- **Structured reporting** with severity levels
+- **Integration with governance** workflows
+
+## Hygiene Gates
+
+Run before specialist reviews or production handoffs:
+```bash
+npm run hygiene:full
+```
+
+**Reports Generated:**
+- `docs/agent_hygiene_report.md` - Agent-specific anti-patterns and hygiene issues
+- `docs/app_hygiene_report.md` - App-specific security, performance, and quality checks
+
+**Do not proceed until all ERROR-level issues are resolved.**
+
 ## Mermaid Diagrams
 
 ### Quantum Loop (Creative Discovery → Engineering Handoff)
@@ -285,7 +344,7 @@ graph TD
     %% Phase 1: Initial Application Creation
     subgraph Phase1 ["Phase 1: Initial Application Creation"]
         style Phase1 fill:#e8f5e8,stroke:#2e7d32,color:#111827
-        Architect["<strong>App Architect / Initial Prompt</strong><br/><br/>✔ Generates modern web app scaffold<br/>✔ Sets up React/TypeScript/Vite stack<br/>✔ Creates initial project structure<br/>✔ Establishes development workflow"]
+        Architect["<strong>App Architect / Initial Prompt</strong><br/><br/>✔ Generates modern web app scaffold<br/>✔ Sets up React/TypeScript/Vite stack<br/>✔ Creates initial project structure<br/>✔ Includes app hygiene inspection system<br/>✔ Establishes development workflow"]
     end
 
     %% Phase 2: Specialist Analysis & Iteration
@@ -338,7 +397,7 @@ graph TD
     %% Phase 0: The Secure Setup
     subgraph Phase0 ["Phase 0: The Secure Setup"]
         style Phase0 fill:#f3f4f6,stroke:#4b5563,color:#111827
-        Setup["<strong>The Guardian Agent / Initial Prompt</strong><br/><br/>✔ Generates secure agent boilerplate<br/>✔ Establishes PII & secrets rules<br/>✔ Sets up pre-commit hooks & scans<br/>✔ Creates initial ADRs"]
+        Setup["<strong>The Guardian Agent / Initial Prompt</strong><br/><br/>✔ Generates secure agent boilerplate<br/>✔ Establishes PII & secrets rules<br/>✔ Sets up pre-commit hooks & scans<br/>✔ Includes agent hygiene inspection system<br/>✔ Creates initial ADRs"]
     end
 
     %% Phase 1: Guided Prototyping
@@ -389,7 +448,7 @@ Begin by choosing your development path and initializing an AI partner with a sp
 ### Step 2: Iterate and Improve with Specialists
 Once you have a prototype, you can enter the powerful "inner loop" of the framework. Use specialist AI agents to analyze your codebase, recommend improvements, and provide expert refactoring guidance.
 
-➡️ **To refine your project, follow the guide: [How to Iterate and Improve with Specialist Agents](./HowToIterateAndImprove.md)**
+➡️ **To refine your project, follow the guide: [How to Iterate and Improve with Specialist Agents](./how-tos/HowToIterateAndImprove.md)**
 
 ---
 
@@ -401,12 +460,12 @@ This repository contains the complete methodology and practical guides for the Q
 *   **Playbooks (`01_` to `07_`)**: A series of detailed guides explaining the framework's phases, from the creative "Genesis Cycle" to the rigorous "Engineering Cycle" and project scaffolding.
 *   **`prompts/`**: The core system prompts used to initialize your AI partner.
 *   **`templates/`**: Reusable markdown templates for Requirements and Tasks to enforce the engineering workflow.
-*   **`HowToStartYourProject.md`**: Your first step. A guide to initializing your AI partner and creating your first prototype for either a web app or an agent.
-*   **`HowToIterateAndImprove.md`**: The "inner loop" guide. How to use specialist agents and your codebase snapshot to continuously refactor and improve your project.
+*   **`how-tos/HowToStartYourProject.md`**: Your first step. A guide to initializing your AI partner and creating your first prototype for either a web app or an agent.
+*   **`how-tos/HowToIterateAndImprove.md`**: The "inner loop" guide. How to use specialist agents and your codebase snapshot to continuously refactor and improve your project.
 
 ### How this repo is organized
 
-**Playbooks:** `01_playbook-genesis-cycle.md`, `02_playbook-engineering-cycle.md`, `06_playbook-workflow-in-practice.md`
+**Playbooks:** `playbooks/01_playbook-genesis-cycle.md`, `playbooks/02_playbook-engineering-cycle.md`, `playbooks/06_playbook-workflow-in-practice.md`
 
 **Agent Authoring:** `08_playbook-agent-authoring-workflow.md`, `docs/agent-anti-patterns.md`, `docs/checklists/agent_handoff_checklist.md`
 
@@ -428,14 +487,14 @@ agent_hygiene_report.md
 ```
 
 ## Governance & Traceability
-- `06_playbook-workflow-in-practice.md` (traceable workflow)
+- `playbooks/06_playbook-workflow-in-practice.md` (traceable workflow)
 - `PROMPTS/Governance-Guardian.md` (how to audit)
 - `templates/TEMPLATE_REQUIREMENT.md` & `templates/TEMPLATE_TASK.md`
 
 ### Start here
-- [Genesis Cycle](./01_playbook-genesis-cycle.md)
-- [Engineering Cycle](./02_playbook-engineering-cycle.md)
-- [Agent Authoring Workflow](./08_playbook-agent-authoring-workflow.md)
+- [Genesis Cycle](./playbooks/01_playbook-genesis-cycle.md)
+- [Engineering Cycle](./playbooks/02_playbook-engineering-cycle.md)
+- [Agent Authoring Workflow](./playbooks/08_playbook-agent-authoring-workflow.md)
 - [Agent Anti-Patterns](./docs/agent-anti-patterns.md)
 - [Handoff Checklist](./docs/checklists/agent_handoff_checklist.md)
 

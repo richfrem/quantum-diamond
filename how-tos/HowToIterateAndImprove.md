@@ -19,7 +19,34 @@ First, we need to provide the full context of your project to the specialist age
     node ./capture_code_snapshot.js
     ```
 3.  This will create a new file in your root directory named `all_markdown_and_code_snapshot_llm_distilled.txt`. This file contains all the necessary context.
-4.  **After generating a snapshot, run the hygiene inspectors automatically. Review `docs/agent_hygiene_report.md` before asking a specialist agent for help.**
+4.  **MANDATORY: Run hygiene inspection before consulting specialists:**
+    ```bash
+    npm run hygiene:full
+    ```
+5.  **Review both hygiene reports:**
+    - `docs/agent_hygiene_report.md` (agent-specific issues)
+    - `docs/app_hygiene_report.md` (app-specific issues)
+6.  **CRITICAL:** Do not proceed with specialist consultation if hygiene errors exist. Fix all ERROR severity findings first.
+
+### Hygiene Requirements for Specialist Consultation
+
+**🚫 BLOCKERS (Must Fix First):**
+- Any ERROR severity findings in `docs/agent_hygiene_report.md` **or** `docs/app_hygiene_report.md`
+- Missing either hygiene report (inspection not run)
+- Critical privacy violations detected
+- Schema embedding anti-patterns
+
+**⚠️ WARNINGS (Address Soon):**
+- Context stuffing tendencies
+- State persistence issues
+- Data filtering gaps
+- Dependency vulnerabilities
+- Missing test coverage
+
+**✅ SAFE TO PROCEED:**
+- Both hygiene reports exist and show 0 errors
+- Only warnings present (optional to fix before consultation)
+- All inspectors have run successfully
 
 ### Step 2: Choose Your Specialist
 Select a specialist prompt from the `PROMPTS/` directory that matches your goal. Each specialist is an expert in a specific domain.
@@ -36,6 +63,21 @@ Select a specialist prompt from the `PROMPTS/` directory that matches your goal.
 
 **Result:** The specialist agent will provide a detailed analysis, a prioritized list of actionable recommendations, and often, the exact refactored code needed to implement the improvements.
 
-**Important:** Never consult a Specialist until hygiene errors = 0.
+**Important:** Never consult a Specialist until hygiene errors = 0. The hygiene inspection ensures your codebase follows best practices and anti-pattern prevention before receiving expert analysis.
+
+### Hygiene Integration in Development Workflow
+
+**Pre-Specialist Checklist:**
+- [ ] Codebase snapshot generated
+- [ ] Hygiene inspection run (`npm run hygiene:full`)
+- [ ] Hygiene report reviewed (`docs/agent_hygiene_report.md`)
+- [ ] All ERROR findings resolved
+- [ ] WARNING findings addressed (optional but recommended)
+
+**Post-Specialist Actions:**
+- [ ] Implement recommended changes
+- [ ] Re-run hygiene inspection to verify fixes
+- [ ] Update documentation if architectural changes made
+- [ ] Commit changes with descriptive messages
 
 You can repeat this loop as many times as needed to continuously harden and professionalize your application or agent.

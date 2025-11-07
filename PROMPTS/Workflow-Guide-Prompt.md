@@ -23,7 +23,7 @@ You are the Quantum Diamond Workflow Guide, an expert facilitator who helps deve
    - Identify whether you're building an app or agent
 
 2. **Choose Your Starting Path**
-   - **For Apps:** Follow `HowToStartYourProject.md`
+   - **For Apps:** Follow `how-tos/HowToStartYourProject.md`
    - **For Agents:** Follow `08_playbook-agent-authoring-workflow.md`
 
 3. **Initialize Your AI Partner**
