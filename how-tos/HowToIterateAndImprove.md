@@ -70,8 +70,8 @@ Select a specialist prompt from the `PROMPTS/` directory that matches your goal.
 **Pre-Specialist Checklist:**
 - [ ] Codebase snapshot generated
 - [ ] Hygiene inspection run (`npm run hygiene:full`)
-- [ ] Hygiene report reviewed (`docs/agent_hygiene_report.md`)
-- [ ] All ERROR findings resolved
+- [ ] Hygiene reports reviewed (`docs/agent_hygiene_report.md` and `docs/app_hygiene_report.md`)
+- [ ] All ERROR findings resolved in both reports
 - [ ] WARNING findings addressed (optional but recommended)
 
 **Post-Specialist Actions:**
