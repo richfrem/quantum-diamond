@@ -172,7 +172,8 @@ This directory contains all the specialized AI prompts that power the Quantum Di
 
 To prevent unintended auto-scaffolding in AI app generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.), use generator-safe initializers:
 
-- **Start Small:** Begin with the minimal Phase -1 intent confirmation snippet from the prompt's "Using Prompts in AI App Generators" section
+- **Step 0: System Mode Prelude** - Paste `templates/generator_safe/SystemModePrelude.md`
+- **Step 1: Phase-1 Minimal** - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
 - **Confirm Intent First:** Let the assistant acknowledge your intent before pasting the full prompt
 - **Then Escalate:** After intent confirmation, paste the remainder of the prompt to unlock the full role
 

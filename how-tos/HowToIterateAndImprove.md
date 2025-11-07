@@ -58,8 +58,11 @@ Select a specialist prompt from the `PROMPTS/` directory that matches your goal.
 
 ### Step 3: Engage the Specialist
 1.  Start a **new chat session** with your AI assistant to ensure a clean context.
-2.  First, paste the **entire content** of the specialist prompt you chose in Step 2.
-3.  Immediately after, paste the **entire content** of the `all_markdown_and_code_snapshot_llm_distilled.txt` file you generated in Step 1.
+2.  **Step 0: Generator-Safe Boot**
+    - Paste `templates/generator_safe/SystemModePrelude.md`
+    - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+3.  Wait for intent confirmation → then paste the **entire content** of the specialist prompt you chose in Step 2.
+4.  Immediately after, paste the **entire content** of the `all_markdown_and_code_snapshot_llm_distilled.txt` file you generated in Step 1.
 
 **Result:** The specialist agent will provide a detailed analysis, a prioritized list of actionable recommendations, and often, the exact refactored code needed to implement the improvements.
 

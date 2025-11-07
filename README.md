@@ -501,18 +501,19 @@ agent_hygiene_report.md
 
 ---
 
-## Uing Prompts in AI App Generators (AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
-, Replit, Bolt.new, Lovable, etc.)
+## Using Prompts in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
 
+To validate Quantum Diamond workflows in AI app generators and prevent unintended auto-scaffolding:
 
-To validate Quantum Diamond workflows in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
-:
-
-1. Start a new chat
-2. Paste the initialization prompt (e.g., `App-Authoring-Architect.md` or `Agent-Authoring-Guardian.md`)
+1. **Step 0: Generator-Safe Boot**
+   - Paste `templates/generator_safe/SystemModePrelude.md`
+   - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+2. Wait for intent confirmation → then paste the full prompt (e.g., `PROMPTS/App-Authoring-Architect.md` or `PROMPTS/Agent-Authoring-Guardian.md`)
 3. Upload the project snapshot (if working on an existing project) using `node ./capture_code_snapshot.js`
 4. Follow the interactive guidance phase - respond to clarification questions
 5. Allow the architect to begin scaffolding once intent is confirmed and hygiene passes
+
+**Hygiene Gate:** `npm run hygiene:full` must show 0 ERROR findings before scaffolding or specialist handoffs.
 
 ## License
 

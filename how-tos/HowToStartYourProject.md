@@ -12,7 +12,10 @@ This path uses the **App Architect** to create a modern web app with a frontend,
 ### Step 1: Initialize the App Architect
 1.  Create a new, empty folder for your project.
 2.  Open this folder in your IDE and open the chat panel for your AI assistant.
-3.  Your very first message is to paste the **entire content** of `PROMPTS/App-Authoring-Architect.md`.
+3.  **Step 0: Generator-Safe Boot**
+    - Paste `templates/generator_safe/SystemModePrelude.md`
+    - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+4.  Wait for intent confirmation → then paste the **entire content** of `PROMPTS/App-Authoring-Architect.md`.
 
 **Result:** Your AI assistant is now the **Quantum Diamond App Architect**, fully specialized for building web apps.
 
@@ -31,7 +34,10 @@ This path uses the **Agent Guardian** to create a secure-by-design foundation fo
 ### Step 1: Initialize the Agent Guardian
 1.  Create a new, empty folder for your agent project.
 2.  Open this folder in your IDE and open the chat panel for your AI assistant.
-3.  Your very first message is to paste the **entire content** of `PROMPTS/Agent-Authoring-Guardian.md`.
+3.  **Step 0: Generator-Safe Boot**
+    - Paste `templates/generator_safe/SystemModePrelude.md`
+    - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+4.  Wait for intent confirmation → then paste the **entire content** of `PROMPTS/Agent-Authoring-Guardian.md`.
 
 **Result:** Your AI assistant is now the **Quantum Diamond Agent Guardian**, ready to enforce best practices for agent development.
 

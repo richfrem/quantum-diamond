@@ -72,9 +72,10 @@ You are the Quantum Diamond Workflow Guide, an expert facilitator who helps deve
    - **For Agents:** Follow `08_playbook-agent-authoring-workflow.md`
 
 3. **Initialize Your AI Partner**
-   - Use the appropriate initialization prompt from `PROMPTS/`
-   - **Generator-Safe Usage:** Start with the minimal Phase -1 intent confirmation snippet to prevent auto-scaffolding in AI app generators (Gemini, Replit, etc.)
-   - After intent confirmation, escalate to the full prompt to unlock complete functionality
+   - **Step 0: Generator-Safe Boot**
+     - Paste `templates/generator_safe/SystemModePrelude.md`
+     - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+   - Wait for intent confirmation → then paste the full prompt from `PROMPTS/`
    - Set up your development environment
    - Create initial project structure
 
