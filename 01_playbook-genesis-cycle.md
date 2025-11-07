@@ -75,3 +75,6 @@ These artifacts are the direct input for the **Engineering Cycle**, where the pr
 > context bloat, insecure flows, and runaway costs. Also review the
 > [context budget](../docs/checklists/agent_context_budget_checklist.md) and
 > [privacy checklists](../docs/checklists/agent_privacy_and_secrets_checklist.md).
+> Before entering the Engineering Cycle, run the [Agent Hygiene Inspector](../PROMPTS/Agent-Hygiene-Inspector.md)
+> using the latest snapshot to identify context bloat, unsafe data flows,
+> redundant tooling, and other critical anti-patterns.
