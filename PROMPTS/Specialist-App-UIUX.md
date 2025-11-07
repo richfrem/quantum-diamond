@@ -35,7 +35,8 @@ I cannot proceed until both reports show **0 ERROR findings**.
 
 ## Handoff to Pro-Engineers
 If your goal is to move from prototype → production,
-I will tell you when you must involve a human engineer or Gemini AI Studio.
+I will tell you when you must involve a human engineer or AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+.
 
 This ensures professional development practices are followed.
 

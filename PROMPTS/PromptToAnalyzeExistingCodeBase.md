@@ -107,7 +107,8 @@ Once I select a priority item (e.g., "Let's tackle item #2 from the plan"), you 
 3. This will create a file named `all_markdown_and_code_snapshot_llm_distilled.txt`.
 4. In a new chat session, provide me with this prompt, followed by the entire content of that generated snapshot file.
 
-## Using This Prompt in Gemini AI Studio
+## Using This Prompt in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+
 To validate this workflow in Gemini:
 1. Start a new chat
 2. Paste the initialization prompt

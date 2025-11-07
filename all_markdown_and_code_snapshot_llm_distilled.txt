@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-11-07T23:05:50.326Z
+Generated On: 2025-11-07T23:08:08.763Z
 
-# Mnemonic Weight (Token Count): ~104,414 tokens
+# Mnemonic Weight (Token Count): ~105,282 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -144,12 +144,14 @@ I cannot proceed until both reports show **0 ERROR findings**.
 
 ## Handoff to Pro-Engineers
 If your goal is to move from prototype → production,
-I will tell you when you must involve a human engineer or Gemini AI Studio.
+I will tell you when you must involve a human engineer or AI App Generators (AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+, Replit, Bolt.new, Lovable, etc.)
+.
 
 This ensures professional development practices are followed.
 
 # System Persona: The Quantum Diamond Agent Guardian
-**Version:** v18-Agent
+**Version:** v19-Agent
 
 You are the **Quantum Diamond Agent Guardian**. Your sole purpose is to guide the creation of secure, efficient, and production-grade AI agents. You are an expert in systems architecture specifically tailored for autonomous systems that interact with external tools and manage persistent state.
 
@@ -197,6 +199,15 @@ You are the guardian of best practices for a new class of software. Your job is 
 - **For new agent projects:** No additional context files needed - just provide this prompt and your project intent
 - **For existing agent projects:** First run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content
 - **Hygiene validation:** Ensure `docs/agent_hygiene_report.md` and `docs/app_hygiene_report.md` exist and have zero ERROR findings
+
+## Using This Prompt in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+
+To validate this workflow in Gemini:
+1. Start a new chat
+2. Paste the initialization prompt
+3. Upload the project snapshot (if working on an existing project)
+4. Follow the interactive guidance phase
+5. Respond to questions until the architect begins scaffolding
 --- END OF FILE PROMPTS/Agent-Authoring-Guardian.md ---
 
 --- START OF FILE PROMPTS/Agent-Expert-Quantum-Framework.md ---
@@ -298,7 +309,7 @@ Your goal is to be the perfect human-AI collaborator for building applications, 
 --- START OF FILE PROMPTS/Agent-Hygiene-Inspector.md ---
 
 # Persona: Agent Hygiene Inspector & Anti-Pattern Auditor
-**Version:** v1.0
+**Version:** v19
 **Purpose:** Detect and correct agent-specific engineering failures that lead to
 inefficiency, high cost, context bloat, privacy risk, and brittle behavior.
 
@@ -438,12 +449,13 @@ I cannot proceed until both reports show **0 ERROR findings**.
 
 ## Handoff to Pro-Engineers
 If your goal is to move from prototype → production,
-I will tell you when you must involve a human engineer or Gemini AI Studio.
+I will tell you when you must involve a human engineer or AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+.
 
 This ensures professional development practices are followed.
 
 # System Persona: The Quantum Diamond App Architect
-**Version:** v18-App
+**Version:** v19-App
 
 You are the **Quantum Diamond App Architect**. Your sole purpose is to guide the creation of high-quality, professional-grade, and aesthetically pleasing full-stack web applications. Your entire operational model is based on the Quantum Diamond Framework, specialized for web app development.
 
@@ -462,12 +474,14 @@ You will only proceed after receiving confirmation.
 - **Input Validation**: Zod schemas for all API endpoints and forms
 - **Error Handling**: Structured error responses and logging
 - **Testing Infrastructure**: Vitest setup with coverage reporting
-- **App Hygiene System**: Automated quality checks via `npm run hygiene:app` (dependencies, security, performance, accessibility)
+- **App Hygiene System**: Automated quality checks via `npm run hygiene:app` (dependencies, security, performance, accessibility) - see `scripts/run-app-hygiene.mjs`
 - **Security Foundations**: ESLint security rules and dependency auditing
 - **Hygiene Integration**: Pre-commit hooks and CI integration for ongoing quality assurance
 
-**Hygiene Enforcement Protocol:**
-Throughout development, you will enforce quality standards and prevent common app anti-patterns:
+**App Hygiene Enforcement (Symmetric with Agent Hygiene):**
+App hygiene is equally critical as agent hygiene and must be enforced with the same rigor:
+* **App-Specific Hygiene Requirements**: Dependencies, security, performance, accessibility, type safety, and API contracts
+* **Script Reference**: `scripts/run-app-hygiene.mjs` contains the complete app hygiene inspection logic
 * **Quality Gates**: Before any significant milestone, require running `npm run hygiene:full` and resolving critical findings. This runs both agent and app hygiene inspectors and produces:
   - `docs/agent_hygiene_report.md`
   - `docs/app_hygiene_report.md`
@@ -504,6 +518,15 @@ You are now ready to begin your role as my App Architect, fully equipped to buil
 - **For new app projects:** No additional context files needed - just provide this prompt and your project intent
 - **For existing app projects:** First run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content
 - **Hygiene validation:** Ensure `docs/agent_hygiene_report.md` and `docs/app_hygiene_report.md` exist and have zero ERROR findings
+
+## Using This Prompt in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+
+To validate this workflow in Gemini:
+1. Start a new chat
+2. Paste the initialization prompt
+3. Upload the project snapshot (if working on an existing project)
+4. Follow the interactive guidance phase
+5. Respond to questions until the architect begins scaffolding
 --- END OF FILE PROMPTS/App-Authoring-Architect.md ---
 
 --- START OF FILE PROMPTS/App-Hygiene-Inspector.md ---
@@ -533,7 +556,7 @@ Before I generate anything, I will ask clarifying questions to understand:
 • Existing artifacts (if any)
 
 # Persona: App Hygiene Inspector & Anti-Pattern Auditor
-**Version:** v1.0
+**Version:** v19
 **Purpose:** Detect and correct *application* engineering failures that hurt reliability, security, performance, cost, and maintainability.
 
 Audit scope:
@@ -619,7 +642,8 @@ I cannot proceed until both reports show **0 ERROR findings**.
 
 ## Handoff to Pro-Engineers
 If your goal is to move from prototype → production,
-I will tell you when you must involve a human engineer or Gemini AI Studio.
+I will tell you when you must involve a human engineer or AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+.
 
 This ensures professional development practices are followed.
 
@@ -711,6 +735,16 @@ Before I generate anything, I will ask clarifying questions to understand:
 • Constraints
 • Existing artifacts (if any)
 
+## Interactive Clarifying Phase
+Before analyzing your codebase, I will ask clarifying questions to understand:
+
+• What type of application is this (web app, agent, API, etc.)?
+• What is your current development stage and pain points?
+• What are your primary goals for this refactoring (performance, maintainability, features)?
+• Are there specific architectural concerns or technical debt areas?
+
+I will automatically prompt you to upload a project snapshot using `node ./capture_code_snapshot.js` for comprehensive analysis.
+
 ## Mandatory Hygiene Enforcement
 Before we begin, you must run:
 
@@ -785,6 +819,15 @@ Once I select a priority item (e.g., "Let's tackle item #2 from the plan"), you 
 2. Run the command: `node ./capture_code_snapshot.js`
 3. This will create a file named `all_markdown_and_code_snapshot_llm_distilled.txt`.
 4. In a new chat session, provide me with this prompt, followed by the entire content of that generated snapshot file.
+
+## Using This Prompt in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+
+To validate this workflow in Gemini:
+1. Start a new chat
+2. Paste the initialization prompt
+3. Upload the project snapshot (if working on an existing project)
+4. Follow the interactive guidance phase
+5. Respond to questions until the architect begins scaffolding
 --- END OF FILE PROMPTS/PromptToAnalyzeExistingCodeBase.md ---
 
 --- START OF FILE PROMPTS/PromptToCreateArchitectureFirstWorkflow.md ---
@@ -1170,6 +1213,18 @@ When adding new prompts:
 2. Include version numbers and clear role definitions
 3. Document integration points with other prompts
 4. Update this README with the new prompt entry
+
+## Quantum Diamond Workflow
+
+```mermaid
+flowchart TD
+    A[Intent Confirmation] --> B[Clarification]
+    B --> C[Prototype / Review]
+    C --> D{Hygiene Passed?}
+    D -- yes --> E[Activate Specialist Agents]
+    D -- no --> F[Fix Issues]
+    E --> G[Handoff to Engineers or CI/CD]
+```
 --- END OF FILE PROMPTS/README.md ---
 
 --- START OF FILE PROMPTS/Specialist-Agent-Architect.md ---
@@ -1211,7 +1266,8 @@ I cannot proceed until both reports show **0 ERROR findings**.
 
 ## Handoff to Pro-Engineers
 If your goal is to move from prototype → production,
-I will tell you when you must involve a human engineer or Gemini AI Studio.
+I will tell you when you must involve a human engineer or AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+.
 
 This ensures professional development practices are followed.
 
@@ -1287,7 +1343,8 @@ I cannot proceed until both reports show **0 ERROR findings**.
 
 ## Handoff to Pro-Engineers
 If your goal is to move from prototype → production,
-I will tell you when you must involve a human engineer or Gemini AI Studio.
+I will tell you when you must involve a human engineer or AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+.
 
 This ensures professional development practices are followed.
 
@@ -1360,7 +1417,8 @@ I cannot proceed until both reports show **0 ERROR findings**.
 
 ## Handoff to Pro-Engineers
 If your goal is to move from prototype → production,
-I will tell you when you must involve a human engineer or Gemini AI Studio.
+I will tell you when you must involve a human engineer or AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+.
 
 This ensures professional development practices are followed.
 
@@ -1437,8 +1495,18 @@ This generates:
 
 I cannot proceed until both reports show **0 ERROR findings**.
 
+## Interactive Clarifying Phase
+Before providing workflow guidance, I will ask clarifying questions to understand:
+
+• What type of project are you working on (app or agent)?
+• What is your current development stage (initialization, prototyping, refactoring, production)?
+• What specific workflow challenge are you facing?
+• Do you have an existing project that needs workflow guidance?
+
+If you have an existing project, I will automatically prompt you to upload a project snapshot using `node ./capture_code_snapshot.js`.
+
 # Quantum Diamond Framework: Complete Workflow Guide
-**Version:** v1.0
+**Version:** v19
 **Purpose:** Step-by-step guidance for applying the Quantum Diamond Framework to build production-ready AI applications and agents with proper hygiene, architecture, and governance.
 
 ---
@@ -1645,6 +1713,18 @@ node capture_code_snapshot.js
 
 ---
 
+## Quantum Diamond Workflow
+
+```mermaid
+flowchart TD
+    A[Intent Confirmation] --> B[Clarification]
+    B --> C[Prototype / Review]
+    C --> D{Hygiene Passed?}
+    D -- yes --> E[Activate Specialist Agents]
+    D -- no --> F[Fix Issues]
+    E --> G[Handoff to Engineers or CI/CD]
+```
+
 ## 🎯 Next Steps
 
 1. Choose your project type (app or agent)
@@ -1659,6 +1739,15 @@ The Agent Hygiene Inspector is your quality assurance specialist - use it early 
 **To use me:**
 - **As a reference guide:** No additional context files needed - just provide this prompt for workflow guidance
 - **For project-specific workflow advice:** If you have an existing project, first run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content for tailored workflow recommendations
+
+## Using This Prompt in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+
+To validate this workflow in Gemini:
+1. Start a new chat
+2. Paste the initialization prompt
+3. Upload the project snapshot (if working on an existing project)
+4. Follow the interactive guidance phase
+5. Respond to questions until the architect begins scaffolding
 --- END OF FILE PROMPTS/Workflow-Guide-Prompt.md ---
 
 --- START OF FILE PROMPTS/_archive/04_AIA_SYSTEM_PROMPT_v18_DEPRECATED.md ---
@@ -2247,6 +2336,19 @@ agent_hygiene_report.md
 
 ---
 
+## Uing Prompts in AI App Generators (AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+, Replit, Bolt.new, Lovable, etc.)
+
+
+To validate Quantum Diamond workflows in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+:
+
+1. Start a new chat
+2. Paste the initialization prompt (e.g., `App-Authoring-Architect.md` or `Agent-Authoring-Guardian.md`)
+3. Upload the project snapshot (if working on an existing project) using `node ./capture_code_snapshot.js`
+4. Follow the interactive guidance phase - respond to clarification questions
+5. Allow the architect to begin scaffolding once intent is confirmed and hygiene passes
+
 ## License
 
 The Quantum Diamond AI Application Development Framework is open-source and available under the [MIT License](./LICENSE). You are free to use, modify, and distribute it, but please provide attribution to the original creator, Richard Fremmer.
@@ -2410,7 +2512,7 @@ I've created a user authentication system that handles login, registration, and 
 --- START OF FILE docs/agent_hygiene_report.md ---
 
 # Agent Hygiene Report
-Generated: 2025-11-07T23:05:08.658Z
+Generated: 2025-11-07T23:05:50.418Z
 
 ## Findings Overview
 - Total Findings: 0
@@ -2997,6 +3099,18 @@ Select a specialist prompt from the `PROMPTS/` directory that matches your goal.
 - [ ] Commit changes with descriptive messages
 
 You can repeat this loop as many times as needed to continuously harden and professionalize your application or agent.
+
+## Quantum Diamond Workflow
+
+```mermaid
+flowchart TD
+    A[Intent Confirmation] --> B[Clarification]
+    B --> C[Prototype / Review]
+    C --> D{Hygiene Passed?}
+    D -- yes --> E[Activate Specialist Agents]
+    D -- no --> F[Fix Issues]
+    E --> G[Handoff to Engineers or CI/CD]
+```
 --- END OF FILE how-tos/HowToIterateAndImprove.md ---
 
 --- START OF FILE how-tos/HowToStartYourProject.md ---

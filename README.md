@@ -501,9 +501,12 @@ agent_hygiene_report.md
 
 ---
 
-## Using Prompts in Gemini AI Studio
+## Uing Prompts in AI App Generators (AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+, Replit, Bolt.new, Lovable, etc.)
 
-To validate Quantum Diamond workflows in Gemini AI Studio:
+
+To validate Quantum Diamond workflows in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+:
 
 1. Start a new chat
 2. Paste the initialization prompt (e.g., `App-Authoring-Architect.md` or `Agent-Authoring-Guardian.md`)

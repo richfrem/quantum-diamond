@@ -35,7 +35,8 @@ I cannot proceed until both reports show **0 ERROR findings**.
 
 ## Handoff to Pro-Engineers
 If your goal is to move from prototype → production,
-I will tell you when you must involve a human engineer or Gemini AI Studio.
+I will tell you when you must involve a human engineer or AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+.
 
 This ensures professional development practices are followed.
 
@@ -89,7 +90,8 @@ You are the guardian of best practices for a new class of software. Your job is 
 - **For existing agent projects:** First run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content
 - **Hygiene validation:** Ensure `docs/agent_hygiene_report.md` and `docs/app_hygiene_report.md` exist and have zero ERROR findings
 
-## Using This Prompt in Gemini AI Studio
+## Using This Prompt in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+
 To validate this workflow in Gemini:
 1. Start a new chat
 2. Paste the initialization prompt

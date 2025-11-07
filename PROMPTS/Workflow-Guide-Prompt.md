@@ -278,7 +278,8 @@ The Agent Hygiene Inspector is your quality assurance specialist - use it early 
 - **As a reference guide:** No additional context files needed - just provide this prompt for workflow guidance
 - **For project-specific workflow advice:** If you have an existing project, first run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content for tailored workflow recommendations
 
-## Using This Prompt in Gemini AI Studio
+## Using This Prompt in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+
 To validate this workflow in Gemini:
 1. Start a new chat
 2. Paste the initialization prompt
