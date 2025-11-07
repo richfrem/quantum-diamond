@@ -65,28 +65,41 @@ While the Quantum Diamond Framework applies broadly, building autonomous **AI Ag
 This "shift-left" approach to security establishes a guarded sandbox *before* prototyping begins, preventing common pitfalls like data leaks and inefficient design.
 
 ```mermaid
-graph LR
-    %% Phase 0: The Secure Setup (Left)
-    subgraph Phase0 ["Phase 0: Secure Setup"]
+graph TD
+    %% Phase 0: The Secure Setup
+    subgraph Phase0 ["Phase 0: The Secure Setup"]
         style Phase0 fill:#f3f4f6,stroke:#4b5563,color:#111827
-        Setup["<strong>Guardian Agent / Initial Prompt</strong><br/>✔ Generates secure boilerplate<br/>✔ Establishes PII & secrets rules<br/>✔ Sets up pre-commit hooks"]
+        Setup["<strong>The Guardian Agent / Initial Prompt</strong><br/><br/>✔ Generates secure agent boilerplate<br/>✔ Establishes PII & secrets rules<br/>✔ Sets up pre-commit hooks & scans<br/>✔ Creates initial ADRs"]
     end
 
-    %% Phase 1: Guided Prototyping (Middle)
+    %% Phase 1: Guided Prototyping
     subgraph Phase1 ["Phase 1: Guided Prototyping"]
         style Phase1 fill:#fffbeb,stroke:#a16207,color:#111827
-        Loop["<strong>The Creative Loop</strong><br/>(Diverge & Converge)"]
+        Loop["<strong>The Creative Loop</strong><br/><br/>Explore Ideas →<br/>Try Possibilities (Divergence) →<br/>Figure out what matters (Convergence) →<br/>Focus & Narrow Down"]
+        
+        NOTE1["<strong>Annotation:</strong><br/>Creative freedom within safe boundaries.<br/>Speed is the goal; safety is a given."]
+        
+        Loop ~~~ NOTE1;
     end
 
-    %% Phase 2: Professional Engineering (Right)
-    subgraph Phase2 ["Phase 2: Engineering Build"]
+    %% Phase 2: Professional Engineering Build
+    subgraph Phase2 ["Phase 2: Professional Engineering Build"]
         style Phase2 fill:#f0f9ff,stroke:#0c4a6e,color:#111827
-        E["<strong>Engineering Takeover</strong><br/>• Harden & optimize<br/>• Add testing"]
+        E["<strong>Engineering Takeover</strong><br/>• Harden architecture<br/>• Optimize for scale<br/>• Add comprehensive testing"];
+        F["<strong>Production-Grade Agent</strong><br/>• Secure by Design<br/>• Scalable<br/>• Efficient"];
+        E -- "Build it for real" --> F;
     end
 
-    %% --- Connections ---
+    %% --- Connections Between Phases ---
     Setup -- "Creates Guarded Sandbox" --> Loop;
     Loop -- "The <strong>Pre-Vetted</strong> Handoff" --> E;
+
+    %% --- Node Styles ---
+    style Setup fill:#e5e7eb,stroke:#374151
+    style Loop fill:#f3e8ff,stroke:#7e22ce
+    style E fill:#dbeafe,stroke:#1e40af
+    style F fill:#dcfce7,stroke:#166534
+    style NOTE1 fill:#f1f5f9,stroke:#64748b,color:#111827
 ```
 
 This specialized process ensures that agents are built on a foundation of security and sound engineering from the very first step.
