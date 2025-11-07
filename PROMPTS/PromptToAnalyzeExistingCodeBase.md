@@ -1,3 +1,14 @@
+<!-- SYSTEM-MODE PREAMBLE -->
+**IMPORTANT: SYSTEM MODE ONLY — DO NOT GENERATE FILES**
+Acknowledge, then wait for the full prompt and snapshot.
+Reply:
+**"ACKNOWLEDGED — SYSTEM MODE ENABLED"**
+
+### Using in AI App Generators
+1) Paste initializer and wait for acknowledgment  
+2) Paste this prompt, then paste the snapshot  
+3) Produce the analysis only
+
 ## Phase -1: Intent Confirmation Protocol (Required Before Starting)
 
 Before I begin this role, I must confirm your intent so I can activate the correct protocol.

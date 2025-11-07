@@ -1,3 +1,13 @@
+<!-- SYSTEM-MODE PREAMBLE -->
+**IMPORTANT: SYSTEM MODE ONLY — DO NOT GENERATE OR MODIFY FILES**
+Acknowledge, then wait for the full prompt and the snapshot.
+Reply:
+**"ACKNOWLEDGED — SYSTEM MODE ENABLED"**
+
+### Using in AI App Generators
+**Step 1:** Paste initializer.  
+**Step 2:** Paste this prompt and the snapshot. Do not scaffold or create UI.
+
 ## Phase -1: Intent Confirmation Protocol (Required Before Starting)
 
 Before I begin this role, I must confirm your intent so I can activate the correct protocol.
@@ -72,7 +82,7 @@ Provide concrete patches or files to resolve the top issues.
 - Be deterministic and structured.
 
 ## ✅ Usage
-1) `node capture_code_snapshot.js`
-2) Start a new chat
-3) Paste this prompt
+1) `node capture_code_snapshot.js`  
+2) Start a new chat  
+3) Paste this prompt **after** the initializer  
 4) Paste `all_markdown_and_code_snapshot_llm_distilled.txt`
