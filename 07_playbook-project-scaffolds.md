@@ -4,7 +4,7 @@
 
 This playbook provides prescriptive, best-practice project structures to use when starting a new application with the Quantum Diamond Framework. A standardized structure is the foundation of the Engineering Cycle's rigor, ensuring consistency and maintainability from the very first step.
 
-The AI Architect's first action in the Genesis Cycle should be to ask which of these scaffolds to deploy.
+These are the standard, prescriptive project structures deployed by the framework's specialized authoring prompts.
 
 ---
 
@@ -101,3 +101,44 @@ project-name/
     ├── in_progress/
     └── done/
 ```
+
+---
+
+## Scaffold C: AI Agent Authoring
+
+This structure is specifically designed for building autonomous or semi-autonomous AI agents. It enforces a strict separation of concerns between the agent's core logic, its tools, its prompts, and its persistent state, preventing common anti-patterns like context stuffing and brittle state management.
+
+### Directory Structure
+```
+agent-project-name/
+├── .gitignore
+├── README.md
+├── pyproject.toml      # Or package.json
+├── .env                # For API keys and secrets
+│
+├── docs/               # Living documentation for the agent
+│   ├── 01_agent_requirements.md
+│   └── architecture/
+│       └── adr/
+│
+├── prompts/            # Version-controlled system and task prompts
+│   ├── system_persona.md
+│   └── tasks/
+│
+├── src/
+│   └── agent_project_name/ # The main agent package
+│       ├── __init__.py
+│       ├── agent_core.py # The main reasoning loop
+│       ├── state_manager.py # Handles interaction with the workspace
+│       └── tool_registry.py # Dynamically loads and calls tools
+│
+├── tools/              # Schemas and execution logic for external tools
+│   ├── some_api_tool.py
+│   └── local_utility_tool.py
+│
+├── workspace/          # Persistent state (Databases, files - Gitignored)
+│   └── agent_state.db
+│
+├── tasks/              # Markdown-based task management
+│
+└── tests/              # Automated tests for agent behavior and tools

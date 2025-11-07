@@ -58,34 +58,87 @@ graph TD
 
 ---
 
+## Specialization for AI Agent Authoring
+
+While the Quantum Diamond Framework applies broadly, building autonomous **AI Agents** requires an even greater emphasis on security and architectural rigor from the start. To address this, the framework includes a specialized workflow that introduces a critical **"Phase 0: Secure Setup."**
+
+This "shift-left" approach to security establishes a guarded sandbox *before* prototyping begins, preventing common pitfalls like data leaks and inefficient design.
+
+```mermaid
+graph LR
+    %% Phase 0: The Secure Setup (Left)
+    subgraph Phase0 ["Phase 0: Secure Setup"]
+        style Phase0 fill:#f3f4f6,stroke:#4b5563,color:#111827
+        Setup["<strong>Guardian Agent / Initial Prompt</strong><br/>✔ Generates secure boilerplate<br/>✔ Establishes PII & secrets rules<br/>✔ Sets up pre-commit hooks"]
+    end
+
+    %% Phase 1: Guided Prototyping (Middle)
+    subgraph Phase1 ["Phase 1: Guided Prototyping"]
+        style Phase1 fill:#fffbeb,stroke:#a16207,color:#111827
+        Loop["<strong>The Creative Loop</strong><br/>(Diverge & Converge)"]
+    end
+
+    %% Phase 2: Professional Engineering (Right)
+    subgraph Phase2 ["Phase 2: Engineering Build"]
+        style Phase2 fill:#f0f9ff,stroke:#0c4a6e,color:#111827
+        E["<strong>Engineering Takeover</strong><br/>• Harden & optimize<br/>• Add testing"]
+    end
+
+    %% --- Connections ---
+    Setup -- "Creates Guarded Sandbox" --> Loop;
+    Loop -- "The <strong>Pre-Vetted</strong> Handoff" --> E;
+```
+
+This specialized process ensures that agents are built on a foundation of security and sound engineering from the very first step.
+
+➡️ **[See the full Agent Authoring Workflow here](./08_playbook-agent-authoring-workflow.md)**
+
+---
+
 ## Putting it into Practice: Your First Project
 
-The Quantum Diamond Framework is designed to be used in partnership with a powerful AI coding assistant (like GitHub Copilot, Gemini, etc.). Here is the practical, step-by-step workflow to start a new project like `knowledge-weaver`.
+The Quantum Diamond Framework provides specialized "Guardian" prompts to initialize your AI partner for your specific goal.
 
-### Step 1: Initialize Your AI Partner
+### Step 1: Choose Your Path and Initialize Your AI Partner
 
-This is the most critical step. You begin not by writing code, but by "training" your AI assistant.
+This is the most critical step. You begin not by writing code, but by "training" your AI assistant for the task at hand.
 
--   **Action:** In a new, empty project folder, start a conversation with your AI assistant and provide it with the entire contents of `04_AIA_SYSTEM_PROMPT.md`.
--   **Outcome:** Your AI is no longer a general assistant. It is now the **Quantum Diamond AI Architect**, fully aware of the framework, its playbooks, its scaffolds, and its protocols.
+-   **To Build a Full-Stack Web Application:**
+    -   **Action:** In a new project folder, start a conversation with your AI assistant and provide it with the entire contents of `PROMPTS/App-Authoring-Architect.md`.
+    -   **Outcome:** Your AI is now the **Quantum Diamond App Architect**, ready to build a web app.
 
-### Step 2: Share Your Vision (The "Spark")
+-   **To Build an AI Agent:**
+    -   **Action:** In a new project folder, start a conversation with your AI assistant and provide it with the entire contents of `PROMPTS/Agent-Authoring-Guardian.md`.
+    -   **Outcome:** Your AI is now the **Quantum Diamond Agent Guardian**, ready to build a secure agent.
 
-Engage your newly-trained AI Architect in a natural language conversation.
+### Step 2: Share Your Vision and Follow the Guided Dialogue
 
--   **Action:** Give it a high-level, one-sentence idea. For example: *"Let's build an app to track my workouts."*
--   **Outcome:** The AI Architect will initiate the "Vision & Scaffolding Kick-Off Protocol." It will respond with a proposed vision document and ask clarifying questions.
+Once your AI partner is initialized, simply engage it in a natural language conversation. For example: *"Let's build an app to track my workouts."*
 
-### Step 3: Follow the Guided Dialogue
+The AI will then initiate its specialized protocol (either the App Architect's vision-first dialogue or the Agent Guardian's secure-setup process), guiding you through the rest of the Genesis Cycle.
 
-From this point on, you are in the **Genesis Cycle**. The AI Architect will guide you through the process:
+For a detailed walkthrough, see the tutorial: **[How to Use This Framework to Build Your App](./HowToUseToBuildAnApp.md)**.
 
-1.  It will help you refine the vision.
-2.  It will ask you to choose a project scaffold (from `07_playbook-project-scaffolds.md`).
-3.  It will generate the complete project foundation for you.
-4.  You can then begin the iterative "jam session" to build out your prototype.
+## Iterating and Improving with Specialist Agents
 
-For a detailed walkthrough of this entire process, see the tutorial: **[How to Use This Framework to Build Your App](./HowToUseToBuildAnApp.md)**.
+Once your project is underway, the Quantum Diamond Framework provides **Specialist Agents** for expert analysis and iterative improvement.
+
+### When to Use Specialist Agents
+
+After completing initial scaffolding or when you need expert guidance on specific aspects:
+
+-   **App Scaffolding Review:** Use `PROMPTS/Specialist-App-Scaffolder.md` to analyze and improve your app's architecture and code structure.
+-   **UI/UX Enhancement:** Use `PROMPTS/Specialist-App-UIUX.md` for design system and user experience improvements.
+-   **Agent Architecture Analysis:** Use `PROMPTS/Specialist-Agent-Architect.md` to review and optimize AI agent implementations.
+-   **Governance and Security:** Use `PROMPTS/Governance-Guardian.md` for compliance, security audits, and best practices validation.
+
+### How to Engage Specialist Agents
+
+1. **Initialize the Specialist:** In your project conversation, provide the entire contents of the relevant specialist prompt file.
+2. **Share Your Codebase:** Provide a snapshot of your current code (use `capture_code_snapshot.js` to generate one).
+3. **Ask for Analysis:** Request specific improvements or ask "What can be improved in this codebase?"
+
+The specialists will provide expert recommendations tailored to their domain, helping you iterate and refine your project.
 
 ---
 
