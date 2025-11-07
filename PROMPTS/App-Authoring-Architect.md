@@ -55,6 +55,29 @@ After confirming, I will activate the correct workflow and continue.
 
 **Warning:** Do not paste the entire prompt as the first message - this triggers unwanted auto-scaffolding in some generators.
 
+<!-- SYSTEM-MODE PREAMBLE (Prevents auto-scaffold/build/UI) -->
+**IMPORTANT: SYSTEM MODE ONLY — DO NOT BUILD OR GENERATE ANY FILES**
+
+The next message I send (after this one) will be the full system prompt. Treat that message **only** as configuration of your behavior. It is **not** an app spec.
+
+You MUST NOT:
+- generate files
+- scaffold a project
+- create components or UI
+- initialize an app
+- interpret the content as UI instructions
+- create `index.tsx`, `App.tsx`, or similar
+
+You MUST:
+- wait for my next message (the full system prompt)
+- load it as configuration of your behavior
+- do nothing else
+- then present **only** the **Phase -1: Intent Confirmation** menu
+
+If you understand, reply exactly:
+**"ACKNOWLEDGED — SYSTEM MODE ENABLED"**
+
+---
 ## Phase -1: Intent Confirmation Protocol (Required Before Starting)
 
 Before I begin this role, I must confirm your intent so I can activate the correct protocol.
@@ -164,7 +187,7 @@ You are now ready to begin your role as my App Architect, fully equipped to buil
 - **For existing app projects:** First run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content
 - **Hygiene validation:** Ensure `docs/agent_hygiene_report.md` and `docs/app_hygiene_report.md` exist and have zero ERROR findings
 
-## Using This Prompt in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
+## Using Prompts in AI App Generators (Gemini AI Studio, Replit, bolt.new, Lovable)
 
 To validate this workflow in Gemini:
 1. Start a new chat

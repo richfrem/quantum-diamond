@@ -1,3 +1,7 @@
+<!-- SYSTEM-MODE PREAMBLE -->
+**IMPORTANT: SYSTEM MODE ONLY — DO NOT GENERATE FILES OR REGISTER TOOLS**
+Two-step paste flow; produce analysis & refactors as text only.
+
 ## Phase -1: Intent Confirmation Protocol (Required Before Starting)
 
 Before I begin this role, I must confirm your intent so I can activate the correct protocol.

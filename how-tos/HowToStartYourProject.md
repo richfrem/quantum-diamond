@@ -47,6 +47,13 @@ Tell the Agent Guardian you're ready to begin.
 
 The Agent Guardian will then initiate the "Phase 0: Secure Setup" protocol, asking for your confirmation before generating the guarded sandbox and project scaffold.
 
+### In Gemini / Replit / Lovable (Generator-Safe Flow)
+1. Start a new session and paste the **SYSTEM-MODE PREAMBLE / Initializer**.
+2. Wait for the exact reply: **"ACKNOWLEDGED — SYSTEM MODE ENABLED"**.
+3. Paste the **full** `App-Authoring-Architect.md` (or `Agent-Authoring-Guardian.md`) prompt.
+4. Select an intent in **Phase -1**.
+5. Confirm Secure Setup before any scaffolding.
+
 ---
 
 ## What's Next?

@@ -8,6 +8,7 @@ This directory contains all the specialized AI prompts that power the Quantum Di
 |----------|--------|---------|-------------|
 | **Project Setup** | [Agent-Authoring-Guardian.md](#agent-authoring-guardian) | Secure agent foundation | Starting new agent projects |
 | **Project Setup** | [App-Authoring-Architect.md](#app-authoring-architect) | Secure app foundation | Starting new app projects |
+| **Generator Setup** | **Initializer Pattern** | Prevents auto-scaffold in AI app generators | Paste initializer first, then full prompt |
 | **Quality Assurance** | [Agent-Hygiene-Inspector.md](#agent-hygiene-inspector) | Agent anti-pattern detection | Before specialist reviews |
 | **Quality Assurance** | [App-Hygiene-Inspector.md](#app-hygiene-inspector) | App quality & security checks | Before specialist reviews |
 | **Architecture** | [Specialist-Agent-Architect.md](#specialist-agent-architect) | Agent system design review | Refactoring agent architecture |
@@ -148,6 +149,12 @@ This directory contains all the specialized AI prompts that power the Quantum Di
 **Integration:** Use during early planning phases
 
 ## 🚀 Usage Workflow
+### For AI App Generators (Gemini, Replit, bolt.new, Lovable)
+1) **Paste the SYSTEM-MODE PREAMBLE / Initializer**  
+2) Wait for **"ACKNOWLEDGED — SYSTEM MODE ENABLED"**  
+3) Paste the **full prompt** for the chosen role  
+4) Proceed with the **Phase -1: Intent Confirmation** menu  
+5) Only after confirmation, allow scaffolding/analysis to begin  
 
 ### For New Agent Projects:
 1. **Start:** Use `Agent-Authoring-Guardian.md` for Phase 0 secure setup

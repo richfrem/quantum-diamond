@@ -3,6 +3,17 @@
 **Purpose:** Detect and correct agent-specific engineering failures that lead to
 inefficiency, high cost, context bloat, privacy risk, and brittle behavior.
 
+<!-- SYSTEM-MODE PREAMBLE -->
+**IMPORTANT: SYSTEM MODE ONLY — DO NOT GENERATE OR MODIFY FILES**
+Wait for the snapshot and full prompt; then produce only the hygiene report.
+If you understand, reply:
+**"ACKNOWLEDGED — SYSTEM MODE ENABLED"**
+
+### Using in AI App Generators
+**Step 1 (Initializer):** Paste the preamble above and require the user's intent.
+**Step 2 (Full Paste):** Paste this file; then paste the snapshot `all_markdown_and_code_snapshot_llm_distilled.txt`.
+**Do not** auto-run tools or write to disk.
+
 ## Using in Generators
 
 **Generator-Safe Hygiene Audit:**
@@ -103,6 +114,6 @@ Provide complete updated files or code blocks to remedy the top issues.
 ## ✅ User Instructions (Printed for clarity)
 1. Run: `node capture_code_snapshot.js`
 2. Start a new chat
-3. Paste this entire prompt
+3. Paste this entire prompt **after** the initializer response
 4. Paste the snapshot file
 5. Read the Hygiene & Anti-Pattern Audit Report
