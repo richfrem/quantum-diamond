@@ -108,3 +108,9 @@ I've created a user authentication system that handles login, registration, and 
 - Implement validation at handoff points
 - Maintain data contracts between development phases
 - Enable automated testing and validation pipelines
+
+### Common Pitfalls & the Fix
+- **Pre-loading all tool schemas** → Use a **tool registry + JIT discovery** (see `templates/agent_hygiene/toolRegistry.ts`).
+- **Piping huge tool results through LLM** → **Filter/aggregate in code**, pass summaries/refs.
+- **Chained control flow in the model** → Move loops/polling into code; model only decides.
+- **No state** → Persist in workspace DB/files; cache intermediates.

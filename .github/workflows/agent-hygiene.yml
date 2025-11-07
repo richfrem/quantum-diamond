@@ -1,0 +1,42 @@
+name: Agent Hygiene
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm ci
+
+      # Optional: bring provider keys from repo/org secrets
+      # - name: Export LLM keys
+      #   run: |
+      #     echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
+
+      - name: Generate snapshot & hygiene report
+        run: |
+          npm run hygiene:full
+
+      - name: Upload hygiene report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent_hygiene_report
+          path: docs/agent_hygiene_report.md
+
+      - name: Fail on high severity findings
+        run: |
+          # naive gate: fail if placeholder 'Fail (high)' appears
+          if grep -qi "Fail (high)" docs/agent_hygiene_report.md; then
+            echo "❌ High severity hygiene failures detected."
+            exit 1
+          fi

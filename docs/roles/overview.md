@@ -45,6 +45,18 @@ between the three Quantum Diamond specialists used for agent development.
 
 **Boundaries:** Does not redesign architecture or rewrite governance docs.
 
+## App Development Path
+
+```mermaid
+flowchart TD
+  U[Human Lead] --> Arch[App Architect Prompt]
+  Arch --> Scaf[Full-Stack Scaffolder]
+  Arch --> UI[UI/UX Specialist]
+  Scaf --> Proto[(Validated Vision Prototype)]
+  UI --> Proto
+  Proto --> Eng[Engineering Cycle → Production]
+```
+
 ## Interaction Pattern
 
 These roles reflect the Quantum Diamond principle of dividing responsibilities

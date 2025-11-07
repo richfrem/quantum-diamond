@@ -1,8 +1,12 @@
 // capture_code_snapshot.js (v3.3)
 
-const fs = require('fs');
-const path = require('path');
-const { encode } = require('gpt-tokenizer');
+import fs from 'fs';
+import path from 'path';
+import { encode } from 'gpt-tokenizer';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const projectRoot = __dirname;
 const distilledOutputFile = path.join(projectRoot, 'all_markdown_and_code_snapshot_llm_distilled.txt');

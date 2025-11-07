@@ -1,7 +1,17 @@
-# The Quantum Diamond AI Application Development Framework
-**Version:** v19
+# Quantum Diamond Framework
 
-## Overview
+[![Agent Hygiene](https://img.shields.io/badge/agent%20hygiene-automated-blue)](#agent-hygiene)
+
+A practical framework to go from **idea → prototype → production engineering** for apps and agents.
+
+## TL;DR (5-minute start)
+- **Build an app:** open `PROMPTS/App-Authoring-Architect.md` in your IDE chat and follow "Vision → Scaffold".
+- **Build an agent:** open `PROMPTS/Agent-Authoring-Guardian.md` and follow **Phase 0: Secure Setup**.
+- **Harden to prod:** follow `02_playbook-engineering-cycle.md`.
+
+## Hygiene & Anti-Patterns
+- Run locally: `npm run hygiene:full`
+- Latest CI report: see **Actions → Agent Hygiene** artifacts.
 Traditional development models are breaking under the creative and technical pressures of the AI age. Teams are caught in a false dichotomy: move fast with inspired "vibe coding" and risk building brittle, unmaintainable systems, or move slowly with rigorous "architecture-first" discipline and risk engineering the wrong solution perfectly.
 
 **The Quantum Diamond Framework is the synthesis that resolves this conflict.** It is a next-generation workflow designed for a world of collaborative AI that combines the speed of **AI-Powered Prototyping** with the empathy of **Service Design** and the rigor of **Architecture-First Engineering**.
@@ -63,6 +73,23 @@ H --> I([Handoff to Professional Engineers<br/>🏭]):::handoff
 classDef role fill:#dbeafe,stroke:#1e40af,stroke-width:1px,color:#000;
 classDef phase fill:#fef9c3,stroke:#a16207,stroke-width:1px,color:#000;
 classDef handoff fill:#dcfce7,stroke:#166534,stroke-width:1px,color:#000;
+```
+
+## Roles & Handoffs (Agent Path)
+
+```mermaid
+flowchart LR
+  subgraph Ideate["Citizen Dev — Jam Session"]
+    A[Explore] --> B[Diverge]
+    B --> C[Define]
+    C --> D[Converge]
+  end
+
+  D -- "Handoff (pre-vetted snapshot, checklists passed)" --> E[[Pro Engineers]]
+
+  E --> F[Engineer for Production]
+  F --> G[(Production-Grade Agent)]
+  click E href "02_playbook-engineering-cycle.md" "Engineering Cycle"
 ```
 
 ## Quantum Diamond Specialist Roles
@@ -377,6 +404,15 @@ This repository contains the complete methodology and practical guides for the Q
 *   **`HowToStartYourProject.md`**: Your first step. A guide to initializing your AI partner and creating your first prototype for either a web app or an agent.
 *   **`HowToIterateAndImprove.md`**: The "inner loop" guide. How to use specialist agents and your codebase snapshot to continuously refactor and improve your project.
 
+### How this repo is organized
+
+**Playbooks:** `01_playbook-genesis-cycle.md`, `02_playbook-engineering-cycle.md`, `06_playbook-workflow-in-practice.md`
+
+**Agent Authoring:** `08_playbook-agent-authoring-workflow.md`, `docs/agent-anti-patterns.md`, `docs/checklists/agent_handoff_checklist.md`
+
+**Prompts:** `PROMPTS/Governance-Guardian.md`, `PROMPTS/Specialist-Agent-Architect.md`, `PROMPTS/Agent-Hygiene-Inspector.md`
+(all present in snapshot)
+
 ### Hygiene Inspector Structure
 
 ```
@@ -390,6 +426,11 @@ controlPlane.ts
 docs/
 agent_hygiene_report.md
 ```
+
+## Governance & Traceability
+- `06_playbook-workflow-in-practice.md` (traceable workflow)
+- `PROMPTS/Governance-Guardian.md` (how to audit)
+- `templates/TEMPLATE_REQUIREMENT.md` & `templates/TEMPLATE_TASK.md`
 
 ### Start here
 - [Genesis Cycle](./01_playbook-genesis-cycle.md)
