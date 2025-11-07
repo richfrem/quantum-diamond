@@ -191,3 +191,15 @@ When adding new prompts:
 2. Include version numbers and clear role definitions
 3. Document integration points with other prompts
 4. Update this README with the new prompt entry
+
+## Quantum Diamond Workflow
+
+```mermaid
+flowchart TD
+    A[Intent Confirmation] --> B[Clarification]
+    B --> C[Prototype / Review]
+    C --> D{Hygiene Passed?}
+    D -- yes --> E[Activate Specialist Agents]
+    D -- no --> F[Fix Issues]
+    E --> G[Handoff to Engineers or CI/CD]
+```

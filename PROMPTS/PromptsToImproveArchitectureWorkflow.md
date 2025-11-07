@@ -14,6 +14,14 @@ Please choose the closest option or describe your intent in your own words:
 Provide your intent.
 After confirming, I will activate the correct workflow and continue.
 
+## Phase 0: Interactive Understanding
+Before I generate anything, I will ask clarifying questions to understand:
+
+• What you're trying to build
+• Your goal state
+• Constraints
+• Existing artifacts (if any)
+
 # Prompts to evolve the Triple Diamond workflow
 Based on our journey, there are two primary directions for evolution:
 1.  **Deepening the Tactical Implementation:** Going from the "what" to the "how" for a specific stage.

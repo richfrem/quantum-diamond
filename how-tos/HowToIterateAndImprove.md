@@ -81,3 +81,15 @@ Select a specialist prompt from the `PROMPTS/` directory that matches your goal.
 - [ ] Commit changes with descriptive messages
 
 You can repeat this loop as many times as needed to continuously harden and professionalize your application or agent.
+
+## Quantum Diamond Workflow
+
+```mermaid
+flowchart TD
+    A[Intent Confirmation] --> B[Clarification]
+    B --> C[Prototype / Review]
+    C --> D{Hygiene Passed?}
+    D -- yes --> E[Activate Specialist Agents]
+    D -- no --> F[Fix Issues]
+    E --> G[Handoff to Engineers or CI/CD]
+```

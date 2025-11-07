@@ -68,3 +68,15 @@ into clear, composable skill domains for reliability and scale:
 
 This separation allows each specialist to maintain deep expertise in their domain
 while collaborating seamlessly for comprehensive agent development.
+
+## Quantum Diamond Workflow
+
+```mermaid
+flowchart TD
+    A[Intent Confirmation] --> B[Clarification]
+    B --> C[Prototype / Review]
+    C --> D{Hygiene Passed?}
+    D -- yes --> E[Activate Specialist Agents]
+    D -- no --> F[Fix Issues]
+    E --> G[Handoff to Engineers or CI/CD]
+```

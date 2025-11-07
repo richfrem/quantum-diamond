@@ -501,6 +501,16 @@ agent_hygiene_report.md
 
 ---
 
+## Using Prompts in Gemini AI Studio
+
+To validate Quantum Diamond workflows in Gemini AI Studio:
+
+1. Start a new chat
+2. Paste the initialization prompt (e.g., `App-Authoring-Architect.md` or `Agent-Authoring-Guardian.md`)
+3. Upload the project snapshot (if working on an existing project) using `node ./capture_code_snapshot.js`
+4. Follow the interactive guidance phase - respond to clarification questions
+5. Allow the architect to begin scaffolding once intent is confirmed and hygiene passes
+
 ## License
 
 The Quantum Diamond AI Application Development Framework is open-source and available under the [MIT License](./LICENSE). You are free to use, modify, and distribute it, but please provide attribution to the original creator, Richard Fremmer.
