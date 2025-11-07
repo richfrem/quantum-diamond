@@ -28,6 +28,7 @@ const alwaysExcludeFiles = new Set([
 ]);
 
 const allowedExtensions = ['.md', '.js', '.ts', '.tsx', '.py', '.sql', '.json', '.yaml', '.yml', '.sh', '.jsx', '.css', '.scss', '.html'];
+const allowedFilesWithoutExtension = new Set(['LICENSE']);
 // --- END CONFIGURATION ---
 
 const fileSeparatorStart = '--- START OF FILE';
@@ -104,7 +105,7 @@ try {
                 return;
             }
 
-            if (alwaysExcludeFiles.has(baseName) || !allowedExtensions.includes(path.extname(baseName).toLowerCase())) {
+            if (alwaysExcludeFiles.has(baseName) || (!allowedExtensions.includes(path.extname(baseName).toLowerCase()) && !allowedFilesWithoutExtension.has(baseName))) {
                 itemsSkipped++;
                 return;
             }

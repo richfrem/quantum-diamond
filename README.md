@@ -94,7 +94,7 @@ graph TD
 
     %% --- Connections Between Phases ---
     Architect -- "Creates Initial App" --> Scaffold;
-    Governance -- "Quality Assurance Complete" --> Engineering;
+    Governance -- "The <strong>Pre-Vetted</strong> Handoff" --> Engineering;
 
     %% --- Node Styles ---
     style Architect fill:#c8e6c9,stroke:#2e7d32
@@ -161,50 +161,19 @@ This specialized process ensures that agents are built on a foundation of securi
 
 ---
 
-## Putting it into Practice: Your First Project
+## Getting Started: A Two-Step Guide
 
-The Quantum Diamond Framework provides specialized "Guardian" prompts to initialize your AI partner for your specific goal.
+The Quantum Diamond Framework is a complete system for both starting new projects and continuously improving them.
 
-### Step 1: Choose Your Path and Initialize Your AI Partner
+### Step 1: Start Your Project (App or Agent)
+Begin by choosing your development path and initializing an AI partner with a specialized "Orchestrator" prompt. This first phase will guide you from a simple idea to a fully scaffolded prototype.
 
-This is the most critical step. You begin not by writing code, but by "training" your AI assistant for the task at hand.
+➡️ **To begin, follow the guide: [How to Start Your Quantum Diamond Project](./HowToStartYourProject.md)**
 
--   **To Build a Full-Stack Web Application:**
-    -   **Action:** In a new project folder, start a conversation with your AI assistant and provide it with the entire contents of `PROMPTS/App-Authoring-Architect.md`.
-    -   **Outcome:** Your AI is now the **Quantum Diamond App Architect**, ready to build a web app.
+### Step 2: Iterate and Improve with Specialists
+Once you have a prototype, you can enter the powerful "inner loop" of the framework. Use specialist AI agents to analyze your codebase, recommend improvements, and provide expert refactoring guidance.
 
--   **To Build an AI Agent:**
-    -   **Action:** In a new project folder, start a conversation with your AI assistant and provide it with the entire contents of `PROMPTS/Agent-Authoring-Guardian.md`.
-    -   **Outcome:** Your AI is now the **Quantum Diamond Agent Guardian**, ready to build a secure agent.
-
-### Step 2: Share Your Vision and Follow the Guided Dialogue
-
-Once your AI partner is initialized, simply engage it in a natural language conversation. For example: *"Let's build an app to track my workouts."*
-
-The AI will then initiate its specialized protocol (either the App Architect's vision-first dialogue or the Agent Guardian's secure-setup process), guiding you through the rest of the Genesis Cycle.
-
-For a detailed walkthrough, see the tutorial: **[How to Use This Framework to Build Your App](./HowToUseToBuildAnApp.md)**.
-
-## Iterating and Improving with Specialist Agents
-
-Once your project is underway, the Quantum Diamond Framework provides **Specialist Agents** for expert analysis and iterative improvement.
-
-### When to Use Specialist Agents
-
-After completing initial scaffolding or when you need expert guidance on specific aspects:
-
--   **App Scaffolding Review:** Use `PROMPTS/Specialist-App-Scaffolder.md` to analyze and improve your app's architecture and code structure.
--   **UI/UX Enhancement:** Use `PROMPTS/Specialist-App-UIUX.md` for design system and user experience improvements.
--   **Agent Architecture Analysis:** Use `PROMPTS/Specialist-Agent-Architect.md` to review and optimize AI agent implementations.
--   **Governance and Security:** Use `PROMPTS/Governance-Guardian.md` for compliance, security audits, and best practices validation.
-
-### How to Engage Specialist Agents
-
-1. **Initialize the Specialist:** In your project conversation, provide the entire contents of the relevant specialist prompt file.
-2. **Share Your Codebase:** Provide a snapshot of your current code (use `capture_code_snapshot.js` to generate one).
-3. **Ask for Analysis:** Request specific improvements or ask "What can be improved in this codebase?"
-
-The specialists will provide expert recommendations tailored to their domain, helping you iterate and refine your project.
+➡️ **To refine your project, follow the guide: [How to Iterate and Improve with Specialist Agents](./HowToIterateAndImprove.md)**
 
 ---
 
@@ -216,4 +185,11 @@ This repository contains the complete methodology and practical guides for the Q
 *   **Playbooks (`01_` to `07_`)**: A series of detailed guides explaining the framework's phases, from the creative "Genesis Cycle" to the rigorous "Engineering Cycle" and project scaffolding.
 *   **`prompts/`**: The core system prompts used to initialize your AI partner.
 *   **`templates/`**: Reusable markdown templates for Requirements and Tasks to enforce the engineering workflow.
-*   **`HowToUseToBuildAnApp.md`**: A hands-on tutorial for building an app from scratch.
+*   **`HowToStartYourProject.md`**: Your first step. A guide to initializing your AI partner and creating your first prototype for either a web app or an agent.
+*   **`HowToIterateAndImprove.md`**: The "inner loop" guide. How to use specialist agents and your codebase snapshot to continuously refactor and improve your project.
+
+---
+
+## License
+
+The Quantum Diamond AI Application Development Framework is open-source and available under the [MIT License](./LICENSE). You are free to use, modify, and distribute it, but please provide attribution to the original creator, Richard Fremmer.
