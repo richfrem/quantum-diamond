@@ -1,5 +1,7 @@
 # Specialist Roles Overview
 
+> **Generator-Safe Start:** To prevent auto-scaffolding in AI generators, start with `templates/generator_safe/SystemModePrelude.md` then `templates/generator_safe/PhaseMinus1_Minimal.md` before full prompts.
+
 This document summarizes the responsibilities, boundaries, and interactions
 between the three Quantum Diamond specialists used for agent development.
 

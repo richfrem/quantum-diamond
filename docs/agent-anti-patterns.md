@@ -114,3 +114,4 @@ I've created a user authentication system that handles login, registration, and 
 - **Piping huge tool results through LLM** → **Filter/aggregate in code**, pass summaries/refs.
 - **Chained control flow in the model** → Move loops/polling into code; model only decides.
 - **No state** → Persist in workspace DB/files; cache intermediates.
+- **Generator Auto-Scaffold Leakage** → Pasting full prompts first can cause tools to generate files prematurely. Mitigation: `templates/generator_safe/SystemModePrelude.md` + `templates/generator_safe/PhaseMinus1_Minimal.md` + full prompt second (post-intent). Reference App Architect section.
