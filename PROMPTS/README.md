@@ -168,6 +168,16 @@ This directory contains all the specialized AI prompts that power the Quantum Di
 2. **Plan:** Use `PromptToCreateArchitectureFirstWorkflow.md` if needed
 3. **Adopt:** Follow appropriate workflow based on project type
 
+## 🤖 Using Prompts in AI App Generators
+
+To prevent unintended auto-scaffolding in AI app generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.), use generator-safe initializers:
+
+- **Start Small:** Begin with the minimal Phase -1 intent confirmation snippet from the prompt's "Using Prompts in AI App Generators" section
+- **Confirm Intent First:** Let the assistant acknowledge your intent before pasting the full prompt
+- **Then Escalate:** After intent confirmation, paste the remainder of the prompt to unlock the full role
+
+See [App-Authoring-Architect.md](#app-authoring-architect) and [Agent-Authoring-Guardian.md](#agent-authoring-guardian) for specific initializer snippets.
+
 ## 📚 Related Documentation
 
 - **Main Guide:** `README.md` - Framework overview and quick start

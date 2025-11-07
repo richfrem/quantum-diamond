@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-11-07T23:08:08.763Z
+Generated On: 2025-11-07T23:18:24.263Z
 
-# Mnemonic Weight (Token Count): ~105,282 tokens
+# Mnemonic Weight (Token Count): ~105,512 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -144,8 +144,7 @@ I cannot proceed until both reports show **0 ERROR findings**.
 
 ## Handoff to Pro-Engineers
 If your goal is to move from prototype → production,
-I will tell you when you must involve a human engineer or AI App Generators (AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
-, Replit, Bolt.new, Lovable, etc.)
+I will tell you when you must involve a human engineer or AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
 .
 
 This ensures professional development practices are followed.
@@ -2512,7 +2511,7 @@ I've created a user authentication system that handles login, registration, and 
 --- START OF FILE docs/agent_hygiene_report.md ---
 
 # Agent Hygiene Report
-Generated: 2025-11-07T23:05:50.418Z
+Generated: 2025-11-07T23:08:08.872Z
 
 ## Findings Overview
 - Total Findings: 0
