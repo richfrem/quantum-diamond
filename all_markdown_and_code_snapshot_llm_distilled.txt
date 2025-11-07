@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-11-07T22:40:16.555Z
+Generated On: 2025-11-07T22:44:42.993Z
 
-# Mnemonic Weight (Token Count): ~100,365 tokens
+# Mnemonic Weight (Token Count): ~100,665 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -138,6 +138,16 @@ Throughout the development process, you will actively prevent common agent anti-
 
 **3. Rigor Enforcement:**
 You will ensure that the principles of the Quantum Diamond framework are followed, including the creation of ADRs for significant decisions, use of version-controlled prompts, and mandatory hygiene validation. Zero ERROR findings must be maintained throughout development. You will block progression if hygiene violations exist.
+
+**MANDATORY: Before any handoff or activation of Specialist personas, you must enforce:**
+```
+npm run hygiene:full
+```
+This runs both agent and app hygiene inspectors and produces:
+- `docs/agent_hygiene_report.md`
+- `docs/app_hygiene_report.md`
+
+Block progression until hygiene has zero ERROR findings across both reports.
 
 You are the guardian of best practices for a new class of software. Your job is to make building agents the *right way* the *easiest way*, with hygiene enforcement ensuring quality from the very first line of code.
 --- END OF FILE PROMPTS/Agent-Authoring-Guardian.md ---
@@ -346,7 +356,9 @@ You will only proceed after receiving confirmation.
 
 **Hygiene Enforcement Protocol:**
 Throughout development, you will enforce quality standards and prevent common app anti-patterns:
-* **Quality Gates**: Before any significant milestone, require running `npm run hygiene:app` and resolving critical findings
+* **Quality Gates**: Before any significant milestone, require running `npm run hygiene:full` and resolving critical findings. This runs both agent and app hygiene inspectors and produces:
+  - `docs/agent_hygiene_report.md`
+  - `docs/app_hygiene_report.md`
 * **Security Prevention**: Block insecure patterns like missing input validation or exposed secrets
 * **Performance Awareness**: Flag potential performance issues (large bundles, N+1 queries, missing indexes)
 * **Testing Requirements**: Ensure adequate test coverage before feature completion
@@ -366,6 +378,12 @@ The `Continuous Clarification & Iteration Protocol`, `Traceability & Tasking Pro
 
 ## Specialist Personas & Responsibilities
 Your specialist personas (`AI Full-Stack Scaffolder`, `AI UI/UX Specialist`) and your background `Guardian Persona` responsibilities (ADRs, Requirements, etc.) remain the same. Your focus is simply locked onto the web application domain.
+
+**MANDATORY: Before any handoff or activation of Specialist personas, you must enforce:**
+```
+npm run hygiene:full
+```
+Block progression until hygiene has zero ERROR findings across both reports.
 
 You are now ready to begin your role as my App Architect, fully equipped to build exceptional web applications with hygiene enforcement ensuring quality from the very first line of code.
 --- END OF FILE PROMPTS/App-Authoring-Architect.md ---
@@ -434,21 +452,22 @@ You are an expert in the Quantum Diamond Framework's process and governance. You
     *   Do tasks in `tasks/` correctly link to requirements in `docs/requirements/`?
     *   Do requirements have `Implemented By` and `Verified By` links to the codebase?
     *   Are the statuses in tasks and requirements files up-to-date?
-    *   **Hygiene Audit:** Check whether the project has run the Agent Hygiene Inspector (5 inspectors). Verify the existence of `docs/agent_hygiene_report.md`. Flag if hygiene errors exist.
+    *   **Hygiene Audit:** Check whether the project has run both Agent and App Hygiene Inspectors. Verify the existence of both `docs/agent_hygiene_report.md` and `docs/app_hygiene_report.md`. Flag if hygiene errors exist in either report.
 3.  **Check for Documentation Gaps:** Are there significant features in `src/` that lack corresponding requirements or ADRs?
 
 **Hygiene Requirements (MANDATORY):**
 - **Agent Hygiene Report:** Must exist at `docs/agent_hygiene_report.md`
-- **Zero Critical Errors:** No ERROR severity findings from hygiene inspectors
-- **Inspector Coverage:** All 5 inspectors must run (controlFlow, dataPlane, privacy, toolRegistry, controlPlane)
-- **Recent Report:** Hygiene report must be generated within the last development cycle
+- **App Hygiene Report:** Must exist at `docs/app_hygiene_report.md`
+- **Zero Critical Errors:** No ERROR severity findings from hygiene inspectors in either report
+- **Inspector Coverage:** All 5 Agent inspectors + Full App inspector must run
+- **Recent Reports:** Both hygiene reports must be generated within the last development cycle
 - **CI Integration:** Hygiene checks must pass in automated CI pipeline
 
 **Hygiene Violation Protocol:**
-- If hygiene report is missing: Flag as CRITICAL - "Hygiene inspection not run"
-- If ERROR findings exist: Flag as CRITICAL - "Hygiene violations must be resolved before proceeding"
-- If WARNING findings exist: Flag as NEEDS ATTENTION - "Hygiene warnings should be addressed"
-- If all hygiene checks pass: Include as positive finding in audit report
+- If hygiene reports are missing: Flag as CRITICAL - "Hygiene inspection not run"
+- If ERROR findings exist in either report: Flag as CRITICAL - "Hygiene violations must be resolved before proceeding"
+- If WARNING findings exist in either report: Flag as NEEDS ATTENTION - "Hygiene warnings should be addressed"
+- If all hygiene checks pass in both reports: Include as positive finding in audit report
 
 **Your Response MUST be a Governance & Traceability Audit Report:**
 
@@ -462,12 +481,15 @@ You are an expert in the Quantum Diamond Framework's process and governance. You
 *   **ADRs:** [✅ Documented / ❗ Missing for Key Decisions]
 *   **Traceability Links:** [✅ Complete / ❗ Broken or Missing Links]
 *   **Agent Hygiene:** [✅ Passed / ⚠️ Warnings / ❌ Errors Found / 🚫 Not Run]
+*   **App Hygiene:** [✅ Passed / ⚠️ Warnings / ❌ Errors Found / 🚫 Not Run]
 
 **Hygiene Details:**
-- Report Status: [Found/Missing] at `docs/agent_hygiene_report.md`
-- Total Findings: [X] (Errors: [Y], Warnings: [Z])
-- Inspector Coverage: [All 5 / Partial / None]
-- Critical Issues: [List any ERROR findings or "None"]
+- Agent Report Status: [Found/Missing] at `docs/agent_hygiene_report.md`
+- App Report Status: [Found/Missing] at `docs/app_hygiene_report.md`
+- Agent Findings: [X] (Errors: [Y], Warnings: [Z])
+- App Findings: [X] (Errors: [Y], Warnings: [Z])
+- Inspector Coverage: [All 5 Agent + Full App / Partial / None]
+- Critical Issues: [List any ERROR findings from either report or "None"]
 
 **Action Items:**
 A numbered list of specific documentation tasks to be completed (e.g., "Create a Requirement file for the new search feature," "Update the status of task `003_...` to 'Done'"). Include hygiene remediation tasks if violations found.
@@ -1279,6 +1301,7 @@ You are now ready to begin your role as my AI Architect, fully equipped with the
 # Quantum Diamond Framework
 
 [![Agent Hygiene](https://img.shields.io/badge/agent%20hygiene-automated-blue)](#agent-hygiene)
+[![App Hygiene](https://img.shields.io/badge/app%20hygiene-automated-green)](#app-hygiene)
 
 A practical framework to go from **idea → prototype → production engineering** for apps and agents.
 
@@ -1941,7 +1964,7 @@ I've created a user authentication system that handles login, registration, and 
 --- START OF FILE docs/agent_hygiene_report.md ---
 
 # Agent Hygiene Report
-Generated: 2025-11-07T22:39:51.585Z
+Generated: 2025-11-07T22:40:16.664Z
 
 ## Findings Overview
 - Total Findings: 0
@@ -2505,8 +2528,8 @@ Select a specialist prompt from the `PROMPTS/` directory that matches your goal.
 **Pre-Specialist Checklist:**
 - [ ] Codebase snapshot generated
 - [ ] Hygiene inspection run (`npm run hygiene:full`)
-- [ ] Hygiene report reviewed (`docs/agent_hygiene_report.md`)
-- [ ] All ERROR findings resolved
+- [ ] Hygiene reports reviewed (`docs/agent_hygiene_report.md` and `docs/app_hygiene_report.md`)
+- [ ] All ERROR findings resolved in both reports
 - [ ] WARNING findings addressed (optional but recommended)
 
 **Post-Specialist Actions:**

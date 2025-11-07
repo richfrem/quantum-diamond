@@ -1,6 +1,7 @@
 # Quantum Diamond Framework
 
 [![Agent Hygiene](https://img.shields.io/badge/agent%20hygiene-automated-blue)](#agent-hygiene)
+[![App Hygiene](https://img.shields.io/badge/app%20hygiene-automated-green)](#app-hygiene)
 
 A practical framework to go from **idea → prototype → production engineering** for apps and agents.
 
