@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-11-07T23:18:24.263Z
+Generated On: 2025-11-07T23:38:18.982Z
 
-# Mnemonic Weight (Token Count): ~105,512 tokens
+# Mnemonic Weight (Token Count): ~107,607 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -79,6 +79,9 @@ Generated On: 2025-11-07T23:18:24.263Z
   ./templates/agent_hygiene/dataPlane.ts
   ./templates/agent_hygiene/privacy.ts
   ./templates/agent_hygiene/toolRegistry.ts
+  ./templates/generator_safe/
+  ./templates/generator_safe/PhaseMinus1_Minimal.md
+  ./templates/generator_safe/SystemModePrelude.md
 
 --- START OF FILE LICENSE ---
 
@@ -107,6 +110,63 @@ SOFTWARE.
 
 --- START OF FILE PROMPTS/Agent-Authoring-Guardian.md ---
 
+### Using Prompts in AI App Generators (Gemini, Replit, bolt.new, Lovable)
+
+**Step 0: System Mode Prelude**
+Paste this first to prevent auto-scaffolding:
+
+```
+IMPORTANT: SYSTEM MODE ONLY — DO NOT BUILD OR GENERATE ANY FILES
+
+The message I send AFTER this one will be a large SYSTEM PROMPT.
+It configures how you should behave. It is NOT an app specification.
+
+You MUST NOT:
+• generate files
+• scaffold a project
+• create components
+• initialize an app
+• interpret the content as UI instructions
+• create index.tsx, App.tsx, or anything similar
+
+You MUST:
+• wait for my next message (the full system prompt)
+• load it as a configuration of your behavior
+• do nothing else
+• then present ONLY the Phase -1 Intent Confirmation menu
+
+If you understand, reply exactly with:
+"ACKNOWLEDGED — SYSTEM MODE ENABLED"
+
+(No files. No scaffolding. No UI.)
+```
+
+**Step 1: Generator-Safe Initializer**
+After receiving "ACKNOWLEDGED — SYSTEM MODE ENABLED", paste this minimal snippet:
+
+```
+## Phase -1: Intent Confirmation Protocol (Required Before Starting)
+
+Before I begin this role, I must confirm your intent so I can activate the correct protocol.
+
+Please choose the closest option or describe your intent in your own words:
+
+1. Start a new project (app or agent)
+2. Extend or improve an existing project (new feature, refactor, updates)
+3. Run hygiene or audits (agent or app hygiene checks, governance review)
+4. Fix a specific issue (errors, broken flows, architectural problems)
+5. Get strategic guidance (architecture, workflow design, planning)
+6. Unsure — help me decide what I need
+
+Provide your intent.
+After confirming, I will activate the correct workflow and continue.
+
+— Secure Setup (acknowledgement only) —
+"To build a robust agent, we must first create a secure foundation. After you confirm your intent, I'll propose a Secure Agent Scaffold checklist. Do you want to proceed?"
+```
+
+**Warning:** Do not paste the entire prompt as the first message - this triggers unwanted auto-scaffolding in some generators.
+
 ## Phase -1: Intent Confirmation Protocol (Required Before Starting)
 
 Before I begin this role, I must confirm your intent so I can activate the correct protocol.
@@ -122,6 +182,8 @@ Please choose the closest option or describe your intent in your own words:
 
 Provide your intent.
 After confirming, I will activate the correct workflow and continue.
+
+**Full Paste Comes Second:** After the assistant confirms intent, paste the remainder of this prompt to unlock the full role.
 
 ## Phase 0: Interactive Understanding
 Before I generate anything, I will ask clarifying questions to understand:
@@ -312,6 +374,14 @@ Your goal is to be the perfect human-AI collaborator for building applications, 
 **Purpose:** Detect and correct agent-specific engineering failures that lead to
 inefficiency, high cost, context bloat, privacy risk, and brittle behavior.
 
+## Using in Generators
+
+**Generator-Safe Hygiene Audit:**
+1. Paste `templates/generator_safe/SystemModePrelude.md` → wait for "ACKNOWLEDGED — SYSTEM MODE ENABLED"
+2. Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+3. After intent is "Run hygiene or audits," paste this full Hygiene prompt + your project snapshot
+4. **No scaffolding occurs** during hygiene audits - this is inspection only
+
 ## Phase -1: Intent Confirmation Protocol (Required Before Starting)
 
 Before I begin this role, I must confirm your intent so I can activate the correct protocol.
@@ -411,6 +481,63 @@ Provide complete updated files or code blocks to remedy the top issues.
 
 --- START OF FILE PROMPTS/App-Authoring-Architect.md ---
 
+### Using Prompts in AI App Generators (Gemini, Replit, bolt.new, Lovable)
+
+**Step 0: System Mode Prelude**
+Paste this first to prevent auto-scaffolding:
+
+```
+IMPORTANT: SYSTEM MODE ONLY — DO NOT BUILD OR GENERATE ANY FILES
+
+The message I send AFTER this one will be a large SYSTEM PROMPT.
+It configures how you should behave. It is NOT an app specification.
+
+You MUST NOT:
+• generate files
+• scaffold a project
+• create components
+• initialize an app
+• interpret the content as UI instructions
+• create index.tsx, App.tsx, or anything similar
+
+You MUST:
+• wait for my next message (the full system prompt)
+• load it as a configuration of your behavior
+• do nothing else
+• then present ONLY the Phase -1 Intent Confirmation menu
+
+If you understand, reply exactly with:
+"ACKNOWLEDGED — SYSTEM MODE ENABLED"
+
+(No files. No scaffolding. No UI.)
+```
+
+**Step 1: Generator-Safe Initializer**
+After receiving "ACKNOWLEDGED — SYSTEM MODE ENABLED", paste this minimal snippet:
+
+```
+## Phase -1: Intent Confirmation Protocol (Required Before Starting)
+
+Before I begin this role, I must confirm your intent so I can activate the correct protocol.
+
+Please choose the closest option or describe your intent in your own words:
+
+1. Start a new project (app or agent)
+2. Extend or improve an existing project (new feature, refactor, updates)
+3. Run hygiene or audits (agent or app hygiene checks, governance review)
+4. Fix a specific issue (errors, broken flows, architectural problems)
+5. Get strategic guidance (architecture, workflow design, planning)
+6. Unsure — help me decide what I need
+
+Provide your intent.
+After confirming, I will activate the correct workflow and continue.
+
+— Secure Setup (acknowledgement only) —
+"To build a robust application, we must first create a secure foundation. After you confirm your intent, I'll propose a Secure App Scaffold checklist. Do you want to proceed?"
+```
+
+**Warning:** Do not paste the entire prompt as the first message - this triggers unwanted auto-scaffolding in some generators.
+
 ## Phase -1: Intent Confirmation Protocol (Required Before Starting)
 
 Before I begin this role, I must confirm your intent so I can activate the correct protocol.
@@ -426,6 +553,8 @@ Please choose the closest option or describe your intent in your own words:
 
 Provide your intent.
 After confirming, I will activate the correct workflow and continue.
+
+**Full Paste Comes Second:** After the assistant confirms intent, paste the remainder of this prompt to unlock the full role.
 
 ## Phase 0: Interactive Understanding
 Before I generate anything, I will ask clarifying questions to understand:
@@ -557,6 +686,14 @@ Before I generate anything, I will ask clarifying questions to understand:
 # Persona: App Hygiene Inspector & Anti-Pattern Auditor
 **Version:** v19
 **Purpose:** Detect and correct *application* engineering failures that hurt reliability, security, performance, cost, and maintainability.
+
+## Using in Generators
+
+**Generator-Safe Hygiene Audit:**
+1. Paste `templates/generator_safe/SystemModePrelude.md` → wait for "ACKNOWLEDGED — SYSTEM MODE ENABLED"
+2. Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+3. After intent is "Run hygiene or audits," paste this full Hygiene prompt + your project snapshot
+4. **No scaffolding occurs** during hygiene audits - this is inspection only
 
 Audit scope:
 - Dependency & supply-chain health
@@ -1189,6 +1326,17 @@ This directory contains all the specialized AI prompts that power the Quantum Di
 2. **Plan:** Use `PromptToCreateArchitectureFirstWorkflow.md` if needed
 3. **Adopt:** Follow appropriate workflow based on project type
 
+## 🤖 Using Prompts in AI App Generators
+
+To prevent unintended auto-scaffolding in AI app generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.), use generator-safe initializers:
+
+- **Step 0: System Mode Prelude** - Paste `templates/generator_safe/SystemModePrelude.md`
+- **Step 1: Phase-1 Minimal** - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+- **Confirm Intent First:** Let the assistant acknowledge your intent before pasting the full prompt
+- **Then Escalate:** After intent confirmation, paste the remainder of the prompt to unlock the full role
+
+See [App-Authoring-Architect.md](#app-authoring-architect) and [Agent-Authoring-Guardian.md](#agent-authoring-guardian) for specific initializer snippets.
+
 ## 📚 Related Documentation
 
 - **Main Guide:** `README.md` - Framework overview and quick start
@@ -1533,7 +1681,10 @@ You are the Quantum Diamond Workflow Guide, an expert facilitator who helps deve
    - **For Agents:** Follow `08_playbook-agent-authoring-workflow.md`
 
 3. **Initialize Your AI Partner**
-   - Use the appropriate initialization prompt from `PROMPTS/`
+   - **Step 0: Generator-Safe Boot**
+     - Paste `templates/generator_safe/SystemModePrelude.md`
+     - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+   - Wait for intent confirmation → then paste the full prompt from `PROMPTS/`
    - Set up your development environment
    - Create initial project structure
 
@@ -2335,18 +2486,19 @@ agent_hygiene_report.md
 
 ---
 
-## Uing Prompts in AI App Generators (AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
-, Replit, Bolt.new, Lovable, etc.)
+## Using Prompts in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
 
+To validate Quantum Diamond workflows in AI app generators and prevent unintended auto-scaffolding:
 
-To validate Quantum Diamond workflows in AI App Generators (Gemini AI Studio, Replit, Bolt.new, Lovable, etc.)
-:
-
-1. Start a new chat
-2. Paste the initialization prompt (e.g., `App-Authoring-Architect.md` or `Agent-Authoring-Guardian.md`)
+1. **Step 0: Generator-Safe Boot**
+   - Paste `templates/generator_safe/SystemModePrelude.md`
+   - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+2. Wait for intent confirmation → then paste the full prompt (e.g., `PROMPTS/App-Authoring-Architect.md` or `PROMPTS/Agent-Authoring-Guardian.md`)
 3. Upload the project snapshot (if working on an existing project) using `node ./capture_code_snapshot.js`
 4. Follow the interactive guidance phase - respond to clarification questions
 5. Allow the architect to begin scaffolding once intent is confirmed and hygiene passes
+
+**Hygiene Gate:** `npm run hygiene:full` must show 0 ERROR findings before scaffolding or specialist handoffs.
 
 ## License
 
@@ -2506,12 +2658,13 @@ I've created a user authentication system that handles login, registration, and 
 - **Piping huge tool results through LLM** → **Filter/aggregate in code**, pass summaries/refs.
 - **Chained control flow in the model** → Move loops/polling into code; model only decides.
 - **No state** → Persist in workspace DB/files; cache intermediates.
+- **Generator Auto-Scaffold Leakage** → Pasting full prompts first can cause tools to generate files prematurely. Mitigation: `templates/generator_safe/SystemModePrelude.md` + `templates/generator_safe/PhaseMinus1_Minimal.md` + full prompt second (post-intent). Reference App Architect section.
 --- END OF FILE docs/agent-anti-patterns.md ---
 
 --- START OF FILE docs/agent_hygiene_report.md ---
 
 # Agent Hygiene Report
-Generated: 2025-11-07T23:08:08.872Z
+Generated: 2025-11-07T23:38:08.685Z
 
 ## Findings Overview
 - Total Findings: 0
@@ -2547,7 +2700,7 @@ Generated: 2025-11-07T23:08:08.872Z
 --- START OF FILE docs/app_hygiene_report.md ---
 
 # App Hygiene Report
-Generated: 2025-11-07T22:44:47.172Z
+Generated: 2025-11-07T23:38:13.043Z
 
 **Do not proceed to Specialist reviews until all ERROR-level issues are resolved.**
 
@@ -2931,6 +3084,8 @@ This checklist ensures your agent handles sensitive data responsibly, preventing
 
 # Specialist Roles Overview
 
+> **Generator-Safe Start:** To prevent auto-scaffolding in AI generators, start with `templates/generator_safe/SystemModePrelude.md` then `templates/generator_safe/PhaseMinus1_Minimal.md` before full prompts.
+
 This document summarizes the responsibilities, boundaries, and interactions
 between the three Quantum Diamond specialists used for agent development.
 
@@ -3075,8 +3230,11 @@ Select a specialist prompt from the `PROMPTS/` directory that matches your goal.
 
 ### Step 3: Engage the Specialist
 1.  Start a **new chat session** with your AI assistant to ensure a clean context.
-2.  First, paste the **entire content** of the specialist prompt you chose in Step 2.
-3.  Immediately after, paste the **entire content** of the `all_markdown_and_code_snapshot_llm_distilled.txt` file you generated in Step 1.
+2.  **Step 0: Generator-Safe Boot**
+    - Paste `templates/generator_safe/SystemModePrelude.md`
+    - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+3.  Wait for intent confirmation → then paste the **entire content** of the specialist prompt you chose in Step 2.
+4.  Immediately after, paste the **entire content** of the `all_markdown_and_code_snapshot_llm_distilled.txt` file you generated in Step 1.
 
 **Result:** The specialist agent will provide a detailed analysis, a prioritized list of actionable recommendations, and often, the exact refactored code needed to implement the improvements.
 
@@ -3128,7 +3286,10 @@ This path uses the **App Architect** to create a modern web app with a frontend,
 ### Step 1: Initialize the App Architect
 1.  Create a new, empty folder for your project.
 2.  Open this folder in your IDE and open the chat panel for your AI assistant.
-3.  Your very first message is to paste the **entire content** of `PROMPTS/App-Authoring-Architect.md`.
+3.  **Step 0: Generator-Safe Boot**
+    - Paste `templates/generator_safe/SystemModePrelude.md`
+    - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+4.  Wait for intent confirmation → then paste the **entire content** of `PROMPTS/App-Authoring-Architect.md`.
 
 **Result:** Your AI assistant is now the **Quantum Diamond App Architect**, fully specialized for building web apps.
 
@@ -3147,7 +3308,10 @@ This path uses the **Agent Guardian** to create a secure-by-design foundation fo
 ### Step 1: Initialize the Agent Guardian
 1.  Create a new, empty folder for your agent project.
 2.  Open this folder in your IDE and open the chat panel for your AI assistant.
-3.  Your very first message is to paste the **entire content** of `PROMPTS/Agent-Authoring-Guardian.md`.
+3.  **Step 0: Generator-Safe Boot**
+    - Paste `templates/generator_safe/SystemModePrelude.md`
+    - Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+4.  Wait for intent confirmation → then paste the **entire content** of `PROMPTS/Agent-Authoring-Guardian.md`.
 
 **Result:** Your AI assistant is now the **Quantum Diamond Agent Guardian**, ready to enforce best practices for agent development.
 
@@ -8666,4 +8830,53 @@ export function selectTools(reg: Record<string, Tool>, needs: string[]): Tool[] 
   return needs.map(n => reg[n]).filter(Boolean);
 }
 --- END OF FILE templates/agent_hygiene/toolRegistry.ts ---
+
+--- START OF FILE templates/generator_safe/PhaseMinus1_Minimal.md ---
+
+## Phase -1: Intent Confirmation Protocol (Required Before Starting)
+
+Before I begin this role, I must confirm your intent so I can activate the correct protocol.
+
+Please choose the closest option or describe your intent in your own words:
+
+1. Start a new project (app or agent)
+2. Extend or improve an existing project (new feature, refactor, updates)
+3. Run hygiene or audits (agent or app hygiene checks, governance review)
+4. Fix a specific issue (errors, broken flows, architectural problems)
+5. Get strategic guidance (architecture, workflow design, planning)
+6. Unsure — help me decide what I need
+
+Provide your intent.
+After confirming, I will activate the correct workflow and continue.
+
+— Secure Setup (acknowledgement only) —
+"To build a robust foundation, after you confirm your intent, I'll propose a Secure Scaffold checklist. Do you want to proceed?"
+--- END OF FILE templates/generator_safe/PhaseMinus1_Minimal.md ---
+
+--- START OF FILE templates/generator_safe/SystemModePrelude.md ---
+
+IMPORTANT: SYSTEM MODE ONLY — DO NOT BUILD OR GENERATE ANY FILES
+
+The message I send AFTER this one will be a large SYSTEM PROMPT.
+It configures how you should behave. It is NOT an app specification.
+
+You MUST NOT:
+• generate files
+• scaffold a project
+• create components
+• initialize an app
+• interpret the content as UI instructions
+• create index.tsx, App.tsx, or anything similar
+
+You MUST:
+• wait for my next message (the full system prompt)
+• load it as a configuration of your behavior
+• do nothing else
+• then present ONLY the Phase -1 Intent Confirmation menu
+
+If you understand, reply exactly with:
+"ACKNOWLEDGED — SYSTEM MODE ENABLED"
+
+(No files. No scaffolding. No UI.)
+--- END OF FILE templates/generator_safe/SystemModePrelude.md ---
 
