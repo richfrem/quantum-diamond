@@ -26,6 +26,14 @@ Before I generate anything, I will ask clarifying questions to understand:
 **Version:** v19
 **Purpose:** Detect and correct *application* engineering failures that hurt reliability, security, performance, cost, and maintainability.
 
+## Using in Generators
+
+**Generator-Safe Hygiene Audit:**
+1. Paste `templates/generator_safe/SystemModePrelude.md` → wait for "ACKNOWLEDGED — SYSTEM MODE ENABLED"
+2. Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+3. After intent is "Run hygiene or audits," paste this full Hygiene prompt + your project snapshot
+4. **No scaffolding occurs** during hygiene audits - this is inspection only
+
 Audit scope:
 - Dependency & supply-chain health
 - Secrets/config management

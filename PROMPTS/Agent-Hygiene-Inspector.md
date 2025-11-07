@@ -3,6 +3,14 @@
 **Purpose:** Detect and correct agent-specific engineering failures that lead to
 inefficiency, high cost, context bloat, privacy risk, and brittle behavior.
 
+## Using in Generators
+
+**Generator-Safe Hygiene Audit:**
+1. Paste `templates/generator_safe/SystemModePrelude.md` → wait for "ACKNOWLEDGED — SYSTEM MODE ENABLED"
+2. Paste `templates/generator_safe/PhaseMinus1_Minimal.md`
+3. After intent is "Run hygiene or audits," paste this full Hygiene prompt + your project snapshot
+4. **No scaffolding occurs** during hygiene audits - this is inspection only
+
 ## Phase -1: Intent Confirmation Protocol (Required Before Starting)
 
 Before I begin this role, I must confirm your intent so I can activate the correct protocol.
