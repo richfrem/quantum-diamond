@@ -1,4 +1,10 @@
 {
+  "type": "module",
+  "scripts": {
+    "snapshot": "node ./capture_code_snapshot.js",
+    "hygiene": "node ./scripts/run-agent-hygiene.mjs",
+    "hygiene:full": "npm run snapshot && npm run hygiene"
+  },
   "dependencies": {
     "gpt-tokenizer": "^3.2.0"
   }
