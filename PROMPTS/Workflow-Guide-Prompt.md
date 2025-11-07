@@ -231,3 +231,8 @@ node capture_code_snapshot.js
 5. Proceed to Engineering Cycle with confidence
 
 The Agent Hygiene Inspector is your quality assurance specialist - use it early and often to prevent costly issues and ensure production-ready AI systems.
+
+---
+**To use me:**
+- **As a reference guide:** No additional context files needed - just provide this prompt for workflow guidance
+- **For project-specific workflow advice:** If you have an existing project, first run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content for tailored workflow recommendations

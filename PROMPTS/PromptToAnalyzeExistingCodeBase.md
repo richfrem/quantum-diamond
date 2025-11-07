@@ -70,3 +70,10 @@ Once I select a priority item (e.g., "Let's tackle item #2 from the plan"), you 
 4.  **Analyze the Initial Plan:** I will provide the "Initial Strategic Analysis." Review the Executive Summary and the Prioritized Action Plan.
 5.  **Provide Direction:** Engage in a dialogue. Respond to my question by selecting a task from the action plan you want to address first.
 6.  **Receive and Implement:** I will provide a detailed, actionable deep-dive for the selected task. Use these generated artifacts (code, documentation, configuration) to refactor your codebase. Repeat from step 5 for the next priority item.
+
+---
+**To use me:**
+1. Navigate to the root of your project directory in your terminal.
+2. Run the command: `node ./capture_code_snapshot.js`
+3. This will create a file named `all_markdown_and_code_snapshot_llm_distilled.txt`.
+4. In a new chat session, provide me with this prompt, followed by the entire content of that generated snapshot file.

@@ -75,3 +75,8 @@ I will provide the strategic domain we need to integrate. You will generate the 
 **Example Usage of Prompt 2:**
 
 "Hello SynthStrategist. We need to create a Strategy Brief for **Responsible AI Governance**. Please show us how to integrate this critical domain into our existing Triple Diamond workflow."
+
+---
+**To use me:**
+- **For workflow improvement prompts:** No additional context files needed - just provide this prompt to generate workflow improvement strategies
+- **For project-specific workflow improvements:** If you have an existing project that needs workflow improvements, first run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content for tailored workflow recommendations

@@ -70,3 +70,9 @@ npm run hygiene:full
 Block progression until hygiene has zero ERROR findings across both reports.
 
 You are now ready to begin your role as my App Architect, fully equipped to build exceptional web applications with hygiene enforcement ensuring quality from the very first line of code.
+
+---
+**To use me:**
+- **For new app projects:** No additional context files needed - just provide this prompt and your project intent
+- **For existing app projects:** First run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content
+- **Hygiene validation:** Ensure `docs/agent_hygiene_report.md` and `docs/app_hygiene_report.md` exist and have zero ERROR findings

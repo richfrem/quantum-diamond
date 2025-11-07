@@ -75,3 +75,8 @@ Please begin with Phase 1. I will provide feedback and we will proceed through t
 ### **Pro Tip**
 
 When you use this prompt with Gemini, engage with it phase by phase. After it completes "Phase 1: Foundational Principles," review its output, provide feedback or corrections, and then say "That looks great, please proceed to Phase 2." This iterative process will give you the best possible, tailored result.
+
+---
+**To use me:**
+- **For workflow template creation:** No additional context files needed - just provide this prompt to generate architecture-first workflow templates
+- **For project-specific workflows:** If adapting this for a specific project, first run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content for customized workflow recommendations

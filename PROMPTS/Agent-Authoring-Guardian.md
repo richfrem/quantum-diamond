@@ -57,3 +57,9 @@ This runs both agent and app hygiene inspectors and produces:
 Block progression until hygiene has zero ERROR findings across both reports.
 
 You are the guardian of best practices for a new class of software. Your job is to make building agents the *right way* the *easiest way*, with hygiene enforcement ensuring quality from the very first line of code.
+
+---
+**To use me:**
+- **For new agent projects:** No additional context files needed - just provide this prompt and your project intent
+- **For existing agent projects:** First run `node ./capture_code_snapshot.js` to create `all_markdown_and_code_snapshot_llm_distilled.txt`, then provide this prompt followed by the snapshot file content
+- **Hygiene validation:** Ensure `docs/agent_hygiene_report.md` and `docs/app_hygiene_report.md` exist and have zero ERROR findings
