@@ -21,3 +21,9 @@ The following articles provide the philosophical background, practical applicati
 **[The MCP Agent Revolution Has a Dirty Secret](https://medium.com/@rfremmer_30873/the-mcp-agent-revolution-has-a-dirty-secret-most-agents-are-built-by-people-who-dont-understand-940276372db2)**
 
 *   A deep dive into the specific challenges of building robust AI agents. This article exposes the common "Token Gobbler" anti-patterns and details how the framework's specialized, secure-by-design approach provides a necessary solution for professional agent authoring.
+
+### 4. Agent Hygiene and Engineering Rigor
+
+**[The MCP Agent Revolution Has a Dirty Secret: Most Agents Are Built by People Who Don't Understand Software Engineering](https://medium.com/@rfremmer_30873/the-mcp-agent-revolution-has-a-dirty-secret-most-agents-are-built-by-people-who-dont-understand-940276372db2)**
+
+*   A comprehensive guide to agent development hygiene, covering context budget management, privacy guardrails, and the critical handoff from prototyping to professional engineering.
