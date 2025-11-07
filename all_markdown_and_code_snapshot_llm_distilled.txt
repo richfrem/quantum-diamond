@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-11-07T20:31:55.747Z
+Generated On: 2025-11-07T20:32:12.654Z
 
-# Mnemonic Weight (Token Count): ~31,054 tokens
+# Mnemonic Weight (Token Count): ~31,057 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -2283,43 +2283,35 @@ I've created a user authentication system that handles login, registration, and 
 
 --- START OF FILE docs/agent_hygiene_report.md ---
 
-# Agent Hygiene Report
-Generated: 2025-11-07T20:27:11.451Z
+# Agent Hygiene & Anti-Pattern Audit Report
 
-## Findings Overview
-- Total Findings: 8
-- Errors: 5
-- Warnings: 3
+_(Placeholder report — replace with LLM call in local runs / CI secrets context.)_
 
-## Inspectors Run
-- controlFlow
-- dataPlane
-- privacy
-- toolRegistry
-- controlPlane
+## Summary Rating (0–5)
+- Context Efficiency: 4
+- Architecture Hygiene: 4
+- Data Minimization: 3
+- Privacy & Secrets Safety: 4
+- Tool Governance: 3
+- Control Flow Robustness: 4
+- State Persistence: 4
 
-## Detailed Findings
+## Anti-Pattern Findings
+- Massive Context Bloat: ✅ Pass
+- Duped Tool Definitions: ✅ Pass
+- Intermediate Results via Model: ❗ Fail (medium)
+- No On-Demand Tool Loading: ✅ Pass
+- No Data Filtering in Exec Layer: ❗ Fail (high)
+- Inefficient Chained Control Flow: ✅ Pass
+- Sensitive Data Exposure: ✅ Pass
+- No State Persistence: ✅ Pass
 
-### controlFlow
-- ✅ No issues found
-
-### dataPlane
-- [WARN] Large data being passed to model
-
-### privacy
-- [ERROR] Potential privacy violation detected
-
-### toolRegistry
-- ✅ No issues found
-
-### controlPlane
-- [ERROR] Anti-pattern: Embedding entire schemas in prompts. Schemas should be referenced, not embedded.
-- [ERROR] Anti-pattern: Attempting to mutate LLM's internal mental model. Use external state management.
-- [ERROR] Anti-pattern: Loading tools directly into prompts. Use tool registry pattern instead.
-- [WARN] State persistence mistake: Misusing prompt history for persistence. Use dedicated state management.
-- [ERROR] Handoff pattern violation: Agents must return structured objects, not narrative prose.
-- [WARN] Context-stuffing tendency detected. Implement context pruning and selective inclusion.
-
+## Priority Fixes (Top 5)
+1) Add pre-filter transforms for large tool outputs before LLM.
+2) Summarize/segment long docs; pass refs not blobs.
+3) Add cost/latency guard tests for long chains.
+4) Elevate privacy hooks in data plane.
+5) Cache & reuse intermediate results with content-addressed IDs.
 --- END OF FILE docs/agent_hygiene_report.md ---
 
 --- START OF FILE docs/checklists/agent_context_budget_checklist.md ---
