@@ -39,6 +39,58 @@ Recent updates focus on **agent hygiene and engineering rigor** to prevent commo
 - [Engineering Cycle](./02_playbook-engineering-cycle.md) - Production hardening phase
 - [Agent Authoring Workflow](./08_playbook-agent-authoring-workflow.md) - Secure agent development
 - [Agent Anti-Patterns](./docs/agent-anti-patterns.md) - Common pitfalls and fixes
+- [Agent Handoff Checklist](./docs/checklists/agent_handoff_checklist.md) - Prototype to production transition
+- [Agent Hygiene Inspector](./PROMPTS/Agent-Hygiene-Inspector.md) - Anti-pattern audit specialist
+
+## Quantum Diamond Specialist Roles
+
+This framework uses three internal specialists that work together during the
+Genesis Cycle and Engineering Cycle. Each has a narrow, well-defined mandate.
+
+### ✅ Governance Guardian
+Ensures:
+- documentation consistency
+- requirements traceability
+- ADR alignment
+- process correctness
+- governance integrity
+
+### ✅ Specialist Agent Architect
+Ensures:
+- correct system architecture
+- proper agent/tool patterns
+- scalable execution layers
+- JIT tool loading
+- stateful engineering
+
+### ✅ Agent Hygiene Inspector (NEW)
+Ensures:
+- no context bloat
+- no duplicated tools
+- no raw large data through the model
+- safe PII handling
+- proper data filtering
+- efficient control flow (loops in code, not LLM)
+- persistent state
+- anti-pattern prevention
+
+### Three Specialist Workflow
+
+```mermaid
+flowchart LR
+
+    A[Genesis Cycle<br/>Citizen Dev Exploration] --> B[Prototype]
+
+    B -->|Handoff| GG[Governance Guardian<br/>Process & Documentation Integrity]
+    B -->|Handoff| HA[Agent Hygiene Inspector<br/>Efficiency · Safety · Anti-Patterns]
+    B -->|Handoff| SA[Specialist Agent Architect<br/>Architecture · Tools · State]
+
+    GG --> E[Engineering Cycle]
+    HA --> E
+    SA --> E
+
+    E --> P[Production-Grade Agent<br/>Secure · Scalable · Efficient]
+```
 
 ## Mermaid Diagrams
 

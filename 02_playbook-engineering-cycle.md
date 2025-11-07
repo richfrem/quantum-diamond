@@ -43,6 +43,9 @@ The input to this cycle is the **Validated Vision Prototype** and its associated
 > context bloat, insecure flows, and runaway costs. Use the
 > [context budget](../docs/checklists/agent_context_budget_checklist.md) and
 > [privacy checklists](../docs/checklists/agent_privacy_and_secrets_checklist.md) for operational guidance.
+> Before proceeding, run the [Agent Hygiene Inspector](../PROMPTS/Agent-Hygiene-Inspector.md)
+> using the latest snapshot to identify context bloat, unsafe data flows,
+> redundant tooling, and other critical anti-patterns.
 
 ---
 ### Stage 0: Strategy & System Design (The Blueprint)

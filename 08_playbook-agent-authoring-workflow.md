@@ -18,6 +18,7 @@ This playbook adapts the Quantum Diamond Framework to address these specific cha
 > - Use the [Context Budget Checklist](../docs/checklists/agent_context_budget_checklist.md) to plan your token usage
 > - Follow the [Privacy & Secrets Checklist](../docs/checklists/agent_privacy_and_secrets_checklist.md) for data protection
 > - Explore [Agent Hygiene Scaffolds](../templates/agent_hygiene/) for reusable code patterns
+> - Run the [Agent Hygiene Inspector](../PROMPTS/Agent-Hygiene-Inspector.md) on your final prototype before production
 
 ## The Agent Authoring Workflow Diagram
 
