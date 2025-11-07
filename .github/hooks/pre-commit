@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Quantum Diamond Pre-commit Hook
+# Runs hygiene inspection and fails commit if errors found
+
+echo "🔍 Running Agent Hygiene Inspectors..."
+
+# Generate snapshot
+echo "📸 Generating codebase snapshot..."
+node capture_code_snapshot.js
+
+# Check if hygiene report was generated
+if [ ! -f "docs/agent_hygiene_report.md" ]; then
+    echo "❌ ERROR: Hygiene report not generated. Check capture_code_snapshot.js"
+    exit 1
+fi
+
+# Parse hygiene report for errors
+ERROR_COUNT=$(grep -c "ERROR" docs/agent_hygiene_report.md)
+WARNING_COUNT=$(grep -c "WARN" docs/agent_hygiene_report.md)
+
+echo "📊 Hygiene Report Summary:"
+echo "   Errors: $ERROR_COUNT"
+echo "   Warnings: $WARNING_COUNT"
+
+# Fail on errors, warn on warnings
+if [ "$ERROR_COUNT" -gt 0 ]; then
+    echo "❌ COMMIT BLOCKED: $ERROR_COUNT hygiene errors found"
+    echo "   Review: docs/agent_hygiene_report.md"
+    echo "   Fix errors before committing"
+    exit 1
+fi
+
+if [ "$WARNING_COUNT" -gt 0 ]; then
+    echo "⚠️  WARNING: $WARNING_COUNT hygiene warnings found"
+    echo "   Review: docs/agent_hygiene_report.md"
+    echo "   Consider fixing warnings before committing"
+fi
+
+echo "✅ Hygiene check passed. Proceeding with commit..."
+exit 0

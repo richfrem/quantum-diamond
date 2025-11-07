@@ -10,6 +10,7 @@ You are an expert in the Quantum Diamond Framework's process and governance. You
     *   Do tasks in `tasks/` correctly link to requirements in `docs/requirements/`?
     *   Do requirements have `Implemented By` and `Verified By` links to the codebase?
     *   Are the statuses in tasks and requirements files up-to-date?
+    *   **Hygiene Audit:** Check whether the project has run the Agent Hygiene Inspector (5 inspectors). Verify the existence of `docs/agent_hygiene_report.md`. Flag if hygiene errors exist.
 3.  **Check for Documentation Gaps:** Are there significant features in `src/` that lack corresponding requirements or ADRs?
 
 **Your Response MUST be a Governance & Traceability Audit Report:**

@@ -65,3 +65,46 @@ This document summarizes the most common "citizen-dev" pitfalls in AI agent deve
 - State persistence across sessions
 - Reusable skill libraries
 - Caching and RAG/CAG for learned knowledge
+
+## The 5th Anti-Pattern: Handoff Breakdown
+
+**Problem:** Agent outputs are delivered as narrative prose instead of structured objects, causing ambiguity and downstream processing failures during handoffs between development phases.
+
+**Why This Matters:**
+- **Narrative Ambiguity:** Natural language descriptions leave interpretation open to multiple valid readings
+- **Downstream Fragility:** Engineering teams cannot reliably parse or act upon prose descriptions
+- **Quality Gates Fail:** Automated validation becomes impossible without structured data contracts
+- **Maintenance Burden:** Prose requirements drift and become outdated without clear validation criteria
+
+**Bad Example (Narrative Prose):**
+```
+I've created a user authentication system that handles login, registration, and password reset. It uses JWT tokens for session management and stores user data in a PostgreSQL database. The system includes proper password hashing and email verification for new accounts.
+```
+
+**Good Example (Structured Objects):**
+```json
+{
+  "component": "UserAuthenticationService",
+  "endpoints": [
+    {"path": "/auth/login", "method": "POST", "params": ["email", "password"]},
+    {"path": "/auth/register", "method": "POST", "params": ["email", "password", "name"]},
+    {"path": "/auth/reset-password", "method": "POST", "params": ["email"]}
+  ],
+  "data_model": {
+    "user_table": "users",
+    "fields": ["id", "email", "password_hash", "verified", "created_at"],
+    "relationships": []
+  },
+  "security": {
+    "token_type": "JWT",
+    "hash_algorithm": "bcrypt",
+    "verification_required": true
+  }
+}
+```
+
+**Best Practice: All task steps must return JSON or Zod-validated objects**
+- Use structured schemas for all agent outputs
+- Implement validation at handoff points
+- Maintain data contracts between development phases
+- Enable automated testing and validation pipelines

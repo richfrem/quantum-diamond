@@ -42,6 +42,29 @@ Recent updates focus on **agent hygiene and engineering rigor** to prevent commo
 - [Agent Handoff Checklist](./docs/checklists/agent_handoff_checklist.md) - Prototype to production transition
 - [Agent Hygiene Inspector](./PROMPTS/Agent-Hygiene-Inspector.md) - Anti-pattern audit specialist
 
+## Quantum Diamond Roles Overview
+
+```mermaid
+graph LR
+
+A([Human Lead<br/>🧑‍💼]):::role --> B([Guardian Persona<br/>🛡️]):::role
+A --> C([App Architect<br/>📐]):::role
+A --> D([Agent Architect<br/>🧠]):::role
+
+B --> E([Secure Setup<br/>Safe Sandbox]):::phase
+C --> F([Genesis Cycle<br/>Prototype Creation]):::phase
+D --> G([Agent Prototyping Loop]):::phase
+
+F --> H([Engineering Cycle<br/>Production Build]):::phase
+G --> H
+
+H --> I([Handoff to Professional Engineers<br/>🏭]):::handoff
+
+classDef role fill:#dbeafe,stroke:#1e40af,stroke-width:1px,color:#000;
+classDef phase fill:#fef9c3,stroke:#a16207,stroke-width:1px,color:#000;
+classDef handoff fill:#dcfce7,stroke:#166534,stroke-width:1px,color:#000;
+```
+
 ## Quantum Diamond Specialist Roles
 
 This framework uses three internal specialists that work together during the
@@ -90,6 +113,53 @@ flowchart LR
     SA --> E
 
     E --> P[Production-Grade Agent<br/>Secure · Scalable · Efficient]
+```
+
+## Agent Hygiene Inspector Pipeline
+
+The Agent Hygiene Inspector is an automated quality assurance system that scans your codebase for common AI agent development anti-patterns and hygiene violations.
+
+### Purpose
+- **Detects 8+ major anti-patterns** before they cause production issues
+- **Enforces engineering hygiene** for scalable, secure agent development
+- **Provides automated code review** for agent-specific concerns
+- **Generates structured reports** for development teams
+
+### Where Inspectors Live
+Hygiene inspectors are located in `templates/agent_hygiene/`:
+- `controlFlow.ts` - Control flow and loop management
+- `dataPlane.ts` - Data handling and storage patterns
+- `privacy.ts` - PII and secrets management
+- `toolRegistry.ts` - Tool loading and registry patterns
+- `controlPlane.ts` - Prompt engineering and state management
+
+### How to Run It
+1. Generate a project snapshot: `node capture_code_snapshot.js`
+2. Inspectors run automatically after snapshot generation
+3. Review the report at `docs/agent_hygiene_report.md`
+
+### Sample Output
+```markdown
+# Agent Hygiene Report
+Generated: 2025-11-07T10:30:00.000Z
+
+## Findings Overview
+- Total Findings: 3
+- Errors: 1
+- Warnings: 2
+
+## Inspectors Run
+- controlFlow
+- dataPlane
+- privacy
+- toolRegistry
+- controlPlane
+
+## Detailed Findings
+
+### controlPlane
+- [ERROR] Anti-pattern: Embedding entire schemas in prompts
+- [WARN] Context-stuffing tendency detected
 ```
 
 ## Mermaid Diagrams
@@ -306,6 +376,20 @@ This repository contains the complete methodology and practical guides for the Q
 *   **`templates/`**: Reusable markdown templates for Requirements and Tasks to enforce the engineering workflow.
 *   **`HowToStartYourProject.md`**: Your first step. A guide to initializing your AI partner and creating your first prototype for either a web app or an agent.
 *   **`HowToIterateAndImprove.md`**: The "inner loop" guide. How to use specialist agents and your codebase snapshot to continuously refactor and improve your project.
+
+### Hygiene Inspector Structure
+
+```
+templates/
+agent_hygiene/
+controlFlow.ts
+dataPlane.ts
+privacy.ts
+toolRegistry.ts
+controlPlane.ts
+docs/
+agent_hygiene_report.md
+```
 
 ### Start here
 - [Genesis Cycle](./01_playbook-genesis-cycle.md)

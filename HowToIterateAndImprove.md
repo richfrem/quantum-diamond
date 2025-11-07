@@ -19,6 +19,7 @@ First, we need to provide the full context of your project to the specialist age
     node ./capture_code_snapshot.js
     ```
 3.  This will create a new file in your root directory named `all_markdown_and_code_snapshot_llm_distilled.txt`. This file contains all the necessary context.
+4.  **After generating a snapshot, run the hygiene inspectors automatically. Review `docs/agent_hygiene_report.md` before asking a specialist agent for help.**
 
 ### Step 2: Choose Your Specialist
 Select a specialist prompt from the `PROMPTS/` directory that matches your goal. Each specialist is an expert in a specific domain.
@@ -34,5 +35,7 @@ Select a specialist prompt from the `PROMPTS/` directory that matches your goal.
 3.  Immediately after, paste the **entire content** of the `all_markdown_and_code_snapshot_llm_distilled.txt` file you generated in Step 1.
 
 **Result:** The specialist agent will provide a detailed analysis, a prioritized list of actionable recommendations, and often, the exact refactored code needed to implement the improvements.
+
+**Important:** Never consult a Specialist until hygiene errors = 0.
 
 You can repeat this loop as many times as needed to continuously harden and professionalize your application or agent.

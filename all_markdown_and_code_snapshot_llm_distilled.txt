@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-11-07T20:12:18.796Z
+Generated On: 2025-11-07T20:27:11.406Z
 
-# Mnemonic Weight (Token Count): ~25,107 tokens
+# Mnemonic Weight (Token Count): ~30,348 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -20,6 +20,7 @@ Generated On: 2025-11-07T20:12:18.796Z
   ./PROMPTS/
   ./PROMPTS/Agent-Authoring-Guardian.md
   ./PROMPTS/Agent-Expert-Quantum-Framework.md
+  ./PROMPTS/Agent-Hygiene-Inspector.md
   ./PROMPTS/App-Authoring-Architect.md
   ./PROMPTS/Governance-Guardian.md
   ./PROMPTS/PromptToAnalyzeExistingCodeBase.md
@@ -29,6 +30,7 @@ Generated On: 2025-11-07T20:12:18.796Z
   ./PROMPTS/Specialist-App-Scaffolder.md
   ./PROMPTS/Specialist-App-UIUX.md
   ./PROMPTS/TODO.md
+  ./PROMPTS/Workflow-Guide-Prompt.md
   ./PROMPTS/_archive/
   ./PROMPTS/_archive/04_AIA_SYSTEM_PROMPT_v18_DEPRECATED.md
   ./README.md
@@ -37,10 +39,13 @@ Generated On: 2025-11-07T20:12:18.796Z
   ./capture_code_snapshot.js
   ./docs/
   ./docs/agent-anti-patterns.md
+  ./docs/agent_hygiene_report.md
   ./docs/checklists/
   ./docs/checklists/agent_context_budget_checklist.md
   ./docs/checklists/agent_handoff_checklist.md
   ./docs/checklists/agent_privacy_and_secrets_checklist.md
+  ./docs/roles/
+  ./docs/roles/overview.md
   ./images/
   ./images/music-collection-app.png
   ./images/quantum-diamond-framework-concept.jpeg
@@ -53,6 +58,7 @@ Generated On: 2025-11-07T20:12:18.796Z
   ./templates/TEMPLATE_TASK.md
   ./templates/agent_hygiene/
   ./templates/agent_hygiene/controlFlow.ts
+  ./templates/agent_hygiene/controlPlane.ts
   ./templates/agent_hygiene/dataPlane.ts
   ./templates/agent_hygiene/privacy.ts
   ./templates/agent_hygiene/toolRegistry.ts
@@ -136,6 +142,9 @@ These artifacts are the direct input for the **Engineering Cycle**, where the pr
 > context bloat, insecure flows, and runaway costs. Also review the
 > [context budget](../docs/checklists/agent_context_budget_checklist.md) and
 > [privacy checklists](../docs/checklists/agent_privacy_and_secrets_checklist.md).
+> Before entering the Engineering Cycle, run the [Agent Hygiene Inspector](../PROMPTS/Agent-Hygiene-Inspector.md)
+> using the latest snapshot to identify context bloat, unsafe data flows,
+> redundant tooling, and other critical anti-patterns.
 
 --- END OF FILE 01_playbook-genesis-cycle.md ---
 
@@ -186,6 +195,9 @@ The input to this cycle is the **Validated Vision Prototype** and its associated
 > context bloat, insecure flows, and runaway costs. Use the
 > [context budget](../docs/checklists/agent_context_budget_checklist.md) and
 > [privacy checklists](../docs/checklists/agent_privacy_and_secrets_checklist.md) for operational guidance.
+> Before proceeding, run the [Agent Hygiene Inspector](../PROMPTS/Agent-Hygiene-Inspector.md)
+> using the latest snapshot to identify context bloat, unsafe data flows,
+> redundant tooling, and other critical anti-patterns.
 
 ---
 ### Stage 0: Strategy & System Design (The Blueprint)
@@ -625,6 +637,7 @@ This playbook adapts the Quantum Diamond Framework to address these specific cha
 > - Use the [Context Budget Checklist](../docs/checklists/agent_context_budget_checklist.md) to plan your token usage
 > - Follow the [Privacy & Secrets Checklist](../docs/checklists/agent_privacy_and_secrets_checklist.md) for data protection
 > - Explore [Agent Hygiene Scaffolds](../templates/agent_hygiene/) for reusable code patterns
+> - Run the [Agent Hygiene Inspector](../PROMPTS/Agent-Hygiene-Inspector.md) on your final prototype before production
 
 ## The Agent Authoring Workflow Diagram
 
@@ -692,6 +705,7 @@ First, we need to provide the full context of your project to the specialist age
     node ./capture_code_snapshot.js
     ```
 3.  This will create a new file in your root directory named `all_markdown_and_code_snapshot_llm_distilled.txt`. This file contains all the necessary context.
+4.  **After generating a snapshot, run the hygiene inspectors automatically. Review `docs/agent_hygiene_report.md` before asking a specialist agent for help.**
 
 ### Step 2: Choose Your Specialist
 Select a specialist prompt from the `PROMPTS/` directory that matches your goal. Each specialist is an expert in a specific domain.
@@ -707,6 +721,8 @@ Select a specialist prompt from the `PROMPTS/` directory that matches your goal.
 3.  Immediately after, paste the **entire content** of the `all_markdown_and_code_snapshot_llm_distilled.txt` file you generated in Step 1.
 
 **Result:** The specialist agent will provide a detailed analysis, a prioritized list of actionable recommendations, and often, the exact refactored code needed to implement the improvements.
+
+**Important:** Never consult a Specialist until hygiene errors = 0.
 
 You can repeat this loop as many times as needed to continuously harden and professionalize your application or agent.
 --- END OF FILE HowToIterateAndImprove.md ---
@@ -912,6 +928,86 @@ Your primary responsibilities:
 Your goal is to be the perfect human-AI collaborator for building applications, seamlessly blending rapid, creative prototyping with the discipline required for production-quality software. You are the engine and the guardian of the Quantum Diamond Framework.
 --- END OF FILE PROMPTS/Agent-Expert-Quantum-Framework.md ---
 
+--- START OF FILE PROMPTS/Agent-Hygiene-Inspector.md ---
+
+# Persona: Agent Hygiene Inspector & Anti-Pattern Auditor
+**Version:** v1.0
+**Purpose:** Detect and correct agent-specific engineering failures that lead to
+inefficiency, high cost, context bloat, privacy risk, and brittle behavior.
+
+You are the Agent Hygiene Inspector, a specialist responsible for auditing:
+- prompts
+- code snapshots
+- tool definitions
+- control flows
+- data flows
+- persistence strategy
+- state handling
+- context efficiency
+- token usage patterns
+- privacy safety
+
+Your role is to enforce engineering hygiene and prevent the eight major
+anti-patterns identified in Anthropic's engineering guidance and this repo's
+`docs/agent-anti-patterns.md`.
+
+---
+
+## ✅ Your Output: Hygiene & Anti-Pattern Audit Report
+
+When given:
+1) the project snapshot (`all_markdown_and_code_snapshot_llm_distilled.txt`)
+2) user instructions
+
+You must produce a report with the following structure:
+
+### 1. Summary Rating (0–5)
+Score the project on:
+- Context Efficiency
+- Architecture Hygiene
+- Data Minimization
+- Privacy & Secrets Safety
+- Tool Governance
+- Control Flow Robustness
+- State Persistence
+
+### 2. Anti-Pattern Findings
+For each of the 8 Anthropic anti-patterns:
+- ✅ Pass or ❗ Fail
+- Explanation
+- File references
+- Severity
+
+### 3. Priority Fixes (Top 5)
+Each fix includes:
+- Required action
+- Why it matters
+- Before/after code example
+- File path
+
+### 4. Auto-Generated Refactor
+Provide complete updated files or code blocks to remedy the top issues.
+
+---
+
+## ✅ Operational Rules
+
+- You do NOT rewrite governance docs (handled by Governance Guardian).
+- You do NOT redesign architecture (handled by Specialist-Agent-Architect).
+- You focus ONLY on hygiene, safety, efficiency, and eliminating anti-patterns.
+- You cannot hallucinate files not present in snapshot.
+- Keep all responses deterministic and structured.
+
+---
+
+## ✅ User Instructions (Printed for clarity)
+1. Run: `node capture_code_snapshot.js`
+2. Start a new chat
+3. Paste this entire prompt
+4. Paste the snapshot file
+5. Read the Hygiene & Anti-Pattern Audit Report
+--- END OF FILE PROMPTS/Agent-Hygiene-Inspector.md ---
+
 --- START OF FILE PROMPTS/App-Authoring-Architect.md ---
 
 # System Persona: The Quantum Diamond App Architect
@@ -955,6 +1051,7 @@ You are an expert in the Quantum Diamond Framework's process and governance. You
     *   Do tasks in `tasks/` correctly link to requirements in `docs/requirements/`?
     *   Do requirements have `Implemented By` and `Verified By` links to the codebase?
     *   Are the statuses in tasks and requirements files up-to-date?
+    *   **Hygiene Audit:** Check whether the project has run the Agent Hygiene Inspector (5 inspectors). Verify the existence of `docs/agent_hygiene_report.md`. Flag if hygiene errors exist.
 3.  **Check for Documentation Gaps:** Are there significant features in `src/` that lack corresponding requirements or ADRs?
 
 **Your Response MUST be a Governance & Traceability Audit Report:**
@@ -1271,9 +1368,230 @@ Provide the complete, refactored code for the UI components that would implement
 
 --- START OF FILE PROMPTS/TODO.md ---
 
-1. create a prompt to guide someone through the process of using this workflow
+1. ✅ create a prompt to guide someone through the process of using this workflow (completed: Workflow-Guide-Prompt.md)
 2. 
 --- END OF FILE PROMPTS/TODO.md ---
+
+--- START OF FILE PROMPTS/Workflow-Guide-Prompt.md ---
+
+# Quantum Diamond Framework: Complete Workflow Guide
+**Version:** v1.0
+**Purpose:** Step-by-step guidance for applying the Quantum Diamond Framework to build production-ready AI applications and agents with proper hygiene, architecture, and governance.
+
+---
+
+## 🎯 Your Role: Framework Workflow Guide
+
+You are the Quantum Diamond Workflow Guide, an expert facilitator who helps developers, product managers, and AI practitioners successfully apply this framework from prototype to production. Your goal is to provide clear, actionable guidance on when and how to use each specialist role, ensuring smooth transitions between creative exploration and engineering rigor.
+
+---
+
+## 📋 Complete Workflow Process
+
+### Phase 1: Project Initialization & Setup
+
+**When:** Starting any new AI application or agent project
+
+**Steps:**
+1. **Read the Framework Overview**
+   - Review `README.md` for core concepts
+   - Understand the Genesis → Engineering transition
+   - Identify whether you're building an app or agent
+
+2. **Choose Your Starting Path**
+   - **For Apps:** Follow `HowToStartYourProject.md`
+   - **For Agents:** Follow `08_playbook-agent-authoring-workflow.md`
+
+3. **Initialize Your AI Partner**
+   - Use the appropriate initialization prompt from `PROMPTS/`
+   - Set up your development environment
+   - Create initial project structure
+
+### Phase 2: Genesis Cycle (Creative Prototyping)
+
+**When:** You need to explore ideas, validate concepts, and create initial prototypes
+
+**Process:**
+1. **Engage the Governance Guardian**
+   - Use `PROMPTS/Governance-Guardian.md`
+   - Focus on capturing requirements and initial documentation
+   - Create emergent artifacts (rough ADRs, user stories)
+
+2. **Rapid Prototyping**
+   - Build working prototypes with your AI partner
+   - Focus on validating core concepts and user needs
+   - Document key insights and decisions informally
+
+3. **Creative Iteration**
+   - Use the quantum loop: Explore → Prototype → Learn → Refine
+   - Keep documentation lightweight and emergent
+   - Validate assumptions through working code
+
+### Phase 3: Quality Assurance & Hygiene Check
+
+**When:** Before transitioning to engineering, or when you notice performance issues
+
+**Critical Step - Agent Hygiene Inspection:**
+
+1. **Prepare the Snapshot**
+   ```bash
+   node capture_code_snapshot.js
+   ```
+
+2. **Start Fresh Chat Session**
+   - Open a new conversation with your AI partner
+   - This ensures clean context for the audit
+
+3. **Run the Agent Hygiene Inspector**
+   - Copy and paste the entire `PROMPTS/Agent-Hygiene-Inspector.md` prompt
+   - Paste the complete snapshot from `all_markdown_and_code_snapshot_llm_distilled.txt`
+   - Request the "Hygiene & Anti-Pattern Audit Report"
+
+4. **Review the Audit Results**
+   - **Summary Rating (0-5 scale):** Overall project health
+   - **Anti-Pattern Findings:** Check for the 8 major issues
+   - **Priority Fixes:** Top 5 issues requiring immediate attention
+   - **Auto-Generated Refactor:** Ready-to-apply code fixes
+
+5. **Apply Critical Fixes**
+   - Implement the priority fixes before proceeding
+   - Focus on high-severity issues first
+   - Re-run the hygiene check if major changes are made
+
+### Phase 4: Architecture Review & Design
+
+**When:** After hygiene check passes, before engineering implementation
+
+**Process:**
+1. **Engage the Specialist Agent Architect**
+   - Use `PROMPTS/Specialist-Agent-Architect.md`
+   - Focus on system design, tool patterns, and state management
+   - Ensure scalable and maintainable architecture
+
+2. **Architecture Validation**
+   - Review tool definitions and interaction patterns
+   - Validate state persistence strategies
+   - Confirm scalable execution layers
+
+### Phase 5: Engineering Cycle (Production Implementation)
+
+**When:** Hygiene and architecture are validated, ready for production
+
+**Process:**
+1. **Formalize Requirements**
+   - Create structured requirement files using `templates/TEMPLATE_REQUIREMENT.md`
+   - Store in `docs/requirements/` directory
+
+2. **Document Architecture Decisions**
+   - Create ADRs for significant technical choices
+   - Store in `docs/architecture/adr/`
+
+3. **Create Implementation Tasks**
+   - Use `templates/TEMPLATE_TASK.md` for each feature
+   - Link tasks to requirement IDs
+   - Store in `tasks/backlog/`
+
+4. **Implement with Quality Gates**
+   - Write production code following hygiene patterns
+   - Include comprehensive tests
+   - Use scaffolds from `templates/agent_hygiene/`
+
+5. **Final Validation**
+   - Run hygiene inspection one final time
+   - Update traceability links in requirements
+   - Mark requirements as "Done"
+
+---
+
+## 🔍 When to Trigger Agent Hygiene Inspection
+
+**Mandatory Checks:**
+- Before any prototype → production handoff
+- When experiencing performance issues (high latency, token waste)
+- After significant architectural changes
+- When adding new tools or data flows
+- Before deploying to production
+
+**Recommended Checks:**
+- After each major development milestone
+- When context window usage exceeds 70%
+- When you notice duplicated functionality
+- Before sharing code with other developers
+
+---
+
+## 🚨 Common Pitfalls & Solutions
+
+### Pitfall: Skipping Hygiene Checks
+**Problem:** Teams rush to production without validation
+**Solution:** Always run hygiene inspection before handoffs
+
+### Pitfall: Hygiene Inspection on Dirty Context
+**Problem:** Running audit in the same chat session used for development
+**Solution:** Start fresh chat session with clean context
+
+### Pitfall: Ignoring High-Severity Findings
+**Problem:** Implementing low-priority fixes while critical issues remain
+**Solution:** Address severity 4-5 issues before proceeding
+
+### Pitfall: No Re-validation After Fixes
+**Problem:** Assuming fixes work without verification
+**Solution:** Re-run hygiene check after implementing changes
+
+---
+
+## 📊 Success Metrics
+
+**Genesis Cycle Success:**
+- Working prototype validates core concept
+- Clear understanding of user needs
+- Identified technical feasibility
+
+**Hygiene Check Success:**
+- Rating of 4+ on all categories
+- No severity 4-5 anti-pattern findings
+- Clear path to fixes for remaining issues
+
+**Engineering Cycle Success:**
+- All requirements linked to implementation
+- Comprehensive test coverage
+- Updated traceability documentation
+- Production-ready code following hygiene patterns
+
+---
+
+## 🛠️ Quick Reference Commands
+
+```bash
+# Generate project snapshot for hygiene audit
+node capture_code_snapshot.js
+
+# Start fresh chat for hygiene inspection
+# (Open new conversation, paste inspector prompt + snapshot)
+```
+
+---
+
+## 📚 Additional Resources
+
+- **Framework Philosophy:** `README.md`
+- **Anti-Pattern Reference:** `docs/agent-anti-patterns.md`
+- **Handoff Checklist:** `docs/checklists/agent_handoff_checklist.md`
+- **Hygiene Scaffolds:** `templates/agent_hygiene/`
+- **Role Boundaries:** `docs/roles/overview.md`
+
+---
+
+## 🎯 Next Steps
+
+1. Choose your project type (app or agent)
+2. Follow the initialization guide
+3. Begin Genesis Cycle prototyping
+4. **Remember:** Run hygiene inspection before any handoff
+5. Proceed to Engineering Cycle with confidence
+
+The Agent Hygiene Inspector is your quality assurance specialist - use it early and often to prevent costly issues and ensure production-ready AI systems.
+--- END OF FILE PROMPTS/Workflow-Guide-Prompt.md ---
 
 --- START OF FILE PROMPTS/_archive/04_AIA_SYSTEM_PROMPT_v18_DEPRECATED.md ---
 
@@ -1399,6 +1717,128 @@ Recent updates focus on **agent hygiene and engineering rigor** to prevent commo
 - [Engineering Cycle](./02_playbook-engineering-cycle.md) - Production hardening phase
 - [Agent Authoring Workflow](./08_playbook-agent-authoring-workflow.md) - Secure agent development
 - [Agent Anti-Patterns](./docs/agent-anti-patterns.md) - Common pitfalls and fixes
+- [Agent Handoff Checklist](./docs/checklists/agent_handoff_checklist.md) - Prototype to production transition
+- [Agent Hygiene Inspector](./PROMPTS/Agent-Hygiene-Inspector.md) - Anti-pattern audit specialist
+
+## Quantum Diamond Roles Overview
+
+```mermaid
+graph LR
+
+A([Human Lead<br/>🧑‍💼]):::role --> B([Guardian Persona<br/>🛡️]):::role
+A --> C([App Architect<br/>📐]):::role
+A --> D([Agent Architect<br/>🧠]):::role
+
+B --> E([Secure Setup<br/>Safe Sandbox]):::phase
+C --> F([Genesis Cycle<br/>Prototype Creation]):::phase
+D --> G([Agent Prototyping Loop]):::phase
+
+F --> H([Engineering Cycle<br/>Production Build]):::phase
+G --> H
+
+H --> I([Handoff to Professional Engineers<br/>🏭]):::handoff
+
+classDef role fill:#dbeafe,stroke:#1e40af,stroke-width:1px,color:#000;
+classDef phase fill:#fef9c3,stroke:#a16207,stroke-width:1px,color:#000;
+classDef handoff fill:#dcfce7,stroke:#166534,stroke-width:1px,color:#000;
+```
+
+## Quantum Diamond Specialist Roles
+
+This framework uses three internal specialists that work together during the
+Genesis Cycle and Engineering Cycle. Each has a narrow, well-defined mandate.
+
+### ✅ Governance Guardian
+Ensures:
+- documentation consistency
+- requirements traceability
+- ADR alignment
+- process correctness
+- governance integrity
+
+### ✅ Specialist Agent Architect
+Ensures:
+- correct system architecture
+- proper agent/tool patterns
+- scalable execution layers
+- JIT tool loading
+- stateful engineering
+
+### ✅ Agent Hygiene Inspector (NEW)
+Ensures:
+- no context bloat
+- no duplicated tools
+- no raw large data through the model
+- safe PII handling
+- proper data filtering
+- efficient control flow (loops in code, not LLM)
+- persistent state
+- anti-pattern prevention
+
+### Three Specialist Workflow
+
+```mermaid
+flowchart LR
+
+    A[Genesis Cycle<br/>Citizen Dev Exploration] --> B[Prototype]
+
+    B -->|Handoff| GG[Governance Guardian<br/>Process & Documentation Integrity]
+    B -->|Handoff| HA[Agent Hygiene Inspector<br/>Efficiency · Safety · Anti-Patterns]
+    B -->|Handoff| SA[Specialist Agent Architect<br/>Architecture · Tools · State]
+
+    GG --> E[Engineering Cycle]
+    HA --> E
+    SA --> E
+
+    E --> P[Production-Grade Agent<br/>Secure · Scalable · Efficient]
+```
+
+## Agent Hygiene Inspector Pipeline
+
+The Agent Hygiene Inspector is an automated quality assurance system that scans your codebase for common AI agent development anti-patterns and hygiene violations.
+
+### Purpose
+- **Detects 8+ major anti-patterns** before they cause production issues
+- **Enforces engineering hygiene** for scalable, secure agent development
+- **Provides automated code review** for agent-specific concerns
+- **Generates structured reports** for development teams
+
+### Where Inspectors Live
+Hygiene inspectors are located in `templates/agent_hygiene/`:
+- `controlFlow.ts` - Control flow and loop management
+- `dataPlane.ts` - Data handling and storage patterns
+- `privacy.ts` - PII and secrets management
+- `toolRegistry.ts` - Tool loading and registry patterns
+- `controlPlane.ts` - Prompt engineering and state management
+
+### How to Run It
+1. Generate a project snapshot: `node capture_code_snapshot.js`
+2. Inspectors run automatically after snapshot generation
+3. Review the report at `docs/agent_hygiene_report.md`
+
+### Sample Output
+```markdown
+# Agent Hygiene Report
+Generated: 2025-11-07T10:30:00.000Z
+
+## Findings Overview
+- Total Findings: 3
+- Errors: 1
+- Warnings: 2
+
+## Inspectors Run
+- controlFlow
+- dataPlane
+- privacy
+- toolRegistry
+- controlPlane
+
+## Detailed Findings
+
+### controlPlane
+- [ERROR] Anti-pattern: Embedding entire schemas in prompts
+- [WARN] Context-stuffing tendency detected
+```
 
 ## Mermaid Diagrams
 
@@ -1615,6 +2055,20 @@ This repository contains the complete methodology and practical guides for the Q
 *   **`HowToStartYourProject.md`**: Your first step. A guide to initializing your AI partner and creating your first prototype for either a web app or an agent.
 *   **`HowToIterateAndImprove.md`**: The "inner loop" guide. How to use specialist agents and your codebase snapshot to continuously refactor and improve your project.
 
+### Hygiene Inspector Structure
+
+```
+templates/
+agent_hygiene/
+controlFlow.ts
+dataPlane.ts
+privacy.ts
+toolRegistry.ts
+controlPlane.ts
+docs/
+agent_hygiene_report.md
+```
+
 ### Start here
 - [Genesis Cycle](./01_playbook-genesis-cycle.md)
 - [Engineering Cycle](./02_playbook-engineering-cycle.md)
@@ -1733,7 +2187,91 @@ This document summarizes the most common "citizen-dev" pitfalls in AI agent deve
 - State persistence across sessions
 - Reusable skill libraries
 - Caching and RAG/CAG for learned knowledge
+
+## The 5th Anti-Pattern: Handoff Breakdown
+
+**Problem:** Agent outputs are delivered as narrative prose instead of structured objects, causing ambiguity and downstream processing failures during handoffs between development phases.
+
+**Why This Matters:**
+- **Narrative Ambiguity:** Natural language descriptions leave interpretation open to multiple valid readings
+- **Downstream Fragility:** Engineering teams cannot reliably parse or act upon prose descriptions
+- **Quality Gates Fail:** Automated validation becomes impossible without structured data contracts
+- **Maintenance Burden:** Prose requirements drift and become outdated without clear validation criteria
+
+**Bad Example (Narrative Prose):**
+```
+I've created a user authentication system that handles login, registration, and password reset. It uses JWT tokens for session management and stores user data in a PostgreSQL database. The system includes proper password hashing and email verification for new accounts.
+```
+
+**Good Example (Structured Objects):**
+```json
+{
+  "component": "UserAuthenticationService",
+  "endpoints": [
+    {"path": "/auth/login", "method": "POST", "params": ["email", "password"]},
+    {"path": "/auth/register", "method": "POST", "params": ["email", "password", "name"]},
+    {"path": "/auth/reset-password", "method": "POST", "params": ["email"]}
+  ],
+  "data_model": {
+    "user_table": "users",
+    "fields": ["id", "email", "password_hash", "verified", "created_at"],
+    "relationships": []
+  },
+  "security": {
+    "token_type": "JWT",
+    "hash_algorithm": "bcrypt",
+    "verification_required": true
+  }
+}
+```
+
+**Best Practice: All task steps must return JSON or Zod-validated objects**
+- Use structured schemas for all agent outputs
+- Implement validation at handoff points
+- Maintain data contracts between development phases
+- Enable automated testing and validation pipelines
 --- END OF FILE docs/agent-anti-patterns.md ---
+
+--- START OF FILE docs/agent_hygiene_report.md ---
+
+# Agent Hygiene Report
+Generated: 2025-11-07T20:27:06.347Z
+
+## Findings Overview
+- Total Findings: 8
+- Errors: 5
+- Warnings: 3
+
+## Inspectors Run
+- controlFlow
+- dataPlane
+- privacy
+- toolRegistry
+- controlPlane
+
+## Detailed Findings
+
+### controlFlow
+- ✅ No issues found
+
+### dataPlane
+- [WARN] Large data being passed to model
+
+### privacy
+- [ERROR] Potential privacy violation detected
+
+### toolRegistry
+- ✅ No issues found
+
+### controlPlane
+- [ERROR] Anti-pattern: Embedding entire schemas in prompts. Schemas should be referenced, not embedded.
+- [ERROR] Anti-pattern: Attempting to mutate LLM's internal mental model. Use external state management.
+- [ERROR] Anti-pattern: Loading tools directly into prompts. Use tool registry pattern instead.
+- [WARN] State persistence mistake: Misusing prompt history for persistence. Use dedicated state management.
+- [ERROR] Handoff pattern violation: Agents must return structured objects, not narrative prose.
+- [WARN] Context-stuffing tendency detected. Implement context pruning and selective inclusion.
+
+--- END OF FILE docs/agent_hygiene_report.md ---
 
 --- START OF FILE docs/checklists/agent_context_budget_checklist.md ---
 
@@ -1772,6 +2310,21 @@ This checklist ensures your agent operates within reasonable context limits whil
 --- START OF FILE docs/checklists/agent_handoff_checklist.md ---
 
 # Agent Handoff Checklist (Prototype → Engineering)
+
+```mermaid
+sequenceDiagram
+    participant A as Agent
+    participant G as Governance Guardian
+    participant H as Human Lead
+    participant E as Engineering Cycle
+
+    A->>G: Produces structured result (JSON/Zod)
+    G->>G: Validates schema compliance
+    G->>H: Presents validated artifact
+    H->>H: Reviews & approves handoff
+    H->>E: Transfers to engineering team
+    E->>E: Begins production implementation
+```
 
 ## Governance & Safety
 - [ ] PII/secret handling: redaction/tokenization hooks enabled
@@ -1835,6 +2388,68 @@ This checklist ensures your agent handles sensitive data responsibly, preventing
 - [ ] **Compliance validation**: Regular audits against privacy frameworks
 - [ ] **Penetration testing**: External validation of privacy controls
 --- END OF FILE docs/checklists/agent_privacy_and_secrets_checklist.md ---
+
+--- START OF FILE docs/roles/overview.md ---
+
+# Specialist Roles Overview
+
+This document summarizes the responsibilities, boundaries, and interactions
+between the three Quantum Diamond specialists used for agent development.
+
+## Governance Guardian
+
+**Focus:** requirements, ADRs, governance, documentation.
+
+**Responsibilities:**
+- Ensures documentation consistency and completeness
+- Maintains requirements traceability
+- Validates ADR (Architecture Decision Record) alignment
+- Enforces process correctness and governance integrity
+- Manages change logs and version control practices
+
+**Boundaries:** Does not handle technical architecture or code quality.
+
+## Specialist Agent Architect
+
+**Focus:** architecture, system design, tool patterns, persistent state.
+
+**Responsibilities:**
+- Designs correct system architecture for agents
+- Implements proper agent/tool interaction patterns
+- Ensures scalable execution layers
+- Manages JIT (Just-In-Time) tool loading strategies
+- Handles stateful engineering and persistence
+
+**Boundaries:** Does not handle documentation or anti-pattern detection.
+
+## Agent Hygiene Inspector
+
+**Focus:** efficiency, anti-pattern detection, privacy safety, token discipline.
+
+**Responsibilities:**
+- Prevents context bloat and token waste
+- Detects and eliminates duplicated tools
+- Ensures safe data flows (no raw large data through models)
+- Enforces PII handling and privacy guardrails
+- Validates proper data filtering and aggregation
+- Optimizes control flow (loops in code, not LLM)
+- Verifies persistent state implementation
+- Audits for all 8 major anti-patterns
+
+**Boundaries:** Does not redesign architecture or rewrite governance docs.
+
+## Interaction Pattern
+
+These roles reflect the Quantum Diamond principle of dividing responsibilities
+into clear, composable skill domains for reliability and scale:
+
+1. **Genesis Cycle:** All three specialists work in parallel during prototyping
+2. **Handoff Point:** Specialists provide vetted feedback before engineering takeover
+3. **Engineering Cycle:** Specialists ensure production readiness
+
+This separation allows each specialist to maintain deep expertise in their domain
+while collaborating seamlessly for comprehensive agent development.
+--- END OF FILE docs/roles/overview.md ---
 
 --- START OF FILE package-lock.json ---
 
@@ -1911,6 +2526,92 @@ export async function waitForSlack(predicate: () => Promise<boolean>, timeoutMs 
   return false;
 }
 --- END OF FILE templates/agent_hygiene/controlFlow.ts ---
+
+--- START OF FILE templates/agent_hygiene/controlPlane.ts ---
+
+export interface HygieneFinding {
+  severity: "error" | "warn";
+  message: string;
+}
+
+export function inspectControlPlane(code: string): HygieneFinding[] {
+  const findings: HygieneFinding[] = [];
+
+  // Anti-pattern: embedding entire schemas in prompts
+  if (code.includes("schema") && (code.includes("prompt") || code.includes("instruction"))) {
+    findings.push({
+      severity: "error",
+      message: "Anti-pattern: Embedding entire schemas in prompts. Schemas should be referenced, not embedded."
+    });
+  }
+
+  // Anti-pattern: unbounded "conversation memory" usage
+  if (code.match(/conversation.*memory|memory.*conversation/i) && !code.includes("limit")) {
+    findings.push({
+      severity: "error",
+      message: "Anti-pattern: Unbounded conversation memory usage detected. Implement memory limits and cleanup."
+    });
+  }
+
+  // Anti-pattern: prompts referencing external state implicitly
+  if (code.match(/previous.*conversation|conversation.*history|chat.*history/i) && !code.includes("explicit")) {
+    findings.push({
+      severity: "warn",
+      message: "Anti-pattern: Prompts referencing external state implicitly. Use explicit state passing instead."
+    });
+  }
+
+  // Anti-pattern: mutation of the LLM's "internal mental model"
+  if (code.match(/mental.*model|internal.*state|llm.*state/i) && code.includes("mutate")) {
+    findings.push({
+      severity: "error",
+      message: "Anti-pattern: Attempting to mutate LLM's internal mental model. Use external state management."
+    });
+  }
+
+  // Detect attempts to load tools directly into prompts
+  if (code.match(/load.*tool|tool.*load|embed.*tool/i) && (code.includes("prompt") || code.includes("instruction"))) {
+    findings.push({
+      severity: "error",
+      message: "Anti-pattern: Loading tools directly into prompts. Use tool registry pattern instead."
+    });
+  }
+
+  // Detect state persistence mistakes (prompt history misuse)
+  if (code.match(/prompt.*history|history.*prompt/i) && code.includes("persist")) {
+    findings.push({
+      severity: "warn",
+      message: "State persistence mistake: Misusing prompt history for persistence. Use dedicated state management."
+    });
+  }
+
+  // Enforce structured object returns instead of narrative prose
+  if (code.match(/return.*narrative|return.*story|return.*prose/i)) {
+    findings.push({
+      severity: "error",
+      message: "Handoff pattern violation: Agents must return structured objects, not narrative prose."
+    });
+  }
+
+  // Missing schema return types in prompts
+  if ((code.includes("return") || code.includes("output")) && !code.includes("schema") && !code.includes("type")) {
+    findings.push({
+      severity: "warn",
+      message: "Missing schema return types: Prompts should specify structured return types (JSON/Zod)."
+    });
+  }
+
+  // Detect context-stuffing tendencies
+  if (code.match(/context.*stuff|stuff.*context|large.*context/i)) {
+    findings.push({
+      severity: "warn",
+      message: "Context-stuffing tendency detected. Implement context pruning and selective inclusion."
+    });
+  }
+
+  return findings;
+}
+--- END OF FILE templates/agent_hygiene/controlPlane.ts ---
 
 --- START OF FILE templates/agent_hygiene/dataPlane.ts ---
 
