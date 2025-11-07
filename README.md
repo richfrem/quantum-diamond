@@ -58,6 +58,59 @@ graph TD
 
 ---
 
+## Specialization for AI Application Authoring
+
+The Quantum Diamond Framework excels at building modern web applications through structured collaboration between human vision and AI specialization. The framework provides dedicated AI partners for different aspects of application development, ensuring comprehensive coverage from initial concept to production deployment.
+
+This approach combines the creative freedom of rapid prototyping with the discipline of iterative expert analysis, using specialized AI agents to refine and optimize every aspect of your application.
+
+```mermaid
+graph TD
+    %% Phase 1: Initial Application Creation
+    subgraph Phase1 ["Phase 1: Initial Application Creation"]
+        style Phase1 fill:#e8f5e8,stroke:#2e7d32,color:#111827
+        Architect["<strong>App Architect / Initial Prompt</strong><br/><br/>✔ Generates modern web app scaffold<br/>✔ Sets up React/TypeScript/Vite stack<br/>✔ Creates initial project structure<br/>✔ Establishes development workflow"]
+    end
+
+    %% Phase 2: Specialist Analysis & Iteration
+    subgraph Phase2 ["Phase 2: Specialist Analysis & Iteration"]
+        style Phase2 fill:#fff3e0,stroke:#f57c00,color:#111827
+        Scaffold["<strong>App Scaffolding Specialist</strong><br/>• Architecture review<br/>• Code structure optimization<br/>• Performance analysis"]
+        
+        UIUX["<strong>UI/UX Specialist</strong><br/>• Design system evaluation<br/>• User experience enhancement<br/>• Accessibility improvements"]
+        
+        Governance["<strong>Governance Guardian</strong><br/>• Security audit<br/>• Compliance validation<br/>• Best practices enforcement"]
+        
+        Scaffold --> UIUX --> Governance;
+    end
+
+    %% Phase 3: Production Engineering
+    subgraph Phase3 ["Phase 3: Production Engineering"]
+        style Phase3 fill:#e3f2fd,stroke:#1565c0,color:#111827
+        Engineering["<strong>Engineering Build</strong><br/>• Production hardening<br/>• Scalability optimization<br/>• Comprehensive testing"];
+        Production["<strong>Production-Ready Application</strong><br/>• Modern & maintainable<br/>• Secure & scalable<br/>• User-focused design"];
+        Engineering -- "Deploy & scale" --> Production;
+    end
+
+    %% --- Connections Between Phases ---
+    Architect -- "Creates Initial App" --> Scaffold;
+    Governance -- "Quality Assurance Complete" --> Engineering;
+
+    %% --- Node Styles ---
+    style Architect fill:#c8e6c9,stroke:#2e7d32
+    style Scaffold fill:#fff9c4,stroke:#f57c00
+    style UIUX fill:#ffe0b2,stroke:#e65100
+    style Governance fill:#ffcdd2,stroke:#c62828
+    style Engineering fill:#bbdefb,stroke:#1565c0
+    style Production fill:#c8e6c9,stroke:#2e7d32
+```
+
+This structured process ensures applications are built with modern best practices, refined through expert analysis, and delivered as production-ready systems.
+
+➡️ **[See the full Application Authoring Workflow here](./HowToUseToBuildAnApp.md)**
+
+---
+
 ## Specialization for AI Agent Authoring
 
 While the Quantum Diamond Framework applies broadly, building autonomous **AI Agents** requires an even greater emphasis on security and architectural rigor from the start. To address this, the framework includes a specialized workflow that introduces a critical **"Phase 0: Secure Setup."**
