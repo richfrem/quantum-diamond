@@ -25,6 +25,56 @@ flowchart TD
     F -->|Build it for real| E[Production-grade agent<br/>• Secure<br/>• Scalable<br/>• Efficient]
 ```
 
+## What's new
+Recent updates focus on **agent hygiene and engineering rigor** to prevent common pitfalls in AI agent development:
+
+- **[Agent Anti-Patterns](./docs/agent-anti-patterns.md)**: 8 common pitfalls with fixes (context bloat, PII leaks, inefficient control flow)
+- **[Handoff Checklists](./docs/checklists/agent_handoff_checklist.md)**: Operational checklists for prototype→engineering transition
+- **[Agent Hygiene Scaffolds](./templates/agent_hygiene/)**: Reusable code patterns for secure, efficient agent development
+- **Enhanced Diagrams**: Visual workflows for both app and agent development with explicit handoff points
+
+## Start here
+- [How to Start Your Project](./HowToStartYourProject.md) - Initialize AI partners for apps or agents
+- [Genesis Cycle](./01_playbook-genesis-cycle.md) - Creative prototyping phase
+- [Engineering Cycle](./02_playbook-engineering-cycle.md) - Production hardening phase
+- [Agent Authoring Workflow](./08_playbook-agent-authoring-workflow.md) - Secure agent development
+- [Agent Anti-Patterns](./docs/agent-anti-patterns.md) - Common pitfalls and fixes
+
+## Mermaid Diagrams
+
+### Quantum Loop (Creative Discovery → Engineering Handoff)
+```mermaid
+flowchart TD
+    A[Explore]:::n --> B[Open Up Options]:::n
+    B --> C[Define What Matters]:::n
+    C --> D[Focus & Commit]:::n
+
+    D -- "Rapid iteration loop\n(back to discovery)" --> A
+
+    D --> E[Engineered System\n— Guardrails • Tests • Architecture]:::e
+classDef n fill:#f3f4f6,stroke:#9ca3af,color:#111827;
+classDef e fill:#dcfce7,stroke:#16a34a,color:#065f46;
+```
+
+### Agent Workflow with Professional Handoff
+```mermaid
+graph LR
+    subgraph S0["Phase 0 • Secure Setup"]
+      G["Guardian Init\nPII & Secrets Rules · Pre-commit Scans · ADR stubs"]
+    end
+    subgraph S1["Phase 1 • Guided Prototyping"]
+      L["Creative Loop\nExplore → Try → Narrow → Validate"]
+    end
+    subgraph S2["Phase 2 • Professional Engineering"]
+      E["Engineering Takeover\nHarden • Scale • Tests"]
+      P["Production-Grade Agent\nSecure · Scalable · Efficient"]
+      E --> P
+    end
+
+    G --> L
+    L -- "Pre-vetted handoff\n→ Pro Engineers" --> E
+```
+
 ## The Framework at a Glance
 ```mermaid
 graph TD

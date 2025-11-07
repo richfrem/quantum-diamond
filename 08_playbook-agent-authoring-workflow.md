@@ -10,6 +10,15 @@ The "prompt-stuffing" and "brittle prototype" anti-patterns are not just ineffic
 
 This playbook adapts the Quantum Diamond Framework to address these specific challenges, ensuring that agents are built on a foundation of security and sound engineering.
 
+## Before You Start
+
+> **Essential Preparation:** Agent development requires careful attention to security, efficiency, and architectural patterns. Before beginning this workflow:
+>
+> - Review [Agent Anti-Patterns](../docs/agent-anti-patterns.md) to understand common pitfalls
+> - Use the [Context Budget Checklist](../docs/checklists/agent_context_budget_checklist.md) to plan your token usage
+> - Follow the [Privacy & Secrets Checklist](../docs/checklists/agent_privacy_and_secrets_checklist.md) for data protection
+> - Explore [Agent Hygiene Scaffolds](../templates/agent_hygiene/) for reusable code patterns
+
 ## The Agent Authoring Workflow Diagram
 
 This workflow introduces a critical **Phase 0: The Secure Setup**, which establishes a "Guarded Sandbox" *before* the creative prototyping loop begins. This "shift-left" approach to security and architecture is non-negotiable for agent development.

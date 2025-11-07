@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-11-07T20:07:06.499Z
+Generated On: 2025-11-07T20:12:18.796Z
 
-# Mnemonic Weight (Token Count): ~22,247 tokens
+# Mnemonic Weight (Token Count): ~25,107 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -38,7 +38,9 @@ Generated On: 2025-11-07T20:07:06.499Z
   ./docs/
   ./docs/agent-anti-patterns.md
   ./docs/checklists/
+  ./docs/checklists/agent_context_budget_checklist.md
   ./docs/checklists/agent_handoff_checklist.md
+  ./docs/checklists/agent_privacy_and_secrets_checklist.md
   ./images/
   ./images/music-collection-app.png
   ./images/quantum-diamond-framework-concept.jpeg
@@ -49,6 +51,11 @@ Generated On: 2025-11-07T20:07:06.499Z
   ./templates/
   ./templates/TEMPLATE_REQUIREMENT.md
   ./templates/TEMPLATE_TASK.md
+  ./templates/agent_hygiene/
+  ./templates/agent_hygiene/controlFlow.ts
+  ./templates/agent_hygiene/dataPlane.ts
+  ./templates/agent_hygiene/privacy.ts
+  ./templates/agent_hygiene/toolRegistry.ts
 
 --- START OF FILE 01_playbook-genesis-cycle.md ---
 
@@ -124,9 +131,11 @@ No matter which path you take, the Genesis Cycle is complete when it has produce
 
 These artifacts are the direct input for the **Engineering Cycle**, where the prototype will be hardened, tested, and prepared for production.
 
-> **Note:** Before entering the Engineering Cycle, audit your prototype against 
-> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent 
-> context bloat, insecure flows, and runaway costs.
+> **Note:** Before entering the Engineering Cycle, audit your prototype against
+> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent
+> context bloat, insecure flows, and runaway costs. Also review the
+> [context budget](../docs/checklists/agent_context_budget_checklist.md) and
+> [privacy checklists](../docs/checklists/agent_privacy_and_secrets_checklist.md).
 
 --- END OF FILE 01_playbook-genesis-cycle.md ---
 
@@ -172,9 +181,11 @@ graph TD
 
 The input to this cycle is the **Validated Vision Prototype** and its associated **Initial Engineering Artifacts**, which can come from either a rapid prototyping canvas or a guided IDE session.
 
-> **Note:** This marks the "citizen-dev → engineering takeover" transition. Before proceeding, audit your prototype against 
-> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent 
-> context bloat, insecure flows, and runaway costs.
+> **Note:** This marks the "citizen-dev → engineering takeover" transition. Before proceeding, audit your prototype against
+> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent
+> context bloat, insecure flows, and runaway costs. Use the
+> [context budget](../docs/checklists/agent_context_budget_checklist.md) and
+> [privacy checklists](../docs/checklists/agent_privacy_and_secrets_checklist.md) for operational guidance.
 
 ---
 ### Stage 0: Strategy & System Design (The Blueprint)
@@ -605,6 +616,15 @@ Building AI agents introduces a higher level of complexity and risk compared to 
 The "prompt-stuffing" and "brittle prototype" anti-patterns are not just inefficient for agents—they are dangerous. A poorly architected agent can leak sensitive data, get stuck in expensive loops, and fail unpredictably.
 
 This playbook adapts the Quantum Diamond Framework to address these specific challenges, ensuring that agents are built on a foundation of security and sound engineering.
+
+## Before You Start
+
+> **Essential Preparation:** Agent development requires careful attention to security, efficiency, and architectural patterns. Before beginning this workflow:
+>
+> - Review [Agent Anti-Patterns](../docs/agent-anti-patterns.md) to understand common pitfalls
+> - Use the [Context Budget Checklist](../docs/checklists/agent_context_budget_checklist.md) to plan your token usage
+> - Follow the [Privacy & Secrets Checklist](../docs/checklists/agent_privacy_and_secrets_checklist.md) for data protection
+> - Explore [Agent Hygiene Scaffolds](../templates/agent_hygiene/) for reusable code patterns
 
 ## The Agent Authoring Workflow Diagram
 
@@ -1365,6 +1385,56 @@ flowchart TD
     F -->|Build it for real| E[Production-grade agent<br/>• Secure<br/>• Scalable<br/>• Efficient]
 ```
 
+## What's new
+Recent updates focus on **agent hygiene and engineering rigor** to prevent common pitfalls in AI agent development:
+
+- **[Agent Anti-Patterns](./docs/agent-anti-patterns.md)**: 8 common pitfalls with fixes (context bloat, PII leaks, inefficient control flow)
+- **[Handoff Checklists](./docs/checklists/agent_handoff_checklist.md)**: Operational checklists for prototype→engineering transition
+- **[Agent Hygiene Scaffolds](./templates/agent_hygiene/)**: Reusable code patterns for secure, efficient agent development
+- **Enhanced Diagrams**: Visual workflows for both app and agent development with explicit handoff points
+
+## Start here
+- [How to Start Your Project](./HowToStartYourProject.md) - Initialize AI partners for apps or agents
+- [Genesis Cycle](./01_playbook-genesis-cycle.md) - Creative prototyping phase
+- [Engineering Cycle](./02_playbook-engineering-cycle.md) - Production hardening phase
+- [Agent Authoring Workflow](./08_playbook-agent-authoring-workflow.md) - Secure agent development
+- [Agent Anti-Patterns](./docs/agent-anti-patterns.md) - Common pitfalls and fixes
+
+## Mermaid Diagrams
+
+### Quantum Loop (Creative Discovery → Engineering Handoff)
+```mermaid
+flowchart TD
+    A[Explore]:::n --> B[Open Up Options]:::n
+    B --> C[Define What Matters]:::n
+    C --> D[Focus & Commit]:::n
+
+    D -- "Rapid iteration loop\n(back to discovery)" --> A
+
+    D --> E[Engineered System\n— Guardrails • Tests • Architecture]:::e
+classDef n fill:#f3f4f6,stroke:#9ca3af,color:#111827;
+classDef e fill:#dcfce7,stroke:#16a34a,color:#065f46;
+```
+
+### Agent Workflow with Professional Handoff
+```mermaid
+graph LR
+    subgraph S0["Phase 0 • Secure Setup"]
+      G["Guardian Init\nPII & Secrets Rules · Pre-commit Scans · ADR stubs"]
+    end
+    subgraph S1["Phase 1 • Guided Prototyping"]
+      L["Creative Loop\nExplore → Try → Narrow → Validate"]
+    end
+    subgraph S2["Phase 2 • Professional Engineering"]
+      E["Engineering Takeover\nHarden • Scale • Tests"]
+      P["Production-Grade Agent\nSecure · Scalable · Efficient"]
+      E --> P
+    end
+
+    G --> L
+    L -- "Pre-vetted handoff\n→ Pro Engineers" --> E
+```
+
 ## The Framework at a Glance
 ```mermaid
 graph TD
@@ -1586,29 +1656,118 @@ The following articles provide the philosophical background, practical applicati
 
 *   A deep dive into the specific challenges of building robust AI agents. This article exposes the common "Token Gobbler" anti-patterns and details how the framework's specialized, secure-by-design approach provides a necessary solution for professional agent authoring.
 
+### 4. Agent Hygiene and Engineering Rigor
+
+**[The MCP Agent Revolution Has a Dirty Secret: Most Agents Are Built by People Who Don't Understand Software Engineering](https://medium.com/@rfremmer_30873/the-mcp-agent-revolution-has-a-dirty-secret-most-agents-are-built-by-people-who-dont-understand-940276372db2)**
+
+*   A comprehensive guide to agent development hygiene, covering context budget management, privacy guardrails, and the critical handoff from prototyping to professional engineering.
+
 --- END OF FILE RelatedMediumArticles.md ---
 
 --- START OF FILE docs/agent-anti-patterns.md ---
 
 # Agent Anti-Patterns (and the right fix)
 
-1) Pre-loading every tool schema → **Bloat**
-   - **Fix:** JIT tool registry / MCP server, load on demand.
-2) Duplicating tool schemas across agents
-   - **Fix:** Central shared registry / package.
-3) Shipping giant tool results through the model
-   - **Fix:** Pass file handles/IDs; store artifacts in files/object storage; feed summaries.
-4) No on-demand discovery
-   - **Fix:** `search_tools`/filesystem discovery; progressive disclosure.
-5) Raw data back to LLM
-   - **Fix:** Filter/aggregate in code; give curated slices only.
-6) Control flow via "model → tool → model ..."
-   - **Fix:** Put loops/polling in code; LLM orchestrates at a conceptual level only.
-7) PII through the model
-   - **Fix:** Redact/tokenize; least-privilege execution layer; privacy guardrails first.
-8) No state or reusable skills
-   - **Fix:** Persist state (DB/files); cache; RAG/CAG; shared utilities.
+This document summarizes the most common "citizen-dev" pitfalls in AI agent development and provides proven fix patterns for each. These patterns prevent context bloat, security issues, and runaway costs while maintaining agent effectiveness.
+
+## 1. Massive Context Bloat (pre-loading tool schemas)
+**Problem:** Stuffing every available tool schema into the system prompt, consuming tokens and confusing the model.
+
+**Fix:** JIT tool registry + discovery
+- Load tool schemas on-demand after the model selects them
+- Provide only tool names/capabilities in initial prompts
+- Use progressive disclosure for complex tool ecosystems
+
+## 2. Duplicated Tool Definitions across agents
+**Problem:** Each agent redefines the same tools, leading to inconsistency and maintenance overhead.
+
+**Fix:** Shared registry / MCP server
+- Central tool registry that multiple agents can reference
+- Version-controlled tool definitions
+- Consistent tool behavior across agent instances
+
+## 3. Passing huge intermediate results through the model
+**Problem:** Sending large datasets, files, or API responses directly through the LLM, wasting tokens and context.
+
+**Fix:** Summarize/point, store raw in workspace
+- Store large artifacts in files/object storage
+- Pass file handles/URIs and summaries to the model
+- Model sees structured summaries, not raw payloads
+
+## 4. No on-demand discovery
+**Problem:** Static tool sets that can't adapt to new requirements or data sources.
+
+**Fix:** `search_tools`/filesystem discovery + allowlist
+- Dynamic tool discovery based on workspace contents
+- Progressive disclosure of capabilities
+- Safe allowlisting for sensitive operations
+
+## 5. No filtering/transform in exec layer
+**Problem:** Raw data flows directly from tools to model without processing.
+
+**Fix:** Do compute in code, give LLM only structured summaries
+- Filter/aggregate data in the execution layer
+- Provide curated, structured views to the model
+- Maintain data integrity while optimizing context usage
+
+## 6. Inefficient chained tool control flow
+**Problem:** Model orchestrates complex workflows with multiple tool calls, leading to inefficient "model → tool → model" loops.
+
+**Fix:** Loops/polling in code; model only decides what/why, not how/when
+- Implement control flow logic in code, not prompts
+- Model provides high-level intent and decisions
+- Execution layer handles timing, retries, and complex workflows
+
+## 7. Sensitive data exposure
+**Problem:** PII, secrets, or sensitive data flows through the model, creating security and compliance risks.
+
+**Fix:** PII filters, redaction hooks, secrets guards
+- Automatic redaction/tokenization of sensitive data
+- Least-privilege execution model
+- Privacy guardrails at every layer
+
+## 8. No state or reusable skills
+**Problem:** Agents start from scratch each session, unable to learn or maintain context.
+
+**Fix:** Persistent workspace DB/files + shared utilities
+- State persistence across sessions
+- Reusable skill libraries
+- Caching and RAG/CAG for learned knowledge
 --- END OF FILE docs/agent-anti-patterns.md ---
+
+--- START OF FILE docs/checklists/agent_context_budget_checklist.md ---
+
+# Agent Context Budget Checklist
+
+This checklist ensures your agent operates within reasonable context limits while maintaining effectiveness. Context budget management prevents token waste, improves response times, and reduces costs.
+
+## Tool Schema Limits
+- [ ] **Tool schema bytes per agent**: < 50KB total (JIT load remaining tools)
+- [ ] **Max tools per agent**: < 20 (use discovery for larger ecosystems)
+- [ ] **Schema versioning**: Tools reference versioned schemas, not inline definitions
+
+## Data Flow Limits
+- [ ] **Max raw-text tokens per turn**: < 4K tokens (summarize longer content)
+- [ ] **Tabular data limits**: < 100 rows × 20 columns (aggregate/summarize larger datasets)
+- [ ] **File size limits**: < 10MB per file (use streaming/chunking for larger files)
+
+## Content Types & Behaviors
+- [ ] **Allowed file types**: Explicit allowlist (no arbitrary file execution)
+- [ ] **Binary file handling**: Store externally, provide metadata only
+- [ ] **API response limits**: < 5MB per response (truncate/summarize large payloads)
+
+## Required Behaviors
+- [ ] **Summarize-only mode**: Large artifacts get summaries + pointers, not raw content
+- [ ] **Chunking support**: Break large content into digestible pieces
+- [ ] **Pointer pattern**: Tools return `{uri, content_type, summary}` instead of raw data
+- [ ] **Caching**: Frequently accessed data cached with TTL
+- [ ] **Progressive disclosure**: Complex capabilities revealed on-demand
+
+## Monitoring & Alerts
+- [ ] **Context usage tracking**: Log token consumption per agent/operation
+- [ ] **Budget alerts**: Warnings at 80% of limits
+- [ ] **Automatic summarization**: Fallback to summaries when limits exceeded
+--- END OF FILE docs/checklists/agent_context_budget_checklist.md ---
 
 --- START OF FILE docs/checklists/agent_handoff_checklist.md ---
 
@@ -1633,6 +1792,49 @@ The following articles provide the philosophical background, practical applicati
 - [ ] Guardrail tests (PII, length, cost, latency)
 - [ ] CI wired; basic monitoring (cost/latency/validation failures)
 --- END OF FILE docs/checklists/agent_handoff_checklist.md ---
+
+--- START OF FILE docs/checklists/agent_privacy_and_secrets_checklist.md ---
+
+# Agent Privacy and Secrets Checklist
+
+This checklist ensures your agent handles sensitive data responsibly, preventing accidental exposure of PII, secrets, or confidential information. Privacy guardrails must be implemented at every layer of the agent architecture.
+
+## PII Detection & Redaction
+- [ ] **PII detection hook**: Automatic scanning for emails, phones, SSNs, addresses
+- [ ] **Redaction patterns**: Configurable regex/tokenization rules
+- [ ] **Entity recognition**: ML-based PII detection for complex cases
+- [ ] **Redaction logging**: Audit trail of what was redacted and why
+
+## Secrets Management
+- [ ] **Secrets isolation**: Secrets never leave execution layer
+- [ ] **Masked values**: Model receives `[REDACTED]` or tokenized placeholders
+- [ ] **Vault integration**: External secret storage (HashiCorp Vault, AWS Secrets Manager, etc.)
+- [ ] **Rotation handling**: Automatic secret rotation without agent restart
+
+## Data Flow Controls
+- [ ] **Input sanitization**: All user inputs scanned for sensitive data
+- [ ] **Output filtering**: Agent responses checked before delivery
+- [ ] **Intermediate data**: Sensitive data in memory is encrypted/zeroed
+- [ ] **Cross-agent isolation**: Agents cannot access each other's sensitive data
+
+## Logging & Audit
+- [ ] **Redaction by default**: All logs redact sensitive data automatically
+- [ ] **Secure trace mode**: Optional detailed logging for debugging (access-controlled)
+- [ ] **Audit trails**: Complete history of data access and transformations
+- [ ] **Compliance reporting**: Automated reports for GDPR, CCPA, etc.
+
+## Access Controls
+- [ ] **Least privilege**: Agents have minimal required permissions
+- [ ] **User consent**: Explicit consent for sensitive data processing
+- [ ] **Data retention**: Automatic cleanup of temporary sensitive data
+- [ ] **Emergency controls**: Ability to immediately disable agent access to sensitive data
+
+## Testing & Validation
+- [ ] **Privacy unit tests**: Automated tests for redaction accuracy
+- [ ] **Secret leakage tests**: Scans for accidental secret exposure
+- [ ] **Compliance validation**: Regular audits against privacy frameworks
+- [ ] **Penetration testing**: External validation of privacy controls
+--- END OF FILE docs/checklists/agent_privacy_and_secrets_checklist.md ---
 
 --- START OF FILE package-lock.json ---
 
@@ -1696,4 +1898,58 @@ The following articles provide the philosophical background, practical applicati
   - [ ] Unit/integration tests are passing.
   - [ ] Documentation (if needed) is updated.
 --- END OF FILE templates/TEMPLATE_TASK.md ---
+
+--- START OF FILE templates/agent_hygiene/controlFlow.ts ---
+
+// Push loops/polling into code, not the model.
+export async function waitForSlack(predicate: () => Promise<boolean>, timeoutMs = 60000) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    if (await predicate()) return true;
+    await new Promise(r => setTimeout(r, 2000));
+  }
+  return false;
+}
+--- END OF FILE templates/agent_hygiene/controlFlow.ts ---
+
+--- START OF FILE templates/agent_hygiene/dataPlane.ts ---
+
+// Keep heavy data out of the model: store + summarize.
+export async function persistBlob(path: string, bytes: Uint8Array): Promise<string> {
+  // write to workspace or object storage; return pointer/URI
+  return path;
+}
+
+export function summarizeTabular(rows: any[], maxRows = 50) {
+  // filter/aggregate here; return compact structured view
+  return { rows: rows.slice(0, maxRows), stats: {/* … */} };
+}
+--- END OF FILE templates/agent_hygiene/dataPlane.ts ---
+
+--- START OF FILE templates/agent_hygiene/privacy.ts ---
+
+// Simple redaction hook; plug into IO pipeline.
+export function redactPII(text: string): string {
+  return text
+    .replace(/\b\d{3}-\d{3}-\d{4}\b/g, "[phone]")
+    .replace(/\b[\w.-]+@[\w.-]+\.\w+\b/g, "[email]");
+}
+--- END OF FILE templates/agent_hygiene/privacy.ts ---
+
+--- START OF FILE templates/agent_hygiene/toolRegistry.ts ---
+
+// JIT tool registry: no context-stuffing of schemas.
+export type Tool = { name: string; schema: unknown; run: (input: any) => Promise<any> };
+
+export async function discoverTools(dir = "./tools"): Promise<Record<string, Tool>> {
+  const reg: Record<string, Tool> = {};
+  // Pseudo: load *.tool.(ts|js) modules; each exports { name, schema, run }
+  // Avoid loading full schemas into prompts; feed only names/caps until selected.
+  return reg;
+}
+
+export function selectTools(reg: Record<string, Tool>, needs: string[]): Tool[] {
+  return needs.map(n => reg[n]).filter(Boolean);
+}
+--- END OF FILE templates/agent_hygiene/toolRegistry.ts ---
 

@@ -70,6 +70,8 @@ No matter which path you take, the Genesis Cycle is complete when it has produce
 
 These artifacts are the direct input for the **Engineering Cycle**, where the prototype will be hardened, tested, and prepared for production.
 
-> **Note:** Before entering the Engineering Cycle, audit your prototype against 
-> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent 
-> context bloat, insecure flows, and runaway costs.
+> **Note:** Before entering the Engineering Cycle, audit your prototype against
+> [`docs/agent-anti-patterns.md`](../docs/agent-anti-patterns.md) to prevent
+> context bloat, insecure flows, and runaway costs. Also review the
+> [context budget](../docs/checklists/agent_context_budget_checklist.md) and
+> [privacy checklists](../docs/checklists/agent_privacy_and_secrets_checklist.md).
