@@ -1,8 +1,8 @@
 # All Markdown Files Snapshot (LLM-Distilled)
 
-Generated On: 2025-11-08T05:35:41.952Z
+Generated On: 2025-11-08T05:40:36.647Z
 
-# Mnemonic Weight (Token Count): ~109,026 tokens
+# Mnemonic Weight (Token Count): ~109,091 tokens
 
 # Directory Structure (relative to project root)
   ./.DS_Store
@@ -1750,7 +1750,8 @@ Provide the complete, refactored code for the UI components that would implement
 --- START OF FILE PROMPTS/TODO.md ---
 
 1. ✅ create a prompt to guide someone through the process of using this workflow (completed: Workflow-Guide-Prompt.md)
-2. 
+2. 🔄 Integrate hygiene script (scripts/run-app-hygiene.mjs) into App-Authoring-Architect.md HYGIENE PROTOCOL for Google Gemini App Builder - replace generic cleanup instructions with actual script execution, parse docs/app_hygiene_report.md, and provide specific fix recommendations based on ERROR findings
+3. 
 --- END OF FILE PROMPTS/TODO.md ---
 
 --- START OF FILE PROMPTS/Workflow-Guide-Prompt.md ---
@@ -2812,7 +2813,7 @@ I've created a user authentication system that handles login, registration, and 
 --- START OF FILE docs/agent_hygiene_report.md ---
 
 # Agent Hygiene Report
-Generated: 2025-11-08T05:08:55.409Z
+Generated: 2025-11-08T05:40:14.839Z
 
 ## Findings Overview
 - Total Findings: 0
@@ -2848,7 +2849,7 @@ Generated: 2025-11-08T05:08:55.409Z
 --- START OF FILE docs/app_hygiene_report.md ---
 
 # App Hygiene Report
-Generated: 2025-11-08T05:08:52.446Z
+Generated: 2025-11-08T05:40:18.997Z
 
 **Do not proceed to Specialist reviews until all ERROR-level issues are resolved.**
 
