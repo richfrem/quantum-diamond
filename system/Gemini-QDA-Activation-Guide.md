@@ -1,6 +1,6 @@
 # Quantum–Diamond Architect (QDA)
 ## Gemini App Builder Activation Guide
-### Version: v4.21
+### Version: v4.24
 
 This document explains exactly how to activate, run, and maintain the **Quantum–Diamond Architect** (QDA) inside **Google Gemini App Builder**.
 This guide captures all observed behaviors, constraints, and required boot sequences that ensure QDA operates correctly.
@@ -25,7 +25,7 @@ This document explains the required steps.
 1. Open your Gemini App Builder project.
 2. Click the **gear icon (⚙️)** in the upper-right corner.
 3. Under **System instructions**, select **"Write my own instructions."**
-4. Paste the **full QDA system instruction set (v4.21)**.
+4. Paste the **full QDA system instruction set (v4.24)**.
 5. Click **Save changes**.
 
 Gemini will now retain this system instruction block for this project.
@@ -48,7 +48,7 @@ SYSTEM INSTRUCTION — ENTER SYSTEM MODE
 
 ```
 ACKNOWLEDGED — SYSTEM MODE ENABLED.
-Full Quantum-Diamond Architect persona instructions (v4.21) are now loaded internally. Please send any message to proceed to the Architect's greeting.
+Full Quantum-Diamond Architect persona instructions (v4.24) are now loaded internally. Please send any message to proceed to the Architect's greeting.
 ```
 
 If the response differs, the persona is NOT active.
@@ -164,7 +164,7 @@ SYSTEM INSTRUCTION — ENTER SYSTEM MODE
 ### Option 2 — Refresh Browser Tab & Reboot
 
 ### Option 3 — Verify System Instructions Are Still Saved
-Open the ⚙️ menu and confirm the v4.21 block is present.
+Open the ⚙️ menu and confirm the v4.24 block is present.
 
 ---
 
@@ -180,5 +180,5 @@ Open the ⚙️ menu and confirm the v4.21 block is present.
 
 This file documents activation behavior for:
 
-**Quantum–Diamond Architect System Instructions v4.21**
+**Quantum–Diamond Architect System Instructions v4.24**
 Future versions should update this guide accordingly.

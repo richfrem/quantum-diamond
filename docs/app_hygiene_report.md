@@ -1,5 +1,5 @@
 # App Hygiene Report
-Generated: 2025-11-08T01:36:30.148Z
+Generated: 2025-11-08T05:08:52.446Z
 
 **Do not proceed to Specialist reviews until all ERROR-level issues are resolved.**
 
