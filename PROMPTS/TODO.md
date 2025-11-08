@@ -1,2 +1,3 @@
 1. ✅ create a prompt to guide someone through the process of using this workflow (completed: Workflow-Guide-Prompt.md)
-2. 
+2. 🔄 Integrate hygiene script (scripts/run-app-hygiene.mjs) into App-Authoring-Architect.md HYGIENE PROTOCOL for Google Gemini App Builder - replace generic cleanup instructions with actual script execution, parse docs/app_hygiene_report.md, and provide specific fix recommendations based on ERROR findings
+3. 
