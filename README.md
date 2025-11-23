@@ -1,5 +1,15 @@
-# Quantum Diamond Framework
+> **⚠️ DEPRECATION NOTICE**  
+> This repository has been superseded by [**Quantum Diamond Forge**](https://github.com/richfrem/quantum-diamond-forge).  
+> The Forge represents a complete evolution of this framework with production-ready tooling, automated governance, and three operational modes (Ultra-Lean, Lean, Enterprise).  
+> **Please use the Forge for all new projects.**  
+> This repository remains available for historical reference and existing projects.
 
+# Quantum Diamond Framework 💎 [DEPRECATED]
+
+**[This framework has evolved into Quantum Diamond Forge →](https://github.com/richfrem/quantum-diamond-forge)**
+
+[![Deprecated](https://img.shields.io/badge/status-deprecated-red.svg)](https://github.com/richfrem/quantum-diamond-forge)
+[![Superseded By](https://img.shields.io/badge/superseded%20by-quantum--diamond--forge-blue.svg)](https://github.com/richfrem/quantum-diamond-forge)
 [![Agent Hygiene](https://img.shields.io/badge/agent%20hygiene-automated-blue)](#agent-hygiene)
 [![App Hygiene](https://img.shields.io/badge/app%20hygiene-automated-green)](#app-hygiene)
 
@@ -9,6 +19,28 @@ A practical framework to go from **idea → prototype → production engineering
 - **Build an app:** open `PROMPTS/App-Authoring-Architect.md` in your IDE chat and follow "Vision → Scaffold".
 - **Build an agent:** open `PROMPTS/Agent-Authoring-Guardian.md` and follow **Phase 0: Secure Setup**.
 - **Harden to prod:** follow `02_playbook-engineering-cycle.md`.
+
+## 🚀 Migrating to Quantum Diamond Forge
+
+The Forge takes everything from this framework to the next level:
+
+| Feature | Quantum Diamond (v1) | Quantum Diamond Forge (v2.2) |
+|---------|---------------------|------------------------------|
+| **Setup** | Manual prompt copying | Interactive `./forge.sh start` |
+| **Modes** | One-size-fits-all | Ultra-Lean / Lean / Enterprise |
+| **Governance** | Manual ADRs | Automated lockfiles + validation |
+| **Workflow** | Single-phase | Two-phase (Spec Loop → Build Loop) |
+| **Security** | Guidelines | Built-in headers, Zod validation |
+| **Status** | Prototype framework | Production-ready engine |
+
+### Quick Start with the Forge
+```bash
+git clone https://github.com/richfrem/quantum-diamond-forge.git
+cd quantum-diamond-forge
+./forge.sh start  # Interactive kickoff guides you
+```
+
+See the [Forge README](https://github.com/richfrem/quantum-diamond-forge#readme) for full documentation.
 
 ## Hygiene & Anti-Patterns
 - Run locally: `npm run hygiene:full`
@@ -518,3 +550,16 @@ To validate Quantum Diamond workflows in AI app generators and prevent unintende
 ## License
 
 The Quantum Diamond AI Application Development Framework is open-source and available under the [MIT License](./LICENSE). You are free to use, modify, and distribute it, but please provide attribution to the original creator, Richard Fremmer.
+
+---
+
+## 📦 Archive Status
+
+This repository is now in **maintenance mode**. Critical bugs will be addressed, but no new features will be added.
+
+**For the latest features and active development, see:**  
+👉 [**Quantum Diamond Forge**](https://github.com/richfrem/quantum-diamond-forge)
+
+---
+
+*Last updated: November 2025 (v2.2 deprecation)*
